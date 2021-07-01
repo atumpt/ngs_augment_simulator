@@ -51,7 +51,8 @@ equipped_unit_levels,
 equipped_unit_prefixes,
 equipped_unit_prefix_levels,
 stats,
-stat_sources
+stat_sources,
+sync_augments
 ;
 
 function stackStat(current, extra, type) {
