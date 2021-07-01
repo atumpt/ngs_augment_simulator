@@ -1,0 +1,39 @@
+{
+    "sword":{
+        "name":"Sword"
+    },
+    "partisan":{
+        "name":"Partisan"
+    },
+    "wired_lance":{
+        "name":"Wired Lance"
+    },
+    "twin_daggers":{
+        "name":"Twin Daggers"
+    },
+    "double_saber":{
+        "name":"Double Saber"
+    },
+    "knuckles":{
+        "name":"Knuckles"
+    },
+    "assault_rifle":{
+        "name":"Assault Rifle"
+    },
+    "launcher":{
+        "name":"Launcher"
+    },
+    "twin_machine_guns":{
+        "name":"Twin Machine Guns"
+    },
+    "rod":{
+        "name":"Rod"
+    },
+    "talis":{
+        "name":"Talis"
+    },
+    "wand":{
+        "name":"Wand"
+    }
+}
+    

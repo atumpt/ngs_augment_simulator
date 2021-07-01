@@ -1,0 +1,14 @@
+{
+    "none" : {
+        "name" : "None"
+    },
+    "fire" : {
+        "name" : "Fire"
+    },
+    "ice" : {
+        "name" : "Ice"
+    },
+    "lightning" : {
+        "name" : "Lightning"
+    }
+}

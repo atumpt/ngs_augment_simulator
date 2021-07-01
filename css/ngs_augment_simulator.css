@@ -1,0 +1,15 @@
+html {
+    font-size: 0.8em;
+}
+select.augment, select.prefix, select.potential {
+    width: 100%;
+}
+
+thead th, td {
+    padding-left: 3em;
+}
+
+select.invalid {
+    border-width: 5px;
+    border-color: red;
+}

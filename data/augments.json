@@ -1,0 +1,427 @@
+{
+    "stamina_i": {
+        "name": "Stamina I",
+        "group": "stamina",
+        "stats": {
+            "hp": 5
+        }
+    },
+    "stamina_ii": {
+        "name": "Stamina II",
+        "group": "stamina",
+        "stats": {
+            "hp": 10
+        }
+    },
+    "stamina_iii": {
+        "name": "Stamina III",
+        "group": "stamina",
+        "stats": {
+            "hp": 15
+        }
+    },
+    "spirit_i": {
+        "name": "Spirit I",
+        "group": "spirit",
+        "stats": {
+            "pp": 3
+        }
+    },
+    "spirit_ii": {
+        "name": "Spirit II",
+        "group": "spirit",
+        "stats": {
+            "pp": 4
+        }
+    },
+    "spirit_iii": {
+        "name": "Spirit III",
+        "group": "spirit",
+        "stats": {
+            "pp": 5
+        }
+    },
+    "might_i": {
+        "name": "Might I",
+        "group": "might",
+        "stats": {
+            "melee_weapon_potency": 1.0
+        }
+    },
+    "might_ii": {
+        "name": "Might II",
+        "group": "might",
+        "stats": {
+            "melee_weapon_potency": 1.5
+        }
+    },
+    "might_iii": {
+        "name": "Might III",
+        "group": "might",
+        "stats": {
+            "melee_weapon_potency": 2.0
+        }
+    },
+    "precision_i": {
+        "name": "Precision I",
+        "group": "precision",
+        "stats": {
+            "ranged_weapon_potency": 1.0
+        }
+    },
+    "precision_ii": {
+        "name": "Precision II",
+        "group": "precision",
+        "stats": {
+            "ranged_weapon_potency": 1.5
+        }
+    },
+    "precision_iii": {
+        "name": "Precision III",
+        "group": "precision",
+        "stats": {
+            "ranged_weapon_potency": 2.0
+        }
+    },
+    "technique_i": {
+        "name": "Technique I",
+        "group": "technique",
+        "stats": {
+            "technique_weapon_potency": 1.0
+        }
+    },
+    "technique_ii": {
+        "name": "Technique II",
+        "group": "technique",
+        "stats": {
+            "technique_weapon_potency": 1.5
+        }
+    },
+    "technique_iii": {
+        "name": "Technique III",
+        "group": "technique",
+        "stats": {
+            "technique_weapon_potency": 2.0
+        }
+    },
+    "deftness_i": {
+        "name": "Deftness I",
+        "group": "deftness",
+        "stats": {
+            "potency_floor_increase": 1
+        }
+    },
+    "deftness_ii": {
+        "name": "Deftness II",
+        "group": "deftness",
+        "stats": {
+            "potency_floor_increase": 1.5
+        }
+    },
+    "deftness_iii": {
+        "name": "Deftness III",
+        "group": "deftness",
+        "stats": {
+            "potency_floor_increase": 2
+        }
+    },
+    "guard_i": {
+        "name": "Guard I",
+        "group": "guard",
+        "stats": {
+            "damage_resistance": 1.0
+        }
+    },
+    "guard_ii": {
+        "name": "Guard II",
+        "group": "guard",
+        "stats": {
+            "damage_resistance": 1.5
+        }
+    },
+    "guard_iii": {
+        "name": "Guard III",
+        "group": "guard",
+        "stats": {
+            "damage_resistance": 2.0
+        }
+    },
+    "mastery_i": {
+        "name": "Mastery I",
+        "group": "mastery",
+        "stats": {
+            "potency": 0.5,
+            "potency_floor_increase":0.5,
+            "damage_resistance": 0.5
+        }
+    },
+    "mastery_ii": {
+        "name": "Mastery II",
+        "group": "mastery",
+        "stats": {
+            "potency": 1.0,
+            "potency_floor_increase": 1,
+            "damage_resistance": 1.0
+        }
+    },
+    "mastery_iii": {
+        "name": "Mastery III",
+        "group": "mastery",
+        "stats": {
+            "potency": 1.5,
+            "potency_floor_increase":1.5,
+            "damage_resistance": 1.5
+        }
+    },
+    "forms_soul_i": {
+        "name": "Forms Soul I",
+        "group": "soul",
+        "stats": {
+            "melee_weapon_potency": 2.0
+        }
+    },
+    "forms_soul_ii": {
+        "name": "Forms Soul II",
+        "group": "soul",
+        "stats": {
+            "melee_weapon_potency": 2.0,
+            "damage_resistance": 2.0
+        }
+    },
+    "alts_soul_i": {
+        "name": "Alts Soul I",
+        "group": "soul",
+        "stats": {
+            "hp": 5,
+            "damage_resistance": 1.0
+        }
+    },
+    "alts_soul_ii": {
+        "name": "Alts Soul II",
+        "group": "soul",
+        "stats": {
+            "hp": 10,
+            "damage_resistance": 2.0
+        }
+    },
+    "dolz_soul_i": {
+        "name": "Dolz Soul I",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "potency_floor_increase": 1
+        }
+    },
+    "dolz_soul_ii": {
+        "name": "Dolz Soul II",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "potency_floor_increase": 2
+        }
+    },
+    "daityl_soul_i": {
+        "name": "Daityl Soul I",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "melee_weapon_potency": 1.0
+        }
+    },
+    "daityl_soul_ii": {
+        "name": "Daityl Soul II",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "melee_weapon_potency": 2.0
+        }
+    },
+    "pettas_soul_i": {
+        "name": "Pettas Soul I",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "ranged_weapon_potency": 1.0
+        }
+    },
+    "pettas_soul_ii": {
+        "name": "Pettas Soul II",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "ranged_weapon_potency": 2.0
+        }
+    },
+    "nex_soul_i": {
+        "name": "Nex Soul I",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "technique_weapon_potency": 1.0
+        }
+    },
+    "nex_soul_ii": {
+        "name": "Nex Soul II",
+        "group": "soul",
+        "stats": {
+            "pp": 5,
+            "technique_weapon_potency": 2.0
+        }
+    },
+    "ael note_a": {
+        "name": "Ael Note A",
+        "group": "note",
+        "stats": {
+            "hp": 5,
+            "pp": 3
+        }
+    },
+    "ael note_b": {
+        "name": "Ael Note B",
+        "group": "note",
+        "stats": {
+            "melee_weapon_potency": 1.0,
+            "ranged_weapon_potency": 1.0
+        }
+    },
+    "ael note_c": {
+        "name": "Ael Note C",
+        "group": "note",
+        "stats": {
+            "melee_weapon_potency": 1.0,
+            "technique_weapon_potency": 1.0
+        }
+    },
+    "ael note_d": {
+        "name": "Ael Note D",
+        "group": "note",
+        "stats": {
+            "ranged_weapon_potency": 1.0,
+            "technique_weapon_potency": 1.0
+        }
+    },
+    "ael_domina": {
+        "name": "Ael Domina",
+        "group": "domina",
+        "stats": {
+            "hp": 5,
+            "pp": 3,
+            "potency": 1.5
+        }
+    },
+    "magnus_note": {
+        "name": "Magnus Note",
+        "group": "note",
+        "stats": {
+            "melee_weapon_potency": 1.5
+        }
+    },
+    "lab_note": {
+        "name": "Lab Note",
+        "group": "note",
+        "stats": {
+            "ranged_weapon_potency": 1.5
+        }
+    },
+    "resola_note": {
+        "name": "Resola Note",
+        "group": "note",
+        "stats": {
+            "technique_weapon_potency": 1.5
+        }
+    },
+    "alts_secreta_i": {
+        "name": "Alts Secreta I",
+        "group": "secreta",
+        "stats": {
+            "hp": -10,
+            "potency": 1.0,
+            "potency_floor_increase": 1,
+            "damage_resistance":-1    
+        }
+    },
+    "alts_secreta_ii": {
+        "name": "Alts Secreta II",
+        "group": "secreta",
+        "stats": {
+            "hp": -10,
+            "potency": 1.5,
+            "potency_floor_increase":1.5,
+            "damage_resistance":-1.5    
+        }
+    },
+    "dread_keeper_i": {
+        "name": "Dread Keeper I",
+        "group": "dread",
+        "stats": {
+            "hp": 10,
+            "pp": 3,
+            "potency_floor_increase": 1,
+            "damage_resistance": 1.0
+        }
+    },
+    "dread_keeper_ii": {
+        "name": "Dread Keeper II",
+        "group": "dread",
+        "stats": {
+            "hp": 15,
+            "pp": 4,
+            "potency_floor_increase":1.5,
+            "damage_resistance": 1.5
+        }
+    },
+    "gigas_might_i": {
+        "name": "Gigas Might I",
+        "group": "gigas_might",
+        "stats": {
+            "hp": 5,
+            "melee_weapon_potency": 1.5
+        }
+    },
+    "gigas_might_ii": {
+        "name": "Gigas Might II",
+        "group": "gigas_might",
+        "stats": {
+            "hp": 10,
+            "melee_weapon_potency": 2.0
+        }
+    },
+    "gigas_precision_i": {
+        "name": "Gigas Precision I",
+        "group": "gigas_precision",
+        "stats": {
+            "hp": 5,
+            "ranged_weapon_potency": 1.5
+        }
+    },
+    "gigas_precision_ii": {
+        "name": "Gigas Precision II",
+        "group": "gigas_precision",
+        "stats": {
+            "hp": 10,
+            "ranged_weapon_potency": 2.0
+        }
+    },
+    "gigas_casting_i": {
+        "name": "Gigas Casting I",
+        "group": "gigas_casting",
+        "stats": {
+            "hp": 5,
+            "technique_weapon_potency": 1.5
+        }
+    },
+    "gigas_casting_ii": {
+        "name": "Gigas Casting II",
+        "group": "gigas_casting",
+        "stats": {
+            "hp": 10,
+            "technique_weapon_potency": 2.0
+        }
+    },
+    "empty": {
+        "name": "Empty",
+        "group": "empty",
+        "stats": {
+        }
+    }
+}

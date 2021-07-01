@@ -1,0 +1,26 @@
+{
+    "fixa_guard": {
+        "name": "Fixa Guard",
+        "stats": {
+            "damage_resistance": [0, 1, 2, 3, 3.5, 4]
+        }
+    },
+    "fixa_performa": {
+        "name": "Fixa Performa",
+        "stats": {
+            "pp_cost_reduction": [0, 1, 2, 3, 3.5, 4]
+        }
+    },
+    "fixa_natura": {
+        "name": "Fixa Natura",
+        "stats": {
+            "passive_pp_recovery": [0, 2, 3, 4, 4.5, 5]
+        }
+    },
+    "fixa_enthusia": {
+        "name": "Fixa Enthusia",
+        "stats": {
+            "active_pp_recovery": [0, 2, 3, 4, 4.5, 5]
+        }
+    }
+}

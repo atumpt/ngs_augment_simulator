@@ -1,0 +1,332 @@
+{
+    "primm_sword": {
+        "name": "Primm Sword",
+        "series": "primm",
+        "type": "sword"
+    },
+    "primm_partisan": {
+        "name": "Primm Spear",
+        "series": "primm",
+        "type": "partisan"
+    },
+    "primm_wired_lance": {
+        "name": "Primm Wire",
+        "series": "primm",
+        "type": "wired_lance"
+    },
+    "primm_twin_daggers": {
+        "name": "Primm Daggers",
+        "series": "primm",
+        "type": "twin_daggers"
+    },
+    "primm_double_saber": {
+        "name": "Primm Saber",
+        "series": "primm",
+        "type": "double_saber"
+    },
+    "primm_knuckles": {
+        "name": "Primm Knuckles",
+        "series": "primm",
+        "type": "knuckles"
+    },
+    "primm_assault_rifle": {
+        "name": "Primm Rifle",
+        "series": "primm",
+        "type": "assault_rifle"
+    },
+    "primm_launcher": {
+        "name": "Primm Launcher",
+        "series": "primm",
+        "type": "launcher"
+    },
+    "primm_twin_machine_guns": {
+        "name": "Primm Machine Guns",
+        "series": "primm",
+        "type": "twin_machine_guns"
+    },
+    "primm_rod": {
+        "name": "Primm Rod",
+        "series": "primm",
+        "type": "rod"
+    },
+    "primm_talis": {
+        "name": "Primm Talis",
+        "series": "primm",
+        "type": "talis"
+    },
+    "primm_wand": {
+        "name": "Primm Wand",
+        "series": "primm",
+        "type": "wand"
+    },
+    "tzvia_sword": {
+        "name": "Tzvia Sword",
+        "series": "tzvia",
+        "type": "sword"
+    },
+    "tzvia_partisan": {
+        "name": "Tzvia Spear",
+        "series": "tzvia",
+        "type": "partisan"
+    },
+    "tzvia_wired_lance": {
+        "name": "Tzvia Wire",
+        "series": "tzvia",
+        "type": "wired_lance"
+    },
+    "tzvia_twin_daggers": {
+        "name": "Tzvia Daggers",
+        "series": "tzvia",
+        "type": "twin_daggers"
+    },
+    "tzvia_double_saber": {
+        "name": "Tzvia Saber",
+        "series": "tzvia",
+        "type": "double_saber"
+    },
+    "tzvia_knuckles": {
+        "name": "Tzvia Knuckles",
+        "series": "tzvia",
+        "type": "knuckles"
+    },
+    "tzvia_assault_rifle": {
+        "name": "Tzvia Rifle",
+        "series": "tzvia",
+        "type": "assault_rifle"
+    },
+    "tzvia_launcher": {
+        "name": "Tzvia Launcher",
+        "series": "tzvia",
+        "type": "launcher"
+    },
+    "tzvia_twin_machine_guns": {
+        "name": "Tzvia Machine Guns",
+        "series": "tzvia",
+        "type": "twin_machine_guns"
+    },
+    "tzvia_rod": {
+        "name": "Tzvia Rod",
+        "series": "tzvia",
+        "type": "rod"
+    },
+    "tzvia_talis": {
+        "name": "Tzvia Talis",
+        "series": "tzvia",
+        "type": "talis"
+    },
+    "tzvia_wand": {
+        "name": "Tzvia Wand",
+        "series": "tzvia",
+        "type": "wand"
+    },
+    "trois_de_twin_daggers": {
+        "name": "Trois De Daggers",
+        "series": "trois_de",
+        "type": "twin_daggers"
+    },
+    "trois_de_double_saber": {
+        "name": "Trois De Saber",
+        "series": "trois_de",
+        "type": "double_saber"
+    },
+    "trois_de_knuckles": {
+        "name": "Trois De Knuckles",
+        "series": "trois_de",
+        "type": "knuckles"
+    },
+    "trois_de_rod": {
+        "name": "Trois De Rod",
+        "series": "trois_de",
+        "type": "rod"
+    },
+    "trois_de_talis": {
+        "name": "Trois De Talis",
+        "series": "trois_de",
+        "type": "talis"
+    },
+    "trois_de_wand": {
+        "name": "Trois De Wand",
+        "series": "trois_de",
+        "type": "wand"
+    },
+    "theseus_sword": {
+        "name": "Theseus Sword",
+        "series": "theseus",
+        "type": "sword"
+    },
+    "theseus_partisan": {
+        "name": "Theseus Spear",
+        "series": "theseus",
+        "type": "partisan"
+    },
+    "theseus_wired_lance": {
+        "name": "Theseus Wire",
+        "series": "theseus",
+        "type": "wired_lance"
+    },
+    "theseus_assault_rifle": {
+        "name": "Theseus Rifle",
+        "series": "theseus",
+        "type": "assault_rifle"
+    },
+    "theseus_launcher": {
+        "name": "Theseus Launcher",
+        "series": "theseus",
+        "type": "launcher"
+    },
+    "theseus_twin_machine_guns": {
+        "name": "Theseus Machine Guns",
+        "series": "theseus",
+        "type": "twin_machine_guns"
+    },
+    "resurgir_sword": {
+        "name": "Resurgir Sword",
+        "series": "resurgir",
+        "type": "sword"
+    },
+    "resurgir_partisan": {
+        "name": "Resurgir Spear",
+        "series": "resurgir",
+        "type": "partisan"
+    },
+    "resurgir_wired_lance": {
+        "name": "Resurgir Wire",
+        "series": "resurgir",
+        "type": "wired_lance"
+    },
+    "resurgir_twin_daggers": {
+        "name": "Resurgir Daggers",
+        "series": "resurgir",
+        "type": "twin_daggers"
+    },
+    "resurgir_double_saber": {
+        "name": "Resurgir Saber",
+        "series": "resurgir",
+        "type": "double_saber"
+    },
+    "resurgir_knuckles": {
+        "name": "Resurgir Knuckles",
+        "series": "resurgir",
+        "type": "knuckles"
+    },
+    "resurgir_assault_rifle": {
+        "name": "Resurgir Rifle",
+        "series": "resurgir",
+        "type": "assault_rifle"
+    },
+    "resurgir_launcher": {
+        "name": "Resurgir Launcher",
+        "series": "resurgir",
+        "type": "launcher"
+    },
+    "resurgir_twin_machine_guns": {
+        "name": "Resurgir Machine Guns",
+        "series": "resurgir",
+        "type": "twin_machine_guns"
+    },
+    "resurgir_rod": {
+        "name": "Resurgir Rod",
+        "series": "resurgir",
+        "type": "rod"
+    },
+    "resurgir_talis": {
+        "name": "Resurgir Talis",
+        "series": "resurgir",
+        "type": "talis"
+    },
+    "resurgir_wand": {
+        "name": "Resurgir Wand",
+        "series": "resurgir",
+        "type": "wand"
+    },
+    "vialto_partisan": {
+        "name": "Vialto Spear",
+        "series": "vialto",
+        "type": "partisan"
+    },
+    "vialto_double_saber": {
+        "name": "Vialto Saber",
+        "series": "vialto",
+        "type": "double_saber"
+    },
+    "vialto_launcher": {
+        "name": "Vialto Launcher",
+        "series": "vialto",
+        "type": "launcher"
+    },
+    "vialto_talis": {
+        "name": "Vialto Talis",
+        "series": "vialto",
+        "type": "talis"
+    },
+    "foursis_wired_lance": {
+        "name": "Foursis Wire",
+        "series": "foursis",
+        "type": "wired_lance"
+    },
+    "foursis_twin_daggers": {
+        "name": "Foursis Daggers",
+        "series": "foursis",
+        "type": "twin_daggers"
+    },
+    "foursis_assault_rifle": {
+        "name": "Foursis Rifle",
+        "series": "foursis",
+        "type": "assault_rifle"
+    },
+    "foursis_rod": {
+        "name": "Foursis Rod",
+        "series": "foursis",
+        "type": "rod"
+    },
+    "cattleya_sword": {
+        "name": "Cattleya Sword",
+        "series": "cattleya",
+        "type": "sword"
+    },
+    "cattleya_knuckles": {
+        "name": "Cattleya Knuckles",
+        "series": "cattleya",
+        "type": "knuckles"
+    },
+    "cattleya_twin_machine_guns": {
+        "name": "Cattleya Machine Guns",
+        "series": "cattleya",
+        "type": "twin_machine_guns"
+    },
+    "cattleya_wand": {
+        "name": "Cattleya Wand",
+        "series": "cattleya",
+        "type": "wand"
+    },
+    "straga_sword": {
+        "name": "Straga Sword",
+        "series": "straga",
+        "type": "sword"
+    },
+    "straga_double_saber": {
+        "name": "Straga Saber",
+        "series": "straga",
+        "type": "double_saber"
+    },
+    "straga_launcher": {
+        "name": "Straga Launcher",
+        "series": "straga",
+        "type": "launcher"
+    },
+    "straga_twin_machine_guns": {
+        "name": "Straga Machine Guns",
+        "series": "straga",
+        "type": "twin_machine_guns"
+    },
+    "straga_rod": {
+        "name": "Straga Rod",
+        "series": "straga",
+        "type": "rod"
+    },
+    "straga_wand": {
+        "name": "Straga Wand",
+        "series": "straga",
+        "type": "wand"
+    }
+}

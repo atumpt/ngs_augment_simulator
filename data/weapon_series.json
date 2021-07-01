@@ -1,0 +1,138 @@
+{
+    "primm":{
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "stats": {
+            "attack":[177,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,259],
+            "potency_floor":-30
+        },
+        "potential":{
+            "name":"Recycler Unit",
+            "stats": {
+                "potency":[0,18,20,23,24]
+            },
+            "description":"20% chance to not consume restasigne on use."
+        }
+    },
+    "tzvia":{
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "stats": {
+            "attack":[195,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,264],
+            "potency_floor":-30
+        },
+        "potential":{
+            "name":"Indomitable Unit",
+            "stats": {
+                "potency":[0,18,20,23,24]
+            },
+            "description":"All down resistances +10%. 20% at level 4"
+        }
+    },
+    "trois_de":{
+        "weapon_types":["twin_daggers","double_saber","knuckles","rod","talis","wand"],
+        "stats": {
+            "attack":[223,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,270],
+            "potency_floor":-30
+        },
+        "potential":{
+            "name":"Offensive Formation",
+            "stats": {
+                "potency":[0,17,19,22,22],
+                "critical_hit_rate":[0,15,15,15,18]
+            },
+            "stat_scales": {
+                "critical_hit_rate": { "stat": "attack", "limit": 2000}
+            },
+            "description":"Crit rate increased based on Attack up to +15% at 2000 Attack. 18% at level 4"
+        }
+    },
+    "theseus":{
+        "weapon_types":["sword","partisan","wired_lance","assault_rifle","launcher","twin_machine_guns"],
+        "stats": {
+            "attack":[223,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,270],
+            "potency_floor":-30
+        },
+        "potential":{
+            "name":"Defensive Formation",
+            "stats": {
+                "potency":[0,17,19,22,22],
+                "critical_hit_rate":[0,15,15,15,18]
+            },
+            "stat_scales": {
+                "critical_hit_rate": { "stat": "defense", "limit": 1000 }
+            },
+            "description":"Crit rate increases based on Defense, up to 15% at 1000 Defense. 18% at level 4"
+        }
+    },
+    "resurgir":{
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "stats": {
+            "attack":[ 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Dynamo Unit",
+            "stats": {
+                "potency":[0,16,18,21,21],
+                "critical_hit_rate":[0,15,15,15,18]
+            },
+            "description":"Crit rate +15% for 30 seconds after successful dodge/Sidestep. 18% at level 4"
+        }
+    },
+    "vialto":{
+        "weapon_types":["partisan","double_saber","launcher","talis"],
+        "stats": {
+            "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Meditation Unit",
+            "stats": {
+                "potency": [ 0, 18, 20, 23, 24 ]
+            },
+            "description":"Attacking PP recovery +10%, passive PP recovery speed +10%. 15% at level 4"
+        }
+    },
+    "foursis":{
+        "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod"],
+        "stats": {
+            "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Bastion Unit",
+            "stats": {
+                "potency":[0,18,20,23,24]
+            },
+            "description":"Creates barrier that provides resistance +40% when at max HP. 50% at level 4"
+        }
+    },
+    "cattleya":{
+        "weapon_types":["sword","knuckles","twin_machine_guns","wand"],
+        "stats": {
+            "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Mustered Might Unit",
+            "stats": {
+                "potency":[0,15,17,20,21]
+            },
+            "description":"Increases potency depending on HP up to +5% at max HP"
+        }
+    },
+    "straga":{
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "stats": {
+            "attack":[ 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Berserk Unit",
+            "description":"Reduces Damaged Reistance by 10%. 8% at level 4.",
+            "stats": {
+                "potency":[0,21,23,26,28],
+                "damage_resistance":[0,-10,-10,-10,-8]
+            }
+        }
+    }
+}

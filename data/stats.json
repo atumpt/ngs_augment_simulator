@@ -1,0 +1,72 @@
+{
+    "attack": {
+        "stacking": "additive"
+    },
+    "defense": {
+        "stacking": "additive"
+    },
+    "hp": {
+        "stacking": "additive"
+    },
+    "pp": {
+        "stacking": "additive",
+        "base": 100
+    },
+    "potency": {
+        "stacking": "multiplicative",
+        "base": 100
+    },
+    "potency_floor": {
+        "stacking": "multiplicative",
+        "base": 100
+    },
+    "damage_resistance": {
+        "stacking": "multiplicative"
+    },
+    "critical_hit_rate": {
+        "stacking": "additive",
+        "base": 5
+    },
+    "critical_hit_potency": {
+        "stacking": "multiplicative",
+        "base": 120
+    },
+    "passive_pp_regen": {
+        "stacking": "multiplicative",
+        "base": 100
+    },
+    "active_pp_regen": {
+        "stacking": "multiplicative",
+        "base": 100
+    },
+    "melee_weapon_potency": {
+        "stacking": "multiplicative"
+    },
+    "ranged_weapon_potency": {
+        "stacking": "multiplicative"
+    },
+    "tech_weapon_potency": {
+        "stacking": "multiplicative"
+    },
+    "burn_resist": {
+        "stacking": "multiplicative"
+    },
+    "freeze_resist": {
+        "stacking": "multiplicative"
+    },
+    "shock_resist": {
+        "stacking": "multiplicative"
+    },
+    "blind_resist": {
+        "stacking": "multiplicative"
+    },
+    "panic_resist": {
+        "stacking": "multiplicative"
+    },
+    "poison_resist": {
+        "stacking": "multiplicative"
+    },
+    "physical_resist":{
+        "stacking": "multiplicative"
+    }
+}

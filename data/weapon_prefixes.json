@@ -1,0 +1,20 @@
+{
+    "fixa_attack": {
+        "name": "Fixa Attack",
+        "stats": {
+            "potency": [0, 2, 3, 4, 4.5, 5]
+        }
+    },
+    "fixa_termina": {
+        "name": "Fixa Termina",
+        "stats": {
+            "critical_hit_potency": [0, 6, 9, 12, 14, 15]
+        }
+    },
+    "fixa_fatale": {
+        "name": "Fixa Fatale",
+        "stats": {
+            "critical_hit_rate": [0, 5, 8, 10, 12, 13]
+        }
+    }
+}
