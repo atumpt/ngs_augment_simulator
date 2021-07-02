@@ -62,7 +62,7 @@
         "base": 100,
         "display_subtract": 100
     },
-    "tech_weapon_potency": {
+    "technique_weapon_potency": {
         "stacking": "multiplicative",
         "affected_by": "potency",
         "base": 100,

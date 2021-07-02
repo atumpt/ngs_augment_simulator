@@ -17,7 +17,9 @@ elements,
 augments,
 units,
 player_class,
-player_level,
+class_level,
+player_subclass,
+subclass_level,
 unit_prefixes,
 weapon,
 weapon_augments,
@@ -26,27 +28,6 @@ weapon_prefix,
 weapon_prefix_level,
 potential_name,
 potential_level,
-total_attack,
-total_critical_rate,
-total_hp,
-total_pp,
-total_burn_resist,
-total_freeze_resist,
-total_potency,
-total_melee_weapon_potency,
-total_ranged_weapon_potency,
-total_tech_weapon_potency,
-total_critical_damage,
-total_defense,
-total_passive_pp_recovery,
-total_blind_resist,
-total_panic_resist,
-total_potency_floor,
-total_damage_resistance,
-total_active_pp_recovery,
-total_shock_resist,
-total_poison_resist,
-total_physical_resist,
 equipped_units,
 equipped_unit_augments,
 equipped_unit_levels,
@@ -74,7 +55,7 @@ function setStats() {
             const stat = stats[stat_key];
             let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
             if (classes[player_class.value].stats.hasOwnProperty(stat_key)) {
-                value = stackStat(value, classes[player_class.value].stats[stat_key][player_level.value-1], stat.stacking);
+                value = stackStat(value, classes[player_class.value].stats[stat_key][class_level.value-1], stat.stacking);
             }
             if (weapon_enabled.checked && weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].stats.hasOwnProperty(stat_key)) {
                 if (Array.isArray(weapon_series[weapons[weapon.value].series].stats[stat_key])) {
@@ -155,11 +136,18 @@ function setStats() {
             }
         }
     }
+    if (weapon.value != 'empty' && classes[player_class.value].weapon_types.indexOf(weapons[weapon.value].type) == -1) {
+        weapon.classList.add('invalid');
+        weapon.title = 'This is not a main class weapon. You will not get the 10% main class weapon bonus.';
+    } else {
+        weapon.classList.remove('invalid');
+        weapon.title = '';
+    }
     document.querySelectorAll('.attack_row').forEach((e) => {
-        const base_attack = classes[player_class.value].stats.attack[player_level.value -1 ];
+        const base_attack = classes[player_class.value].stats.attack[class_level.value -1 ];
         const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
-        const weapon_type = weapon.value != 'empty' ? weapon_types[weapons[weapon.value].type] : 'none';
-        const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_type.damage_type + "_weapon_potency"] : calculated_stats["potency"];
+        const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
+        const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_types[weapon_type].damage_type + "_weapon_potency"] : calculated_stats["potency"];
         const attack_potency = parseFloat(e.querySelector('.attack_potency').value);
         const enemy_defense = parseFloat(e.querySelector('.enemy_defense').value);
         const enemy_damage_multiplier = parseFloat(e.querySelector('.enemy_damage_multiplier').value);        
@@ -191,7 +179,8 @@ function loadClassLevels() {
     for (let index = max_class_level - 1; index >= 0; index--) {
         options += '<option value="' + index + '">' + index + '</option>';
     }
-    player_level.innerHTML = options;
+    class_level.innerHTML = options;
+    subclass_level.innerHTML = options;
 }
 function loadWeaponLevels() {
     let options = '<option value="' + max_weapon_level + '" selected="selected">' + max_weapon_level + '</option>';
@@ -297,8 +286,18 @@ function loadClasses() {
         }
     }
     document.getElementById('class').innerHTML = options;
+    document.getElementById('subclass').innerHTML = options.replace(/(hunter)(.*)(fighter)/, '$3$2$1').replace(/(Hunter)(.*)(Fighter)/, '$3$2$1');
 }
 
+function onChangeClass() {
+    if (player_class.value == player_subclass.value) {
+        player_subclass.classList.add('invalid');
+        player_subclass.title = 'You cannot use your mainclass as your subclass';
+    } else {
+        player_subclass.classList.remove('invalid');
+        player_subclass.title = '';
+    }
+}
 
 function onChangeWeapon() {
     setStats();
@@ -465,32 +464,34 @@ function arrayToLoadout (obj) {
 
 function printLoadout(e) {
     let loadout = new Loadout();
-    loadout.w = compress.indexOf(weapon.value);
-    loadout.wl = parseInt(weapon_level.value);
-    loadout.wp = compress.indexOf(weapon_prefix.value);
-    loadout.wpl = parseInt(weapon_prefix_level.value);
-    loadout.us = [];
+    loadout.weapon = compress.indexOf(weapon.value);
+    loadout.weapon_level = parseInt(weapon_level.value);
+    loadout.weapon_prefix = compress.indexOf(weapon_prefix.value);
+    loadout.weapon_prefix_level = parseInt(weapon_prefix_level.value);
+    loadout.units = [];
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
-        loadout.us[unit_index] = compress.indexOf(equipped_units[unit_index].value);
-        loadout.uls[unit_index] = parseInt(equipped_unit_levels[unit_index].value);
-        loadout.ups[unit_index] = compress.indexOf(equipped_unit_prefixes[unit_index].value);
-        loadout.upls[unit_index] = parseInt(equipped_unit_prefix_levels[unit_index].value);
-        loadout.uas[unit_index] = [];
+        loadout.units[unit_index] = compress.indexOf(equipped_units[unit_index].value);
+        loadout.unit_levels[unit_index] = parseInt(equipped_unit_levels[unit_index].value);
+        loadout.unit_prefixes[unit_index] = compress.indexOf(equipped_unit_prefixes[unit_index].value);
+        loadout.unit_prefix_levels[unit_index] = parseInt(equipped_unit_prefix_levels[unit_index].value);
+        loadout.unit_augments[unit_index] = [];
         for (let augment_index = 0; augment_index < equipped_unit_augments[unit_index].length; augment_index++) {
-            loadout.uas[unit_index][augment_index] = compress.indexOf(equipped_unit_augments[unit_index][augment_index].value);
+            loadout.unit_augments[unit_index][augment_index] = compress.indexOf(equipped_unit_augments[unit_index][augment_index].value);
         }
     }
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
-        loadout.was[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
+        loadout.weapon_augments[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
     }
-    loadout.c = compress.indexOf(player_class.value);
-    loadout.cl = parseInt(player_level.value);
-    loadout.us = JSON.stringify(loadout.us);
-    loadout.uls = JSON.stringify(loadout.uls);
-    loadout.ups = JSON.stringify(loadout.ups);
-    loadout.upls = JSON.stringify(loadout.upls);
-    loadout.uas = JSON.stringify(loadout.uas);
-    loadout.was = JSON.stringify(loadout.was);
+    loadout.mainclass = compress.indexOf(player_class.value);
+    loadout.mainclass_level = parseInt(class_level.value);
+    loadout.subclass = compress.indexOf(player_subclass.value);
+    loadout.subclass_level = parseInt(subclass_level.value);
+    loadout.units = JSON.stringify(loadout.units);
+    loadout.unit_levels = JSON.stringify(loadout.unit_levels);
+    loadout.unit_prefixes = JSON.stringify(loadout.unit_prefixes);
+    loadout.unit_prefix_levels = JSON.stringify(loadout.unit_prefix_levels);
+    loadout.unit_augments = JSON.stringify(loadout.unit_augments);
+    loadout.weapon_augments = JSON.stringify(loadout.weapon_augments);
     document.getElementById('loadout').value = objectToArray(loadout).toString().replace(/\[/g, 'o').replace(/\]/g, 'c') ;
 }
 
@@ -499,24 +500,26 @@ function importLoadout() {
         return;
     }
     let loadout = arrayToLoadout(JSON.parse('[' + document.getElementById('loadout').value.replace(/o/gi, '[').replace(/c/gi, ']') + ']'));
-    weapon.value = compress[loadout.w]
-    weapon_level.value = loadout.wl;
-    weapon_prefix.value = compress[loadout.wp];
-    weapon_prefix_level.value = loadout.wpl;
-    for (let unit_index = 0; unit_index < loadout.us.length; unit_index++) {
-        equipped_units[unit_index].value = compress[loadout.us[unit_index]];
-        equipped_unit_levels[unit_index].value = loadout.uls[unit_index];
-        equipped_unit_prefixes[unit_index].value = compress[loadout.ups[unit_index]];
-        equipped_unit_prefix_levels[unit_index].value = loadout.upls[unit_index];
-        for (let augment_index = 0; augment_index < loadout.uas[unit_index].length; augment_index++) {
-            equipped_unit_augments[unit_index][augment_index].value = compress[loadout.uas[unit_index][augment_index]];
+    weapon.value = compress[loadout.weapon]
+    weapon_level.value = loadout.weapon_level;
+    weapon_prefix.value = compress[loadout.weapon_prefix];
+    weapon_prefix_level.value = loadout.weapon_prefix_level;
+    for (let unit_index = 0; unit_index < loadout.units.length; unit_index++) {
+        equipped_units[unit_index].value = compress[loadout.units[unit_index]];
+        equipped_unit_levels[unit_index].value = loadout.unit_levels[unit_index];
+        equipped_unit_prefixes[unit_index].value = compress[loadout.unit_prefixes[unit_index]];
+        equipped_unit_prefix_levels[unit_index].value = loadout.unit_prefix_levels[unit_index];
+        for (let augment_index = 0; augment_index < loadout.unit_augments[unit_index].length; augment_index++) {
+            equipped_unit_augments[unit_index][augment_index].value = compress[loadout.unit_augments[unit_index][augment_index]];
         }
     }
-    for (let augment_index = 0; augment_index < loadout.was.length; augment_index++) {
-        weapon_augments[augment_index].value = compress[loadout.was[augment_index]];
+    for (let augment_index = 0; augment_index < loadout.weapon_augments.length; augment_index++) {
+        weapon_augments[augment_index].value = compress[loadout.weapon_augments[augment_index]];
     }
-    player_class.value = compress[loadout.c];
-    player_level.value = loadout.cl;
+    player_class.value = compress[loadout.mainclass];
+    class_level.value = loadout.mainclass_level;
+    player_subclass.value = compress[loadout.subclass];
+    subclass_level.value = loadout.subclass_level;
     setStats();
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
         validateAugmentRestrictions(weapon_augments[augment_index], weapon_augments);
@@ -538,13 +541,13 @@ function addAttackRow(e) {
 
 function initialize() {
     player_class = document.getElementById('class');
-    player_level = document.getElementById('level');
+    class_level = document.getElementById('class_level');
+    player_subclass = document.getElementById('subclass');
+    subclass_level = document.getElementById('subclass_level');
     weapon = document.getElementById('weapon');
-    weapon.addEventListener('change', onChangeWeapon);
     weapon_prefix = document.getElementById('weapon_prefix');
     weapon_enabled = document.getElementById('weapon_enabled');
     weapon_level = document.getElementById('weapon_level');
-    weapon_level.addEventListener('change', onChangeWeaponLevel);
     weapon_prefix_level = document.getElementById('weapon_prefix_level');
     potential_level = document.getElementById('potential_level');
     potential_name = document.getElementById('potential_name');
@@ -609,27 +612,10 @@ function initialize() {
             document.getElementById('unit_' + unit_index + '_augment_' + augment_index).addEventListener('change', onChangeUnitAugment);
         }
     }
-    total_attack = document.getElementById('total_attack');
-    total_critical_rate = document.getElementById('total_critical_rate');
-    total_hp = document.getElementById('total_hp');
-    total_pp = document.getElementById('total_pp');
-    total_burn_resist = document.getElementById('total_burn_resist');
-    total_freeze_resist = document.getElementById('total_freeze_resist');
-    total_potency = document.getElementById('total_potency');
-    total_critical_damage = document.getElementById('total_critical_damage');
-    total_defense = document.getElementById('total_defense');
-    total_passive_pp_recovery = document.getElementById('total_passive_pp_recovery');
-    total_blind_resist = document.getElementById('total_blind_resist');
-    total_panic_resist = document.getElementById('total_panic_resist');
-    total_potency_floor = document.getElementById('total_potency_floor');
-    total_damage_resistance = document.getElementById('total_damage_resistance');
-    total_active_pp_recovery = document.getElementById('total_active_pp_recovery');
-    total_shock_resist = document.getElementById('total_shock_resist');
-    total_poison_resist = document.getElementById('total_poison_resist');
-    total_physical_resist = document.getElementById('total_physical_resist');
-    total_melee_weapon_potency = document.getElementById('total_melee_weapon_potency');  
-    total_ranged_weapon_potency = document.getElementById('total_ranged_weapon_potency'); 
-    total_tech_weapon_potency = document.getElementById('total_tech_weapon_potency');   
+    player_class.addEventListener('change', onChangeClass);
+    player_subclass.addEventListener('change', onChangeClass);
+    weapon.addEventListener('change', onChangeWeapon);
+    weapon_level.addEventListener('change', onChangeWeaponLevel);
     sync_augments = document.getElementById('sync_augments');
     load_json_files();
     loadClasses();
@@ -645,11 +631,15 @@ function initialize() {
     document.querySelectorAll('input').forEach((e) => e.addEventListener('change', setStats));
     document.getElementById('loadout_import').addEventListener('click', importLoadout);
     document.getElementById('loadout_export').addEventListener('click', exportLoadout);
-    document.getElementById('loadout').value = window.location.hash.substring(1);
     document.getElementById('add_attack_row').addEventListener('click', addAttackRow);
-    window.location.hash = '';
+    if (window.location.hash.length > 0) {
+        document.getElementById('loadout').value = window.location.hash.substring(1);
+        window.location.hash = '';
+    }
     importLoadout();
     setStats();
+    document.getElementById('status').classList.add('d-none');
+    document.getElementById('main').classList.remove('d-none');
 }
 
 function ready(fn) {
