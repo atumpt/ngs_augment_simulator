@@ -54,7 +54,9 @@ equipped_unit_prefix_levels,
 stats,
 stat_sources,
 sync_augments,
-calculated_stats = {}
+calculated_stats = {},
+weapon_enabled,
+units_enabled = []
 ;
 
 function stackStat(current, extra, type) {
@@ -73,14 +75,14 @@ function setStats() {
             if (classes[player_class.value].stats.hasOwnProperty(stat_key)) {
                 value = stackStat(value, classes[player_class.value].stats[stat_key][player_level.value-1], stat.stacking);
             }
-            if (weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].stats.hasOwnProperty(stat_key)) {
+            if (weapon_enabled.checked && weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].stats.hasOwnProperty(stat_key)) {
                 if (Array.isArray(weapon_series[weapons[weapon.value].series].stats[stat_key])) {
                     value = stackStat(value, weapon_series[weapons[weapon.value].series].stats[stat_key][weapon_level.value], stat.stacking);
                 } else {
                     value = stackStat(value, weapon_series[weapons[weapon.value].series].stats[stat_key], stat.stacking);
                 }
             }
-            if (weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].potential.stats.hasOwnProperty(stat_key)) {
+            if (weapon_enabled.checked && weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].potential.stats.hasOwnProperty(stat_key)) {
                 let potential_value;
                 if (Array.isArray(weapon_series[weapons[weapon.value].series].potential.stats[stat_key])) {
                     potential_value = weapon_series[weapons[weapon.value].series].potential.stats[stat_key][potential_level.value];
@@ -92,20 +94,25 @@ function setStats() {
                 }
                 value = stackStat(value, potential_value, stat.stacking);
             }
-            if (weapon_prefix.value != 'empty' && weapon_prefixes[weapon_prefix.value].stats.hasOwnProperty(stat_key)) {
+            if (weapon_enabled.checked && weapon_prefix.value != 'empty' && weapon_prefixes[weapon_prefix.value].stats.hasOwnProperty(stat_key)) {
                 if (Array.isArray(weapon_prefixes[weapon_prefix.value].stats[stat_key])) {
                     value = stackStat(value, weapon_prefixes[weapon_prefix.value].stats[stat_key][weapon_prefix_level.value], stat.stacking);
                 } else {
                     value = stackStat(value, weapon_prefixes[weapon_prefix.value].stats[stat_key], stat.stacking);
                 }
             }
-            for (let augment_index = 0; augment_index < 4; augment_index++) {
-                const augment = weapon_augments[augment_index];
-                if (augment.disabled != true && augment.value != 'empty' && augments[augment.value].stats.hasOwnProperty(stat_key)) {
-                    value = stackStat(value, augments[augment.value].stats[stat_key], stat.stacking);
+            if (weapon_enabled.checked) {
+                for (let augment_index = 0; augment_index < 4; augment_index++) {
+                    const augment = weapon_augments[augment_index];
+                    if (augment.disabled != true && augment.value != 'empty' && augments[augment.value].stats.hasOwnProperty(stat_key)) {
+                        value = stackStat(value, augments[augment.value].stats[stat_key], stat.stacking);
+                    }
                 }
             }
             for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
+                if (!units_enabled[unit_index].checked) {
+                    continue;
+                }
                 const unit = equipped_units[unit_index];
                 const unit_level = equipped_unit_levels[unit_index];
                 const unit_prefix = equipped_unit_prefixes[unit_index];
@@ -490,6 +497,14 @@ function importLoadout() {
     player_class.value = compress[loadout.c];
     player_level.value = loadout.cl;
     setStats();
+    for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
+        validateAugmentRestrictions(weapon_augments[augment_index], weapon_augments);
+    }
+    for (let unit_index = 0; unit_index < equipped_unit_augments.length; unit_index++) {
+        for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
+            validateAugmentRestrictions(equipped_unit_augments[unit_index][augment_index], equipped_unit_augments[unit_index]);
+        }
+    }
 }
 
 function exportLoadout() {
@@ -498,22 +513,16 @@ function exportLoadout() {
 
 function initialize() {
     player_class = document.getElementById('class');
-    player_class.addEventListener('change', setStats);
     player_level = document.getElementById('level');
-    player_level.addEventListener('change', setStats);
     weapon = document.getElementById('weapon');
     weapon.addEventListener('change', onChangeWeapon);
     weapon_prefix = document.getElementById('weapon_prefix');
-    weapon_prefix.addEventListener('change', setStats);
+    weapon_enabled = document.getElementById('weapon_enabled');
     weapon_level = document.getElementById('weapon_level');
     weapon_level.addEventListener('change', onChangeWeaponLevel);
-    weapon_level.addEventListener('change', setStats);
     weapon_prefix_level = document.getElementById('weapon_prefix_level');
-    weapon_prefix_level.addEventListener('change', setStats);
     potential_level = document.getElementById('potential_level');
-    potential_level.addEventListener('change', setStats);
     potential_name = document.getElementById('potential_name');
-    potential_name.addEventListener('change', setStats);
     weapon_augments = [
         document.getElementById('weapon_augment_1'),
         document.getElementById('weapon_augment_2'),
@@ -550,6 +559,11 @@ function initialize() {
         document.getElementById('unit_2_level'),
         document.getElementById('unit_3_level'),
     ];
+    units_enabled = [
+        document.getElementById('unit_1_enabled'),
+        document.getElementById('unit_2_enabled'),
+        document.getElementById('unit_3_enabled'),
+    ];
     equipped_unit_prefixes = [
         document.getElementById('unit_1_prefix'),
         document.getElementById('unit_2_prefix'),
@@ -562,18 +576,12 @@ function initialize() {
     ];
     
     for (let unit_index = 1; unit_index <= 3; unit_index++) {
-        document.getElementById('unit_' + unit_index).addEventListener('change', setStats);
         document.getElementById('unit_' + unit_index + '_level').addEventListener('change', onChangeUnitLevel);
-        document.getElementById('unit_' + unit_index + '_level').addEventListener('change', setStats);
-        document.getElementById('unit_' + unit_index + '_prefix').addEventListener('change', setStats);
-        document.getElementById('unit_' + unit_index + '_prefix_level').addEventListener('change', setStats);
     }
     for (let augment_index = 1; augment_index <= 4; augment_index++) {
         document.getElementById('weapon_augment_' + augment_index).addEventListener('change', onChangeWeaponAugment);
-        document.getElementById('weapon_augment_' + augment_index).addEventListener('change', setStats);
         for (let unit_index = 1; unit_index <= 3; unit_index++) {
             document.getElementById('unit_' + unit_index + '_augment_' + augment_index).addEventListener('change', onChangeUnitAugment);
-            document.getElementById('unit_' + unit_index + '_augment_' + augment_index).addEventListener('change', setStats);
         }
     }
     total_attack = document.getElementById('total_attack');
@@ -609,6 +617,8 @@ function initialize() {
     
     
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
+    document.querySelectorAll('select').forEach((e) => e.addEventListener('change', setStats));
+    document.querySelectorAll('input').forEach((e) => e.addEventListener('change', setStats));
     document.getElementById('loadout_import').addEventListener('click', importLoadout);
     document.getElementById('loadout_export').addEventListener('click', exportLoadout);
     document.getElementById('loadout').value = window.location.hash.substring(1);
