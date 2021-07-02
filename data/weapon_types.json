@@ -1,39 +1,51 @@
 {
     "sword":{
-        "name":"Sword"
+        "name":"Sword",
+        "damage_type" : "melee"
     },
     "partisan":{
-        "name":"Partisan"
+        "name":"Partisan",
+        "damage_type": "melee"
     },
     "wired_lance":{
-        "name":"Wired Lance"
+        "name":"Wired Lance",
+        "damage_type": "melee"
     },
     "twin_daggers":{
-        "name":"Twin Daggers"
+        "name":"Twin Daggers",
+        "damage_type": "melee"
     },
     "double_saber":{
-        "name":"Double Saber"
+        "name":"Double Saber",
+        "damage_type": "melee"
     },
     "knuckles":{
-        "name":"Knuckles"
+        "name":"Knuckles",
+        "damage_type": "melee"
     },
     "assault_rifle":{
-        "name":"Assault Rifle"
+        "name":"Assault Rifle",
+        "damage_type": "ranged"
     },
     "launcher":{
-        "name":"Launcher"
+        "name":"Launcher",
+        "damage_type": "ranged"
     },
     "twin_machine_guns":{
-        "name":"Twin Machine Guns"
+        "name":"Twin Machine Guns",
+        "damage_type": "ranged"
     },
     "rod":{
-        "name":"Rod"
+        "name":"Rod",
+        "damage_type": "technique"
     },
     "talis":{
-        "name":"Talis"
+        "name":"Talis",
+        "damage_type": "technique"
     },
     "wand":{
-        "name":"Wand"
+        "name":"Wand",
+        "damage_type": "technique"
     }
 }
     

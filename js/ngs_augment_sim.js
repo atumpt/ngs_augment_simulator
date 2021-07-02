@@ -8,6 +8,7 @@ max_unit_prefix_level = 5,
 max_potential_level = 4,
 compress,
 classes,
+weapon_types,
 weapon_series,
 weapon_prefixes,
 weapons,
@@ -56,7 +57,8 @@ stat_sources,
 sync_augments,
 calculated_stats = {},
 weapon_enabled,
-units_enabled = []
+units_enabled = [],
+enemy_damage_multiplier
 ;
 
 function stackStat(current, extra, type) {
@@ -154,6 +156,21 @@ function setStats() {
             }
         }
     }
+    const base_attack = classes[player_class.value].stats.attack[player_level.value -1 ];
+    const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
+    const weapon_type = weapon.value != 'empty' ? weapon_types[weapons[weapon.value].type] : 'none';
+    const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_type.damage_type + "_weapon_potency"] : calculated_stats["potency"];
+    const attack_potency = parseFloat(document.getElementById('attack_potency').value);
+    const enemy_defense = parseFloat(document.getElementById('enemy_defense').value);
+    const enemy_damage_multiplier = parseFloat(document.getElementById('enemy_damage_multiplier').value);        
+    const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+    const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+    const critical_damage = Math.floor(calculated_stats['critical_hit_potency'] / 100 * Math.ceil(maximum_damage));
+    const average_damage = ((minimum_damage + maximum_damage) / 2) * (1 - (calculated_stats['critical_hit_rate'] / 100)) + (critical_damage * (calculated_stats['critical_hit_rate'] / 100));
+    document.getElementById('minimum_damage').innerHTML = minimum_damage.toPrecision(4);
+    document.getElementById('maximum_damage').innerHTML = maximum_damage.toPrecision(4);
+    document.getElementById('critical_damage').innerHTML = critical_damage.toPrecision(4);
+    document.getElementById('average_damage').innerHTML = average_damage.toPrecision(4);
 }
 
 function loadUnits() {
@@ -395,6 +412,9 @@ function load_json_files() {
     ajax.open('GET', 'data/weapon_series.json', false);
     ajax.send();
     weapon_series = JSON.parse(ajax.response);
+    ajax.open('GET', 'data/weapon_types.json', false);
+    ajax.send();
+    weapon_types = JSON.parse(ajax.response);
     ajax.open('GET', 'data/weapon_prefixes.json', false);
     ajax.send();
     weapon_prefixes = JSON.parse(ajax.response);
@@ -615,7 +635,9 @@ function initialize() {
     loadUnitPrefixes();
     loadLevels();
     
-    
+    enemy_damage_multiplier = document.getElementById('enemy_damage_multiplier');
+    enemy_defense = document.getElementById('enemy_defense');
+    attack_potency = document.getElementById('attack_potency');
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', setStats));
     document.querySelectorAll('input').forEach((e) => e.addEventListener('change', setStats));
