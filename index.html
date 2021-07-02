@@ -324,6 +324,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Attack Potency</th>
                         <th>Enemy Defense</th>
                         <th>Enemy Damage Multiplier</th>
@@ -334,14 +335,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="attack_row">
+                        <td></td>
+                        <td><input type="number" name="attack_potency" class="attack_potency" value="100"></td>
+                        <td><input type="number" name="enemy_defense" class="enemy_defense" value="610"></td>
+                        <td><input type="number" name="enemy_damage_multiplier" class="enemy_damage_multiplier" value="1"></td>
+                        <td><span class="minimum_damage"></span></td>
+                        <td><span class="average_damage"></span></td>
+                        <td><span class="maximum_damage"></span></td>
+                        <td><span class="critical_damage"></span></td>
+                    </tr>
                     <tr>
-                        <td><input type="number" name="attack_potency" id="attack_potency" value="100"></td>
-                        <td><input type="number" name="enemy_defense" id="enemy_defense" value="610"></td>
-                        <td><input type="number" name="enemy_damage_multiplier" id="enemy_damage_multiplier" value="1"></td>
-                        <td><span id="minimum_damage"></span></td>
-                        <td><span id="average_damage"></span></td>
-                        <td><span id="maximum_damage"></span></td>
-                        <td><span id="critical_damage"></span></td>
+                        <td><button id="add_attack_row">+</button></td>
                     </tr>
                 </tbody>
             </table>
