@@ -40,33 +40,46 @@
         "base": 100
     },
     "melee_weapon_potency": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "affected_by": "potency",
+        "base": 100
     },
     "ranged_weapon_potency": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "affected_by": "potency",
+        "base": 100
     },
     "tech_weapon_potency": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "affected_by": "potency",
+        "base": 100
     },
     "burn_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "freeze_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "shock_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "blind_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "panic_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "poison_resist": {
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     },
     "physical_resist":{
-        "stacking": "multiplicative"
+        "stacking": "multiplicative",
+        "base": 100
     }
 }

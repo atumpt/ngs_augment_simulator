@@ -130,6 +130,9 @@ function setStats() {
                     }
                 }
             }
+            if (stat.hasOwnProperty('affected_by') && stats.hasOwnProperty(stat.affected_by)) {
+                value = stackStat(value, Number.parseFloat(window["total_" + stat.affected_by].innerHTML - stats[stat.affected_by].base), stat.stacking);
+            }
 
             window["total_" + stat_key].innerHTML = value.toPrecision(4).replace(/\.0+$/, '');
         }
@@ -404,23 +407,23 @@ function load_json_files() {
 
 function printLoadout() {
     let loadout = new Loadout();
-    loadout.weapon = weapon.value;
-    loadout.weapon_level = weapon_level.value;
-    loadout.weapon_prefix = weapon_prefix.value;
-    loadout.weapon_prefix_level = weapon_prefix_level.value;
-    loadout.units = [];
+    loadout.w = weapon.value;
+    loadout.w_l = weapon_level.value;
+    loadout.w_p = weapon_prefix.value;
+    loadout.w_p_l = weapon_prefix_level.value;
+    loadout.us = [];
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
-        loadout.units[unit_index] = equipped_units[unit_index].value;
-        loadout.unit_levels[unit_index] = equipped_unit_levels[unit_index].value;
-        loadout.unit_prefixes[unit_index] = equipped_unit_prefixes[unit_index].value;
-        loadout.unit_prefix_levels[unit_index] = equipped_unit_prefix_levels[unit_index].value;
-        loadout.unit_augments[unit_index] = [];
+        loadout.us[unit_index] = equipped_units[unit_index].value;
+        loadout.u_ls[unit_index] = equipped_unit_levels[unit_index].value;
+        loadout.u_ps[unit_index] = equipped_unit_prefixes[unit_index].value;
+        loadout.u_p_ls[unit_index] = equipped_unit_prefix_levels[unit_index].value;
+        loadout.u_as[unit_index] = [];
         for (let augment_index = 0; augment_index < equipped_unit_augments[unit_index].length; augment_index++) {
-            loadout.unit_augments[unit_index][augment_index] = equipped_unit_augments[unit_index][augment_index].value;
+            loadout.u_as[unit_index][augment_index] = equipped_unit_augments[unit_index][augment_index].value;
         }
     }
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {        
-        loadout.weapon_augments[augment_index] = weapon_augments[augment_index].value;
+        loadout.w_as[augment_index] = weapon_augments[augment_index].value;
     }
     loadout.class = player_class.value;
     loadout.class_level = player_level.value;
@@ -432,21 +435,21 @@ function importLoadout() {
         return;
     }
     let loadout = JSON.parse(atob(document.getElementById('loadout').value));
-     weapon.value = loadout.weapon;
-     weapon_level.value = loadout.weapon_level;
-     weapon_prefix.value = loadout.weapon_prefix;
-     weapon_prefix_level.value = loadout.weapon_prefix_level;
-    for (let unit_index = 0; unit_index < loadout.units.length; unit_index++) {
-        equipped_units[unit_index].value = loadout.units[unit_index];
-        equipped_unit_levels[unit_index].value = loadout.unit_levels[unit_index];
-        equipped_unit_prefixes[unit_index].value = loadout.unit_prefixes[unit_index];
-        equipped_unit_prefix_levels[unit_index].value = loadout.unit_prefix_levels[unit_index];
-        for (let augment_index = 0; augment_index < loadout.unit_augments[unit_index].length; augment_index++) {
-            equipped_unit_augments[unit_index][augment_index].value = loadout.unit_augments[unit_index][augment_index];
+     weapon.value = loadout.w;
+     weapon_level.value = loadout.w_l;
+     weapon_prefix.value = loadout.w_p;
+     weapon_prefix_level.value = loadout.w_p_l;
+    for (let unit_index = 0; unit_index < loadout.us.length; unit_index++) {
+        equipped_units[unit_index].value = loadout.us[unit_index];
+        equipped_unit_levels[unit_index].value = loadout.u_ls[unit_index];
+        equipped_unit_prefixes[unit_index].value = loadout.u_ps[unit_index];
+        equipped_unit_prefix_levels[unit_index].value = loadout.u_p_ls[unit_index];
+        for (let augment_index = 0; augment_index < loadout.u_as[unit_index].length; augment_index++) {
+            equipped_unit_augments[unit_index][augment_index].value = loadout.u_as[unit_index][augment_index];
         }
     }
-    for (let augment_index = 0; augment_index < loadout.weapon_augments.length; augment_index++) {
-        weapon_augments[augment_index].value = loadout.weapon_augments[augment_index];
+    for (let augment_index = 0; augment_index < loadout.w_as.length; augment_index++) {
+        weapon_augments[augment_index].value = loadout.w_as[augment_index];
     }
     player_class.value = loadout.class;
     player_level.value = loadout.class_level;

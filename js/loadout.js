@@ -1,16 +1,16 @@
 export class Loadout {
-    class;
-    subclass;
-    class_level;
-    subclass_level;
-    weapon;
-    units = [];
-    weapon_level;
-    weapon_augments = [];
-    weapon_prefix;
-    weapon_prefix_level;
-    unit_levels = [];
-    unit_augments = [];
-    unit_prefixes = [];
-    unit_prefix_levels = [];
+    c;
+    sc;
+    c_l;
+    sc_l;
+    w;
+    us = [];
+    w_l;
+    w_as = [];
+    w_p;
+    w_p_l;
+    u_ls = [];
+    u_as = [];
+    u_ps = [];
+    u_p_ls = [];
 }
