@@ -6,6 +6,7 @@ max_unit_level = 40,
 max_weapon_prefix_level = 5,
 max_unit_prefix_level = 5,
 max_potential_level = 4,
+compress,
 classes,
 weapon_series,
 weapon_prefixes,
@@ -403,29 +404,32 @@ function load_json_files() {
     ajax.open('GET', 'data/stats.json', false);
     ajax.send();
     stats = JSON.parse(ajax.response);
+    ajax.open('GET', 'data/compress.json', false);
+    ajax.send();
+    compress = JSON.parse(ajax.response);
 }
 
-function printLoadout() {
+function printLoadout(e) {
     let loadout = new Loadout();
-    loadout.w = weapon.value;
+    loadout.w = compress.indexOf(weapon.value);
     loadout.w_l = weapon_level.value;
-    loadout.w_p = weapon_prefix.value;
+    loadout.w_p = compress.indexOf(weapon_prefix.value);
     loadout.w_p_l = weapon_prefix_level.value;
     loadout.us = [];
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
-        loadout.us[unit_index] = equipped_units[unit_index].value;
+        loadout.us[unit_index] = compress.indexOf(equipped_units[unit_index].value);
         loadout.u_ls[unit_index] = equipped_unit_levels[unit_index].value;
-        loadout.u_ps[unit_index] = equipped_unit_prefixes[unit_index].value;
+        loadout.u_ps[unit_index] = compress.indexOf(equipped_unit_prefixes[unit_index].value);
         loadout.u_p_ls[unit_index] = equipped_unit_prefix_levels[unit_index].value;
         loadout.u_as[unit_index] = [];
         for (let augment_index = 0; augment_index < equipped_unit_augments[unit_index].length; augment_index++) {
-            loadout.u_as[unit_index][augment_index] = equipped_unit_augments[unit_index][augment_index].value;
+            loadout.u_as[unit_index][augment_index] = compress.indexOf(equipped_unit_augments[unit_index][augment_index].value);
         }
     }
-    for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {        
-        loadout.w_as[augment_index] = weapon_augments[augment_index].value;
+    for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
+        loadout.w_as[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
     }
-    loadout.class = player_class.value;
+    loadout.class = compress.indexOf(player_class.value);
     loadout.class_level = player_level.value;
     document.getElementById('loadout').value = btoa(JSON.stringify(loadout));
 }
@@ -435,23 +439,23 @@ function importLoadout() {
         return;
     }
     let loadout = JSON.parse(atob(document.getElementById('loadout').value));
-     weapon.value = loadout.w;
+     weapon.value = compress[loadout.w];
      weapon_level.value = loadout.w_l;
-     weapon_prefix.value = loadout.w_p;
+     weapon_prefix.value = compress[loadout.w_p];
      weapon_prefix_level.value = loadout.w_p_l;
     for (let unit_index = 0; unit_index < loadout.us.length; unit_index++) {
-        equipped_units[unit_index].value = loadout.us[unit_index];
+        equipped_units[unit_index].value = compress[loadout.us[unit_index]];
         equipped_unit_levels[unit_index].value = loadout.u_ls[unit_index];
-        equipped_unit_prefixes[unit_index].value = loadout.u_ps[unit_index];
+        equipped_unit_prefixes[unit_index].value = compress[loadout.u_ps[unit_index]];
         equipped_unit_prefix_levels[unit_index].value = loadout.u_p_ls[unit_index];
         for (let augment_index = 0; augment_index < loadout.u_as[unit_index].length; augment_index++) {
-            equipped_unit_augments[unit_index][augment_index].value = loadout.u_as[unit_index][augment_index];
+            equipped_unit_augments[unit_index][augment_index].value = compress[loadout.u_as[unit_index][augment_index]];
         }
     }
     for (let augment_index = 0; augment_index < loadout.w_as.length; augment_index++) {
-        weapon_augments[augment_index].value = loadout.w_as[augment_index];
+        weapon_augments[augment_index].value = compress[loadout.w_as[augment_index]];
     }
-    player_class.value = loadout.class;
+    player_class.value = compress[loadout.class];
     player_level.value = loadout.class_level;
 }
 
@@ -571,7 +575,7 @@ function initialize() {
     loadLevels();
 
 
-    document.querySelectorAll(':not(textarea)').forEach((e) => e.addEventListener('change', printLoadout));
+    document.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
     document.getElementById('loadout_import').addEventListener('click', importLoadout);
     document.getElementById('loadout_export').addEventListener('click', exportLoadout);
     document.getElementById('loadout').value = window.location.hash.substring(1);

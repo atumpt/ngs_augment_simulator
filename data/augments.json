@@ -129,21 +129,21 @@
         "name": "Guard I",
         "group": "guard",
         "stats": {
-            "damage_resistance": 1.0
+            "damage_taken": 1.0
         }
     },
     "guard_ii": {
         "name": "Guard II",
         "group": "guard",
         "stats": {
-            "damage_resistance": 1.5
+            "damage_taken": 1.5
         }
     },
     "guard_iii": {
         "name": "Guard III",
         "group": "guard",
         "stats": {
-            "damage_resistance": 2.0
+            "damage_taken": 2.0
         }
     },
     "mastery_i": {
@@ -152,7 +152,7 @@
         "stats": {
             "potency": 0.5,
             "potency_floor":0.5,
-            "damage_resistance": 0.5
+            "damage_taken": 0.5
         }
     },
     "mastery_ii": {
@@ -161,7 +161,7 @@
         "stats": {
             "potency": 1.0,
             "potency_floor": 1,
-            "damage_resistance": 1.0
+            "damage_taken": 1.0
         }
     },
     "mastery_iii": {
@@ -170,7 +170,7 @@
         "stats": {
             "potency": 1.5,
             "potency_floor":1.5,
-            "damage_resistance": 1.5
+            "damage_taken": 1.5
         }
     },
     "forms_soul_i": {
@@ -185,7 +185,7 @@
         "group": "soul",
         "stats": {
             "melee_weapon_potency": 2.0,
-            "damage_resistance": 2.0
+            "damage_taken": 2.0
         }
     },
     "alts_soul_i": {
@@ -193,7 +193,7 @@
         "group": "soul",
         "stats": {
             "hp": 5,
-            "damage_resistance": 1.0
+            "damage_taken": 1.0
         }
     },
     "alts_soul_ii": {
@@ -201,7 +201,7 @@
         "group": "soul",
         "stats": {
             "hp": 10,
-            "damage_resistance": 2.0
+            "damage_taken": 2.0
         }
     },
     "dolz_soul_i": {
@@ -268,7 +268,7 @@
             "technique_weapon_potency": 2.0
         }
     },
-    "ael note_a": {
+    "ael_note_a": {
         "name": "Ael Note A",
         "group": "note",
         "stats": {
@@ -276,7 +276,7 @@
             "pp": 3
         }
     },
-    "ael note_b": {
+    "ael_note_b": {
         "name": "Ael Note B",
         "group": "note",
         "stats": {
@@ -284,7 +284,7 @@
             "ranged_weapon_potency": 1.0
         }
     },
-    "ael note_c": {
+    "ael_note_c": {
         "name": "Ael Note C",
         "group": "note",
         "stats": {
@@ -292,7 +292,7 @@
             "technique_weapon_potency": 1.0
         }
     },
-    "ael note_d": {
+    "ael_note_d": {
         "name": "Ael Note D",
         "group": "note",
         "stats": {
@@ -337,7 +337,7 @@
             "hp": -10,
             "potency": 1.0,
             "potency_floor": 1,
-            "damage_resistance":-1    
+            "damage_taken":-1    
         }
     },
     "alts_secreta_ii": {
@@ -347,7 +347,7 @@
             "hp": -10,
             "potency": 1.5,
             "potency_floor":1.5,
-            "damage_resistance":-1.5    
+            "damage_taken":-1.5    
         }
     },
     "dread_keeper_i": {
@@ -357,7 +357,7 @@
             "hp": 10,
             "pp": 3,
             "potency_floor": 1,
-            "damage_resistance": 1.0
+            "damage_taken": 1.0
         }
     },
     "dread_keeper_ii": {
@@ -367,7 +367,7 @@
             "hp": 15,
             "pp": 4,
             "potency_floor":1.5,
-            "damage_resistance": 1.5
+            "damage_taken": 1.5
         }
     },
     "gigas_might_i": {

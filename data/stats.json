@@ -20,8 +20,9 @@
         "stacking": "multiplicative",
         "base": 100
     },
-    "damage_resistance": {
-        "stacking": "multiplicative"
+    "damage_taken": {
+        "stacking": "multiplicative",
+        "base": 100
     },
     "critical_hit_rate": {
         "stacking": "additive",

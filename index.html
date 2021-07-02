@@ -11,10 +11,13 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/ngs_augment_simulator.css?v=1625184740">
-    
+    <script src="vendor/lz-string.min.js"></script>
+    <script src="vendor/lz4.min.js"></script>
+    <script src="vendor/base64.js" type="module"></script>
 </head>
 <body>
     <div class="container-fluid pt-5">
+        <form action="#" method="GET" id="form"></form>
         <div class="row">
             <div class="col">
                 Loadout:
@@ -25,9 +28,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <select name="class" id="class">
+                <select name="class" id="class" form="form">
                 </select>
-                <select name="level" id="level">
+                <select name="level" id="level" form="form">
                 </select>
                 <label for="sync_augments">Synchronize Augments</label>
                 <input type="checkbox" name="sync_augments" id="sync_augments">
@@ -47,57 +50,57 @@
                 <tr>
                     <th></th>
                     <td>
-                        <select class="weapon_select" name="weapon" id="weapon">
+                        <select class="weapon_select" name="weapon" id="weapon" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="weapon_level" step="none" name="weapon_level" id="weapon_level">
+                        <select class="weapon_level" step="none" name="weapon_level" id="weapon_level" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_select" name="unit_1" id="unit_1">
+                        <select class="unit_select" name="unit_1" id="unit_1" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_level" step="none" name="unit_1_level" id="unit_1_level">
+                        <select class="unit_level" step="none" name="unit_1_level" id="unit_1_level" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_select" name="unit_2" id="unit_2">
+                        <select class="unit_select" name="unit_2" id="unit_2" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_level" step="none" name="unit_2_level" id="unit_2_level">
+                        <select class="unit_level" step="none" name="unit_2_level" id="unit_2_level" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_select" name="unit_3" id="unit_3">
+                        <select class="unit_select" name="unit_3" id="unit_3" form="form">
                         </select>
                     </td>
                     <td>
-                        <select class="unit_level" step="none" name="unit_3_level" id="unit_3_level">
+                        <select class="unit_level" step="none" name="unit_3_level" id="unit_3_level" form="form">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th>Augment 1</th>
                     <td colspan="2">
-                        <select name="weapon_augment_1" id="weapon_augment_1" class="augment">
+                        <select name="weapon_augment_1" id="weapon_augment_1" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_1_augment_1" id="unit_1_augment_1" class="augment">
+                        <select name="unit_1_augment_1" id="unit_1_augment_1" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_2_augment_1" id="unit_2_augment_1" class="augment">
+                        <select name="unit_2_augment_1" id="unit_2_augment_1" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_3_augment_1" id="unit_3_augment_1" class="augment">
+                        <select name="unit_3_augment_1" id="unit_3_augment_1" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
@@ -105,22 +108,22 @@
                 <tr>
                     <th>Augment 2</th>
                     <td colspan="2">
-                        <select name="weapon_augment_2" id="weapon_augment_2" class="augment">
+                        <select name="weapon_augment_2" id="weapon_augment_2" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_1_augment_2" id="unit_1_augment_2" class="augment">
+                        <select name="unit_1_augment_2" id="unit_1_augment_2" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_2_augment_2" id="unit_2_augment_2" class="augment">
+                        <select name="unit_2_augment_2" id="unit_2_augment_2" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_3_augment_2" id="unit_3_augment_2" class="augment">
+                        <select name="unit_3_augment_2" id="unit_3_augment_2" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
@@ -128,22 +131,22 @@
                 <tr>
                     <th>Augment 3</th>
                     <td colspan="2">
-                        <select name="weapon_augment_3" id="weapon_augment_3" class="augment">
+                        <select name="weapon_augment_3" id="weapon_augment_3" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_1_augment_3" id="unit_1_augment_3" class="augment">
+                        <select name="unit_1_augment_3" id="unit_1_augment_3" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_2_augment_3" id="unit_2_augment_3" class="augment">
+                        <select name="unit_2_augment_3" id="unit_2_augment_3" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_3_augment_3" id="unit_3_augment_3" class="augment">
+                        <select name="unit_3_augment_3" id="unit_3_augment_3" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
@@ -151,22 +154,22 @@
                 <tr>
                     <th>Augment 4</th>
                     <td colspan="2">
-                        <select name="weapon_augment_4" id="weapon_augment_4" class="augment">
+                        <select name="weapon_augment_4" id="weapon_augment_4" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_1_augment_4" id="unit_1_augment_4" class="augment">
+                        <select name="unit_1_augment_4" id="unit_1_augment_4" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_2_augment_4" id="unit_2_augment_4" class="augment">
+                        <select name="unit_2_augment_4" id="unit_2_augment_4" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td colspan="2">
-                        <select name="unit_3_augment_4" id="unit_3_augment_4" class="augment">
+                        <select name="unit_3_augment_4" id="unit_3_augment_4" class="augment" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
@@ -174,39 +177,39 @@
                 <tr>
                     <th>Preset Skill</th>
                     <td>
-                        <select name="weapon_prefix" id="weapon_prefix" class="prefix">
+                        <select name="weapon_prefix" id="weapon_prefix" class="prefix" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td>
-                        <select name="weapon_prefix_level" id="weapon_prefix_level" class="prefix">
+                        <select name="weapon_prefix_level" id="weapon_prefix_level" class="prefix" form="form">
                         </select>
                     </td>
                     <td>
-                        <select name="unit_1_prefix" id="unit_1_prefix" class="prefix">
+                        <select name="unit_1_prefix" id="unit_1_prefix" class="prefix" form="form">
                             <option value="empty">Empty</option>
                         </select>
                     </td>
                     <td>
-                        <select name="unit_1_prefix_level" id="unit_1_prefix_level" class="prefix">
+                        <select name="unit_1_prefix_level" id="unit_1_prefix_level" class="prefix" form="form">
                         </select>
                     </td>
                     <td>
-                        <select name="unit_2_prefix" id="unit_2_prefix" class="prefix">
+                        <select name="unit_2_prefix" id="unit_2_prefix" class="prefix" form="form">
                             <option value="empty">Empty</option>
                         </select>
                         </td
                         ><td>
-                            <select name="unit_2_prefix_level" id="unit_2_prefix_level" class="prefix">
+                            <select name="unit_2_prefix_level" id="unit_2_prefix_level" class="prefix" form="form">
                             </select>
                         </td>
                         <td>
-                            <select name="unit_3_prefix" id="unit_3_prefix" class="prefix">
+                            <select name="unit_3_prefix" id="unit_3_prefix" class="prefix" form="form">
                                 <option value="empty">Empty</option>
                             </select>
                         </td>
                         <td>
-                            <select name="unit_3_prefix_level" id="unit_3_prefix_level" class="prefix">
+                            <select name="unit_3_prefix_level" id="unit_3_prefix_level" class="prefix" form="form">
                             </select>
                         </td>
                     </tr>
@@ -214,7 +217,7 @@
                         <th>Potential</th>
                         <td class="d-flex"><span id="potential_name"></span><span class="ml-auto">Lv</span></td>
                         <td>
-                            <select name="potential_level" id="potential_level" class="potential">
+                            <select name="potential_level" id="potential_level" class="potential" form="form">
                             </select>
                         </td>
                     </tr>
@@ -265,8 +268,8 @@
                         <td><span id="total_potency_floor"></span>%</td>
                         <th></th>
                         <td></td>
-                        <th>Damage Resistance</th>
-                        <td><span id="total_damage_resistance"></span>%</td>
+                        <th>Damage Taken</th>
+                        <td><span id="total_damage_taken"></span>%</td>
                         <th>Active PP Regen</th>
                         <td><span id="total_active_pp_regen"></span>%</td>
                         <th>Shock Resist</th>
