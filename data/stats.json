@@ -35,12 +35,17 @@
         "base": 120,
         "display_subtract": 100
     },
-    "passive_pp_regen": {
+    "pp_cost_reduction": {
         "stacking": "multiplicative",
         "base": 100,
         "display_subtract": 100
     },
-    "active_pp_regen": {
+    "passive_pp_recovery": {
+        "stacking": "multiplicative",
+        "base": 100,
+        "display_subtract": 100
+    },
+    "active_pp_recovery": {
         "stacking": "multiplicative",
         "base": 100,
         "display_subtract": 100

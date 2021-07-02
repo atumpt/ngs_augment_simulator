@@ -37,12 +37,12 @@ total_ranged_weapon_potency,
 total_tech_weapon_potency,
 total_critical_damage,
 total_defense,
-total_passive_pp_regen,
+total_passive_pp_recovery,
 total_blind_resist,
 total_panic_resist,
 total_potency_floor,
 total_damage_resistance,
-total_active_pp_regen,
+total_active_pp_recovery,
 total_shock_resist,
 total_poison_resist,
 total_physical_resist,
@@ -417,6 +417,24 @@ function load_json_files() {
     compress = JSON.parse(ajax.response);
 }
 
+function objectToArray (obj) {
+    const keys = Object.keys(obj);
+    const res = [];
+    for (let i = 0; i < keys.length; i++) {
+        res.push(obj[keys[i]]);
+    };
+    return res;
+};
+
+function arrayToLoadout (obj) {
+    const loadout = new Loadout();
+    const keys = Object.keys(loadout);
+    for (let i = 0; i < keys.length; i++) {
+        loadout[keys[i]] = obj[i];
+    };
+    return loadout;
+};
+
 function printLoadout(e) {
     let loadout = new Loadout();
     loadout.w = compress.indexOf(weapon.value);
@@ -445,22 +463,15 @@ function printLoadout(e) {
     loadout.upls = JSON.stringify(loadout.upls);
     loadout.uas = JSON.stringify(loadout.uas);
     loadout.was = JSON.stringify(loadout.was);
-    document.getElementById('loadout').value = JSON.stringify(loadout);
-    
+    document.getElementById('loadout').value = objectToArray(loadout).toString().replace(/\[/g, 'o').replace(/\]/g, 'c') ;
 }
 
 function importLoadout() {
     if (document.getElementById('loadout').value.length == 0) {
         return;
     }
-    let loadout = JSON.parse(document.getElementById('loadout').value);
-    loadout.us = JSON.parse(loadout.us);
-    loadout.uls = JSON.parse(loadout.uls);
-    loadout.ups = JSON.parse(loadout.ups);
-    loadout.upls = JSON.parse(loadout.upls);
-    loadout.uas = JSON.parse(loadout.uas);
-    loadout.was = JSON.parse(loadout.was);
-    weapon.value = compress[loadout.w];
+    let loadout = arrayToLoadout(JSON.parse('[' + document.getElementById('loadout').value.replace(/o/gi, '[').replace(/c/gi, ']') + ']'));
+    weapon.value = compress[loadout.w]
     weapon_level.value = loadout.wl;
     weapon_prefix.value = compress[loadout.wp];
     weapon_prefix_level.value = loadout.wpl;
@@ -478,6 +489,7 @@ function importLoadout() {
     }
     player_class.value = compress[loadout.c];
     player_level.value = loadout.cl;
+    setStats();
 }
 
 function exportLoadout() {
@@ -573,12 +585,12 @@ function initialize() {
     total_potency = document.getElementById('total_potency');
     total_critical_damage = document.getElementById('total_critical_damage');
     total_defense = document.getElementById('total_defense');
-    total_passive_pp_regen = document.getElementById('total_passive_pp_regen');
+    total_passive_pp_recovery = document.getElementById('total_passive_pp_recovery');
     total_blind_resist = document.getElementById('total_blind_resist');
     total_panic_resist = document.getElementById('total_panic_resist');
     total_potency_floor = document.getElementById('total_potency_floor');
     total_damage_resistance = document.getElementById('total_damage_resistance');
-    total_active_pp_regen = document.getElementById('total_active_pp_regen');
+    total_active_pp_recovery = document.getElementById('total_active_pp_recovery');
     total_shock_resist = document.getElementById('total_shock_resist');
     total_poison_resist = document.getElementById('total_poison_resist');
     total_physical_resist = document.getElementById('total_physical_resist');
