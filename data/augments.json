@@ -108,21 +108,21 @@
         "name": "Deftness I",
         "group": "deftness",
         "stats": {
-            "potency_floor_increase": 1
+            "potency_floor": 1
         }
     },
     "deftness_ii": {
         "name": "Deftness II",
         "group": "deftness",
         "stats": {
-            "potency_floor_increase": 1.5
+            "potency_floor": 1.5
         }
     },
     "deftness_iii": {
         "name": "Deftness III",
         "group": "deftness",
         "stats": {
-            "potency_floor_increase": 2
+            "potency_floor": 2
         }
     },
     "guard_i": {
@@ -151,7 +151,7 @@
         "group": "mastery",
         "stats": {
             "potency": 0.5,
-            "potency_floor_increase":0.5,
+            "potency_floor":0.5,
             "damage_resistance": 0.5
         }
     },
@@ -160,7 +160,7 @@
         "group": "mastery",
         "stats": {
             "potency": 1.0,
-            "potency_floor_increase": 1,
+            "potency_floor": 1,
             "damage_resistance": 1.0
         }
     },
@@ -169,7 +169,7 @@
         "group": "mastery",
         "stats": {
             "potency": 1.5,
-            "potency_floor_increase":1.5,
+            "potency_floor":1.5,
             "damage_resistance": 1.5
         }
     },
@@ -209,7 +209,7 @@
         "group": "soul",
         "stats": {
             "pp": 5,
-            "potency_floor_increase": 1
+            "potency_floor": 1
         }
     },
     "dolz_soul_ii": {
@@ -217,7 +217,7 @@
         "group": "soul",
         "stats": {
             "pp": 5,
-            "potency_floor_increase": 2
+            "potency_floor": 2
         }
     },
     "daityl_soul_i": {
@@ -336,7 +336,7 @@
         "stats": {
             "hp": -10,
             "potency": 1.0,
-            "potency_floor_increase": 1,
+            "potency_floor": 1,
             "damage_resistance":-1    
         }
     },
@@ -346,7 +346,7 @@
         "stats": {
             "hp": -10,
             "potency": 1.5,
-            "potency_floor_increase":1.5,
+            "potency_floor":1.5,
             "damage_resistance":-1.5    
         }
     },
@@ -356,7 +356,7 @@
         "stats": {
             "hp": 10,
             "pp": 3,
-            "potency_floor_increase": 1,
+            "potency_floor": 1,
             "damage_resistance": 1.0
         }
     },
@@ -366,7 +366,7 @@
         "stats": {
             "hp": 15,
             "pp": 4,
-            "potency_floor_increase":1.5,
+            "potency_floor":1.5,
             "damage_resistance": 1.5
         }
     },
