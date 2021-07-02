@@ -53,7 +53,8 @@ equipped_unit_prefixes,
 equipped_unit_prefix_levels,
 stats,
 stat_sources,
-sync_augments
+sync_augments,
+calculated_stats = {}
 ;
 
 function stackStat(current, extra, type) {
@@ -132,10 +133,18 @@ function setStats() {
                 }
             }
             if (stat.hasOwnProperty('affected_by') && stats.hasOwnProperty(stat.affected_by)) {
-                value = stackStat(value, Number.parseFloat(window["total_" + stat.affected_by].innerHTML - stats[stat.affected_by].base), stat.stacking);
+                value = stackStat(value, calculated_stats[stat.affected_by] - stats[stat.affected_by].base, stat.stacking);
             }
-
-            window["total_" + stat_key].innerHTML = value.toPrecision(4).replace(/\.0+$/, '');
+            calculated_stats[stat_key] = value;
+            if (stat.hasOwnProperty('display_subtract')) {
+                const display_value = value - stat.display_subtract;
+                window["total_" + stat_key].innerHTML = display_value.toPrecision(4).replace(/\.0+$/, '');
+                if (display_value >=0 ) {
+                    window["total_" + stat_key].innerHTML = '+' + window["total_" + stat_key].innerHTML;
+                }
+            } else {
+                window["total_" + stat_key].innerHTML = value.toPrecision(4).replace(/\.0+$/, '');
+            }
         }
     }
 }
@@ -310,7 +319,7 @@ function onChangeUnitLevel(e) {
 
 function validateAugmentRestrictions(augment, group) {
     //Validate augment restrictions
-    augment.querySelectorAll('option[data-group]').forEach((opt) => {
+    document.querySelectorAll('option[data-conflict=' + augment.id + ']').forEach((opt) => {
         opt.disabled = false;
         opt.title = '';
     });
@@ -331,6 +340,7 @@ function validateAugmentRestrictions(augment, group) {
                     group[augment_index].querySelectorAll('option[data-group="' + augments[augment.value].group + '"]').forEach((opt) => {
                         opt.disabled = true;
                         opt.title = "Augment can't be slotted with " + augments[augment.value].name;
+                        opt.setAttribute('data-conflict', augment.id);
                     });
                 }
             }
@@ -357,19 +367,17 @@ function synchronize_augment_selection(selected_augment) {
 
 function onChangeWeaponAugment(e) {
     validateAugmentRestrictions(e.target, weapon_augments);
-    if ( ! sync_augments.checked) {
-        return;
+    if (sync_augments.checked) {
+        synchronize_augment_selection(e.target);
     }
-    synchronize_augment_selection(e.target);
 }
 
 function onChangeUnitAugment(e) {
     let target_unit_index = parseInt(e.target.id.split('_')[1]) - 1;
     validateAugmentRestrictions(e.target, equipped_unit_augments[target_unit_index]);
-    if (!sync_augments.checked) {
-        return
+    if (sync_augments.checked) {
+        synchronize_augment_selection(e.target);
     }
-    synchronize_augment_selection(e.target);
 }
 
 function load_json_files() {
@@ -412,51 +420,64 @@ function load_json_files() {
 function printLoadout(e) {
     let loadout = new Loadout();
     loadout.w = compress.indexOf(weapon.value);
-    loadout.w_l = weapon_level.value;
-    loadout.w_p = compress.indexOf(weapon_prefix.value);
-    loadout.w_p_l = weapon_prefix_level.value;
+    loadout.wl = parseInt(weapon_level.value);
+    loadout.wp = compress.indexOf(weapon_prefix.value);
+    loadout.wpl = parseInt(weapon_prefix_level.value);
     loadout.us = [];
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
         loadout.us[unit_index] = compress.indexOf(equipped_units[unit_index].value);
-        loadout.u_ls[unit_index] = equipped_unit_levels[unit_index].value;
-        loadout.u_ps[unit_index] = compress.indexOf(equipped_unit_prefixes[unit_index].value);
-        loadout.u_p_ls[unit_index] = equipped_unit_prefix_levels[unit_index].value;
-        loadout.u_as[unit_index] = [];
+        loadout.uls[unit_index] = parseInt(equipped_unit_levels[unit_index].value);
+        loadout.ups[unit_index] = compress.indexOf(equipped_unit_prefixes[unit_index].value);
+        loadout.upls[unit_index] = parseInt(equipped_unit_prefix_levels[unit_index].value);
+        loadout.uas[unit_index] = [];
         for (let augment_index = 0; augment_index < equipped_unit_augments[unit_index].length; augment_index++) {
-            loadout.u_as[unit_index][augment_index] = compress.indexOf(equipped_unit_augments[unit_index][augment_index].value);
+            loadout.uas[unit_index][augment_index] = compress.indexOf(equipped_unit_augments[unit_index][augment_index].value);
         }
     }
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
-        loadout.w_as[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
+        loadout.was[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
     }
-    loadout.class = compress.indexOf(player_class.value);
-    loadout.class_level = player_level.value;
-    document.getElementById('loadout').value = btoa(JSON.stringify(loadout));
+    loadout.c = compress.indexOf(player_class.value);
+    loadout.cl = parseInt(player_level.value);
+    loadout.us = JSON.stringify(loadout.us);
+    loadout.uls = JSON.stringify(loadout.uls);
+    loadout.ups = JSON.stringify(loadout.ups);
+    loadout.upls = JSON.stringify(loadout.upls);
+    loadout.uas = JSON.stringify(loadout.uas);
+    loadout.was = JSON.stringify(loadout.was);
+    document.getElementById('loadout').value = JSON.stringify(loadout);
+    
 }
 
 function importLoadout() {
     if (document.getElementById('loadout').value.length == 0) {
         return;
     }
-    let loadout = JSON.parse(atob(document.getElementById('loadout').value));
-     weapon.value = compress[loadout.w];
-     weapon_level.value = loadout.w_l;
-     weapon_prefix.value = compress[loadout.w_p];
-     weapon_prefix_level.value = loadout.w_p_l;
+    let loadout = JSON.parse(document.getElementById('loadout').value);
+    loadout.us = JSON.parse(loadout.us);
+    loadout.uls = JSON.parse(loadout.uls);
+    loadout.ups = JSON.parse(loadout.ups);
+    loadout.upls = JSON.parse(loadout.upls);
+    loadout.uas = JSON.parse(loadout.uas);
+    loadout.was = JSON.parse(loadout.was);
+    weapon.value = compress[loadout.w];
+    weapon_level.value = loadout.wl;
+    weapon_prefix.value = compress[loadout.wp];
+    weapon_prefix_level.value = loadout.wpl;
     for (let unit_index = 0; unit_index < loadout.us.length; unit_index++) {
         equipped_units[unit_index].value = compress[loadout.us[unit_index]];
-        equipped_unit_levels[unit_index].value = loadout.u_ls[unit_index];
-        equipped_unit_prefixes[unit_index].value = compress[loadout.u_ps[unit_index]];
-        equipped_unit_prefix_levels[unit_index].value = loadout.u_p_ls[unit_index];
-        for (let augment_index = 0; augment_index < loadout.u_as[unit_index].length; augment_index++) {
-            equipped_unit_augments[unit_index][augment_index].value = compress[loadout.u_as[unit_index][augment_index]];
+        equipped_unit_levels[unit_index].value = loadout.uls[unit_index];
+        equipped_unit_prefixes[unit_index].value = compress[loadout.ups[unit_index]];
+        equipped_unit_prefix_levels[unit_index].value = loadout.upls[unit_index];
+        for (let augment_index = 0; augment_index < loadout.uas[unit_index].length; augment_index++) {
+            equipped_unit_augments[unit_index][augment_index].value = compress[loadout.uas[unit_index][augment_index]];
         }
     }
-    for (let augment_index = 0; augment_index < loadout.w_as.length; augment_index++) {
-        weapon_augments[augment_index].value = compress[loadout.w_as[augment_index]];
+    for (let augment_index = 0; augment_index < loadout.was.length; augment_index++) {
+        weapon_augments[augment_index].value = compress[loadout.was[augment_index]];
     }
-    player_class.value = compress[loadout.class];
-    player_level.value = loadout.class_level;
+    player_class.value = compress[loadout.c];
+    player_level.value = loadout.cl;
 }
 
 function exportLoadout() {
@@ -527,7 +548,7 @@ function initialize() {
         document.getElementById('unit_2_prefix_level'),
         document.getElementById('unit_3_prefix_level'),
     ];
-
+    
     for (let unit_index = 1; unit_index <= 3; unit_index++) {
         document.getElementById('unit_' + unit_index).addEventListener('change', setStats);
         document.getElementById('unit_' + unit_index + '_level').addEventListener('change', onChangeUnitLevel);
@@ -573,8 +594,8 @@ function initialize() {
     loadWeaponPrefixes();
     loadUnitPrefixes();
     loadLevels();
-
-
+    
+    
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
     document.getElementById('loadout_import').addEventListener('click', importLoadout);
     document.getElementById('loadout_export').addEventListener('click', exportLoadout);

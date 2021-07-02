@@ -14,15 +14,17 @@
     },
     "potency": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "potency_floor": {
         "stacking": "multiplicative",
         "base": 100
     },
-    "damage_taken": {
+    "damage_resistance": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "critical_hit_rate": {
         "stacking": "additive",
@@ -30,57 +32,70 @@
     },
     "critical_hit_potency": {
         "stacking": "multiplicative",
-        "base": 120
+        "base": 120,
+        "display_subtract": 100
     },
     "passive_pp_regen": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "active_pp_regen": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "melee_weapon_potency": {
         "stacking": "multiplicative",
         "affected_by": "potency",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "ranged_weapon_potency": {
         "stacking": "multiplicative",
         "affected_by": "potency",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "tech_weapon_potency": {
         "stacking": "multiplicative",
         "affected_by": "potency",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "burn_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "freeze_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "shock_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "blind_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "panic_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "poison_resist": {
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     },
     "physical_resist":{
         "stacking": "multiplicative",
-        "base": 100
+        "base": 100,
+        "display_subtract": 100
     }
 }
