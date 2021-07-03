@@ -153,7 +153,7 @@ function setStats() {
         const enemy_damage_multiplier = parseFloat(e.querySelector('.enemy_damage_multiplier').value);        
         const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
         const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
-        const critical_damage = Math.floor(calculated_stats['critical_hit_potency'] / 100 * Math.ceil(maximum_damage));
+        const critical_damage = maximum_damage*calculated_stats['critical_hit_potency']/100; //Math.floor(calculated_stats['critical_hit_potency'] / 100 * Math.ceil(maximum_damage));
         const average_damage = ((minimum_damage + maximum_damage) / 2) * (1 - (calculated_stats['critical_hit_rate'] / 100)) + (critical_damage * (calculated_stats['critical_hit_rate'] / 100));
         e.querySelector('.minimum_damage').innerHTML = minimum_damage.toPrecision(4);
         e.querySelector('.maximum_damage').innerHTML = maximum_damage.toPrecision(4);
