@@ -163,6 +163,9 @@ function setStats() {
     const average_attack_power = weapon_attack * ((200 +( weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100) / 2;
     let unit_hp = 0, unit_pp = 0;
     for (const unit of equipped_units) {
+        if (unit.value == "empty") {
+            continue;
+        }
         if (units[unit.value].stats.hasOwnProperty('hp')) {
             unit_hp += units[unit.value].stats.hp;
         }
