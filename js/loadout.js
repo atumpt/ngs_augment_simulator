@@ -12,5 +12,6 @@ export class Loadout {
     unit_prefixes = [];
     unit_prefix_levels = [];
     subclass;
-    subclass_level;
+    subclass_level=20;
+    potential_level=0;
 }

@@ -482,7 +482,7 @@ function arrayToLoadout (obj) {
     const loadout = new Loadout();
     const keys = Object.keys(loadout);
     for (let i = 0; i < keys.length; i++) {
-        loadout[keys[i]] = obj[i];
+        loadout[keys[i]] = obj.hasOwnProperty(i) ? obj[i] : loadout[keys[i]];
     };
     return loadout;
 };
@@ -493,6 +493,7 @@ function printLoadout(e) {
     loadout.weapon_level = parseInt(weapon_level.value);
     loadout.weapon_prefix = compress.indexOf(weapon_prefix.value);
     loadout.weapon_prefix_level = parseInt(weapon_prefix_level.value);
+    loadout.potential_level = parseInt(potential_level.value);
     loadout.units = [];
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
         loadout.units[unit_index] = compress.indexOf(equipped_units[unit_index].value);
@@ -529,6 +530,7 @@ function importLoadout() {
     weapon_level.value = loadout.weapon_level;
     weapon_prefix.value = compress[loadout.weapon_prefix];
     weapon_prefix_level.value = loadout.weapon_prefix_level;
+    potential_level.value = loadout.potential_level;
     for (let unit_index = 0; unit_index < loadout.units.length; unit_index++) {
         equipped_units[unit_index].value = compress[loadout.units[unit_index]];
         equipped_unit_levels[unit_index].value = loadout.unit_levels[unit_index];
