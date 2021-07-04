@@ -162,8 +162,9 @@ function setStats() {
     })
     const average_attack_power = weapon_attack * ((200 +( weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100) / 2;
     let unit_hp = 0, unit_pp = 0;
-    for (const unit of equipped_units) {
-        if (unit.value == "empty") {
+    for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
+        const unit = equipped_units[unit_index];
+        if (unit.value == "empty" || units_enabled[unit_index].checked == false) {
             continue;
         }
         if (units[unit.value].stats.hasOwnProperty('hp')) {
@@ -176,12 +177,12 @@ function setStats() {
     let battlepower = calculated_stats["bp"] + 
                       average_attack_power + 
                       base_attack +
-                      calculated_stats["defense"] / 2 +
+                      Math.floor(calculated_stats["defense"] / 2) +
                       unit_hp / 10 +
                       unit_pp +
                       potential_level.value * 10 +
                       120; // Skill points. Assumes 20 points in main and sub class.
-    window["total_bp"].innerHTML = battlepower;
+    window["total_bp"].innerHTML = Math.floor(battlepower);
 
     console.log(battlepower);
 }
