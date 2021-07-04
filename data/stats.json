@@ -1,4 +1,8 @@
 {
+    "bp": {
+        "stacking": "additive",
+        "base": 0
+    },
     "attack": {
         "stacking": "additive"
     },

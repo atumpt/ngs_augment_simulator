@@ -33,7 +33,10 @@
     },
     "twin_machine_guns":{
         "name":"Twin Machine Guns",
-        "damage_type": "ranged"
+        "damage_type": "ranged",
+        "attacks": {
+            
+        }
     },
     "rod":{
         "name":"Rod",

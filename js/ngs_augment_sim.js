@@ -16,8 +16,8 @@ classes,
 elements,
 augments,
 units,
-player_class,
-class_level,
+player_mainclass,
+mainclass_level,
 player_subclass,
 subclass_level,
 unit_prefixes,
@@ -54,8 +54,8 @@ function setStats() {
         if (Object.hasOwnProperty.call(stats, stat_key)) {
             const stat = stats[stat_key];
             let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
-            if (classes[player_class.value].stats.hasOwnProperty(stat_key)) {
-                value = stackStat(value, classes[player_class.value].stats[stat_key][class_level.value-1], stat.stacking);
+            if (classes[player_mainclass.value].stats.hasOwnProperty(stat_key)) {
+                value = stackStat(value, classes[player_mainclass.value].stats[stat_key][mainclass_level.value-1], stat.stacking);
             }
             if (weapon_enabled.checked && weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].stats.hasOwnProperty(stat_key)) {
                 if (Array.isArray(weapon_series[weapons[weapon.value].series].stats[stat_key])) {
@@ -136,23 +136,23 @@ function setStats() {
             }
         }
     }
-    if (weapon.value != 'empty' && classes[player_class.value].weapon_types.indexOf(weapons[weapon.value].type) == -1) {
+    if (weapon.value != 'empty' && classes[player_mainclass.value].weapon_types.indexOf(weapons[weapon.value].type) == -1) {
         weapon.classList.add('invalid');
         weapon.title = 'This is not a main class weapon. You will not get the 10% main class weapon bonus.';
     } else {
         weapon.classList.remove('invalid');
         weapon.title = '';
     }
+    const base_attack = classes[player_mainclass.value].stats.attack[mainclass_level.value -1 ];
+    const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
     document.querySelectorAll('.attack_row').forEach((e) => {
-        const base_attack = classes[player_class.value].stats.attack[class_level.value -1 ];
-        const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
         const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
         const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_types[weapon_type].damage_type + "_weapon_potency"] : calculated_stats["potency"];
         const attack_potency = parseFloat(e.querySelector('.attack_potency').value);
         const enemy_defense = parseFloat(e.querySelector('.enemy_defense').value);
         const enemy_damage_multiplier = parseFloat(e.querySelector('.enemy_damage_multiplier').value);        
-        const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
-        const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_class.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+        const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+        const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
         const critical_damage = maximum_damage*calculated_stats['critical_hit_potency']/100; //Math.floor(calculated_stats['critical_hit_potency'] / 100 * Math.ceil(maximum_damage));
         const average_damage = ((minimum_damage + maximum_damage) / 2) * (1 - (calculated_stats['critical_hit_rate'] / 100)) + (critical_damage * (calculated_stats['critical_hit_rate'] / 100));
         e.querySelector('.minimum_damage').innerHTML = minimum_damage.toPrecision(4);
@@ -160,6 +160,27 @@ function setStats() {
         e.querySelector('.critical_damage').innerHTML = critical_damage.toPrecision(4);
         e.querySelector('.average_damage').innerHTML = average_damage.toPrecision(4);
     })
+    const average_attack_power = weapon_attack * ((200 +( weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100) / 2;
+    let unit_hp = 0, unit_pp = 0;
+    for (const unit of equipped_units) {
+        if (units[unit.value].stats.hasOwnProperty('hp')) {
+            unit_hp += units[unit.value].stats.hp;
+        }
+        if (units[unit.value].stats.hasOwnProperty('pp')) {
+            unit_pp += units[unit.value].stats.pp;
+        }
+    }
+    let battlepower = calculated_stats["bp"] + 
+                      average_attack_power + 
+                      base_attack +
+                      calculated_stats["defense"] / 2 +
+                      unit_hp / 10 +
+                      unit_pp +
+                      potential_level.value * 10 +
+                      120; // Skill points. Assumes 20 points in main and sub class.
+    window["total_bp"].innerHTML = battlepower;
+
+    console.log(battlepower);
 }
 
 function loadUnits() {
@@ -179,7 +200,7 @@ function loadClassLevels() {
     for (let index = max_class_level - 1; index >= 0; index--) {
         options += '<option value="' + index + '">' + index + '</option>';
     }
-    class_level.innerHTML = options;
+    mainclass_level.innerHTML = options;
     subclass_level.innerHTML = options;
 }
 function loadWeaponLevels() {
@@ -285,12 +306,12 @@ function loadClasses() {
             options += '<option' + ' value="' + class_key  + '">' + classes[class_key].name + '</option>';
         }
     }
-    document.getElementById('class').innerHTML = options;
-    document.getElementById('subclass').innerHTML = options.replace(/(hunter)(.*)(fighter)/, '$3$2$1').replace(/(Hunter)(.*)(Fighter)/, '$3$2$1');
+    player_mainclass.innerHTML = options;
+    player_subclass.innerHTML = options.replace(/(hunter)(.*)(fighter)/, '$3$2$1').replace(/(Hunter)(.*)(Fighter)/, '$3$2$1');
 }
 
 function onChangeClass() {
-    if (player_class.value == player_subclass.value) {
+    if (player_mainclass.value == player_subclass.value) {
         player_subclass.classList.add('invalid');
         player_subclass.title = 'You cannot use your mainclass as your subclass';
     } else {
@@ -482,8 +503,8 @@ function printLoadout(e) {
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
         loadout.weapon_augments[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
     }
-    loadout.mainclass = compress.indexOf(player_class.value);
-    loadout.mainclass_level = parseInt(class_level.value);
+    loadout.mainclass = compress.indexOf(player_mainclass.value);
+    loadout.mainclass_level = parseInt(mainclass_level.value);
     loadout.subclass = compress.indexOf(player_subclass.value);
     loadout.subclass_level = parseInt(subclass_level.value);
     loadout.units = JSON.stringify(loadout.units);
@@ -516,8 +537,8 @@ function importLoadout() {
     for (let augment_index = 0; augment_index < loadout.weapon_augments.length; augment_index++) {
         weapon_augments[augment_index].value = compress[loadout.weapon_augments[augment_index]];
     }
-    player_class.value = compress[loadout.mainclass];
-    class_level.value = loadout.mainclass_level;
+    player_mainclass.value = compress[loadout.mainclass];
+    mainclass_level.value = loadout.mainclass_level;
     player_subclass.value = compress[loadout.subclass];
     subclass_level.value = loadout.subclass_level;
     setStats();
@@ -580,8 +601,8 @@ function addAttackRow(e) {
 }
 
 function initialize() {
-    player_class = document.getElementById('class');
-    class_level = document.getElementById('class_level');
+    player_mainclass = document.getElementById('mainclass');
+    mainclass_level = document.getElementById('mainclass_level');
     player_subclass = document.getElementById('subclass');
     subclass_level = document.getElementById('subclass_level');
     weapon = document.getElementById('weapon');
@@ -652,7 +673,7 @@ function initialize() {
             document.getElementById('unit_' + unit_index + '_augment_' + augment_index).addEventListener('change', onChangeUnitAugment);
         }
     }
-    player_class.addEventListener('change', onChangeClass);
+    player_mainclass.addEventListener('change', onChangeClass);
     player_subclass.addEventListener('change', onChangeClass);
     weapon.addEventListener('change', onChangeWeapon);
     weapon_level.addEventListener('change', onChangeWeaponLevel);
