@@ -27,11 +27,6 @@
                 <input type="checkbox" name="sync_augments" id="sync_augments">
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                
-            </div>
-        </div>
         <div class="d-flex w-100">
         <table>
             <thead>
@@ -368,6 +363,15 @@
                 </tbody>
             </table>
             <script src="js/ngs_augment_sim.js?v=1625232706" type="module"></script>
+        </div>
+        <button name="show_loadouts" id="show_loadouts">Saved Loadouts</button>
+        <div class="d-none" id="loadout_container">
+            <button id="hide_loadouts">Hide</button>
+            <input type="text" name="new_loadout_name" id="new_loadout_name">
+            <button id="loadout_save">Save Current</button>
+            <ul id="loadout_list">
+
+            </ul>
         </div>
     </body>
     </html>

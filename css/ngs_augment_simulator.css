@@ -13,3 +13,34 @@ select.invalid {
     border-width: 5px;
     border-color: red;
 }
+
+#loadout_container {
+    position: fixed;
+    right:0;
+    top:0;
+    border-left: 3px black solid;
+    background-color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    z-index: 3;
+    height: 100%;
+}
+
+#hide_loadouts {
+    margin-bottom: 5em;
+}
+
+#show_loadouts {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+#loadout_list {
+    list-style: none;
+}
+
+#loadout_list li button {
+    margin-left: 1em;
+}

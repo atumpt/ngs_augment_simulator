@@ -531,8 +531,48 @@ function importLoadout() {
     }
 }
 
+function showLoadouts() {
+    let loadout_list = '';
+    const loadouts = window.localStorage.getItem('loadouts') != null ? JSON.parse(window.localStorage.getItem('loadouts')) : [];
+    for (const loadout of loadouts) {
+        loadout_list += '<li data-loadout-name="' + loadout.name + '">' + loadout.name + '<button data-loadout-name="' + loadout.name + '" value="Load">Load</button><button data-loadout-name="' + loadout.name + '" value="Delete">Delete</button></li>';
+    }
+    document.getElementById('loadout_list').innerHTML = loadout_list;
+    document.querySelectorAll('button[data-loadout-name][value="Load"').forEach((e) => e.addEventListener('click', loadLoadout));
+    document.querySelectorAll('button[data-loadout-name][value="Delete"').forEach((e) => e.addEventListener('click', deleteLoadout));
+    document.getElementById('loadout_container').classList.remove('d-none');
+}
+
+function hideLoadouts() {
+    document.getElementById('loadout_container').classList.add('d-none');
+}
+
+function deleteLoadout(e) {
+    const loadout_name = e.target.getAttribute('data-loadout-name');
+    const loadouts = window.localStorage.getItem('loadouts') != null ? JSON.parse(window.localStorage.getItem('loadouts')).filter((l) => l.name != loadout_name) : [];
+    window.localStorage.setItem('loadouts', JSON.stringify(loadouts)); //Array.isArray(loadouts) ? loadouts : '[]');
+    showLoadouts()
+}
+
+function loadLoadout(e) {
+    const loadout_name =  e.target.getAttribute('data-loadout-name');
+    const loadouts = window.localStorage.getItem('loadouts') != null ? JSON.parse(window.localStorage.getItem('loadouts')) : [];
+    const loadout = loadouts.find((l) => l.name == loadout_name);
+    document.getElementById('loadout').value = loadout.loadout_string;
+    importLoadout();
+}
+
+function saveLoadout() {
+    const loadout = { "name": document.getElementById('new_loadout_name').value, "loadout_string": document.getElementById('loadout').value};
+    const loadouts = window.localStorage.getItem('loadouts') != null ? JSON.parse(window.localStorage.getItem('loadouts')).filter((l) => l.name != loadout.name) : [];
+    loadouts.push(loadout);
+    window.localStorage.setItem('loadouts', JSON.stringify(loadouts));
+    showLoadouts()
+}
+
 function exportLoadout() {
-    navigator.clipboard.writeText(window.location + document.getElementById('loadout').value);
+    window.location.hash = document.getElementById('loadout').value
+    navigator.clipboard.writeText(window.location);
 }
 
 function addAttackRow(e) {
@@ -632,6 +672,9 @@ function initialize() {
     document.getElementById('loadout_import').addEventListener('click', importLoadout);
     document.getElementById('loadout_export').addEventListener('click', exportLoadout);
     document.getElementById('add_attack_row').addEventListener('click', addAttackRow);
+    document.getElementById('loadout_save').addEventListener('click', saveLoadout);
+    document.getElementById('show_loadouts').addEventListener('click', showLoadouts);
+    document.getElementById('hide_loadouts').addEventListener('click', hideLoadouts);
     if (window.location.hash.length > 0) {
         document.getElementById('loadout').value = window.location.hash.substring(1);
         window.location.hash = '';

@@ -115,7 +115,7 @@
         "potential":{
             "name":"Mustered Might Unit",
             "stats": {
-                "potency":[0,15,17,20,21]
+                "potency":[0,20.75,22.85,26,27.05]
             },
             "description":"Increases potency depending on HP up to +5% at max HP"
         }
