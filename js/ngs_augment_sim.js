@@ -243,14 +243,15 @@ function setStats() {
         e.querySelector('.average_damage').innerHTML = average_damage.toPrecision(4);
     })
     const average_attack_power = weapon_attack * (200 +(weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100 / 2;
-    let unit_hp = 0, unit_pp = 0, unit_armor = 0;;
+    // unit contributions seem to be calculated invidually, floored, and then added to the total.
+    let unit_hp = 0, unit_pp = 0, unit_armor = 0;
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
         const unit = equipped_units[unit_index];
         if (unit.value == "empty" || units_enabled[unit_index].checked == false) {
             continue;
         }
         if (units[unit.value].stats.hasOwnProperty('hp')) {
-            unit_hp += units[unit.value].stats.hp;
+            unit_hp += Math.floor(units[unit.value].stats.hp) / 10;
         }
         if (units[unit.value].stats.hasOwnProperty('pp')) {
             unit_pp += units[unit.value].stats.pp;
@@ -262,7 +263,7 @@ function setStats() {
                       base_attack +
                       unit_armor + 
                       Math.floor(classes[mainclass.value].stats.defense[mainclass_level.value-1] / 2) +
-                      Math.floor(unit_hp / 10) +
+                      unit_hp +
                       unit_pp +
                       potential_level.value * 10 +
                       120; // Skill points. Assumes 20 points in main and sub class.
