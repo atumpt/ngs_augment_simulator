@@ -16,6 +16,11 @@
         "stacking": "additive",
         "base": 100
     },
+    "downed_potency": {
+        "stacking": "multiplicative",
+        "base": 100,
+        "display_subtract": 100
+    },
     "potency": {
         "stacking": "multiplicative",
         "base": 100,

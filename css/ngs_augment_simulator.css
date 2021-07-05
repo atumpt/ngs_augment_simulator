@@ -6,7 +6,7 @@ select.augment, select.prefix, select.potential {
 }
 
 thead th, td {
-    padding-left: 3em;
+    padding-left: 2em;
 }
 
 select.invalid {

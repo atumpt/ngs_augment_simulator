@@ -28,209 +28,238 @@
             </div>
         </div>
         <div class="d-flex w-100">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th colspan="2" class="mx-1">Weapon<input type="checkbox" id="weapon_enabled" checked="checked" title="Enabled"></th>
-                    <th colspan="2" class="mx-1">Unit 1<input type="checkbox" id="unit_1_enabled" checked="checked" title="Enabled"></th>
-                    <th colspan="2" class="mx-1">Unit 2<input type="checkbox" id="unit_2_enabled" checked="checked" title="Enabled"></th>
-                    <th colspan="2" class="mx-1">Unit 3<input type="checkbox" id="unit_3_enabled" checked="checked" title="Enabled"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th></th>
-                    <td>
-                        <select class="weapon_select" name="weapon" id="weapon">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="weapon_level" step="none" name="weapon_level" id="weapon_level">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_select" name="unit_1" id="unit_1">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_level" step="none" name="unit_1_level" id="unit_1_level">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_select" name="unit_2" id="unit_2">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_level" step="none" name="unit_2_level" id="unit_2_level">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_select" name="unit_3" id="unit_3">
-                        </select>
-                    </td>
-                    <td>
-                        <select class="unit_level" step="none" name="unit_3_level" id="unit_3_level">
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Augment&nbsp;1</th>
-                    <td colspan="2">
-                        <select name="weapon_augment_1" id="weapon_augment_1" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_1_augment_1" id="unit_1_augment_1" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_2_augment_1" id="unit_2_augment_1" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_3_augment_1" id="unit_3_augment_1" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Augment&nbsp;2</th>
-                    <td colspan="2">
-                        <select name="weapon_augment_2" id="weapon_augment_2" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_1_augment_2" id="unit_1_augment_2" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_2_augment_2" id="unit_2_augment_2" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_3_augment_2" id="unit_3_augment_2" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Augment&nbsp;3</th>
-                    <td colspan="2">
-                        <select name="weapon_augment_3" id="weapon_augment_3" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_1_augment_3" id="unit_1_augment_3" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_2_augment_3" id="unit_2_augment_3" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_3_augment_3" id="unit_3_augment_3" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Augment&nbsp;4</th>
-                    <td colspan="2">
-                        <select name="weapon_augment_4" id="weapon_augment_4" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_1_augment_4" id="unit_1_augment_4" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_2_augment_4" id="unit_2_augment_4" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <select name="unit_3_augment_4" id="unit_3_augment_4" class="augment">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Preset Skill</th>
-                    <td>
-                        <select name="weapon_prefix" id="weapon_prefix" class="prefix">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select name="weapon_prefix_level" id="weapon_prefix_level" class="prefix">
-                        </select>
-                    </td>
-                    <td>
-                        <select name="unit_1_prefix" id="unit_1_prefix" class="prefix">
-                            <option value="empty">Empty</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select name="unit_1_prefix_level" id="unit_1_prefix_level" class="prefix">
-                        </select>
-                    </td>
-                    <td>
-                        <select name="unit_2_prefix" id="unit_2_prefix" class="prefix">
-                            <option value="empty">Empty</option>
-                        </select>
-                        </td
-                        ><td>
-                            <select name="unit_2_prefix_level" id="unit_2_prefix_level" class="prefix">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="2" class="mx-1">Weapon<input type="checkbox" id="weapon_enabled" checked="checked" title="Enabled"></th>
+                        <th colspan="2" class="mx-1">Unit 1<input type="checkbox" id="unit_1_enabled" checked="checked" title="Enabled"></th>
+                        <th colspan="2" class="mx-1">Unit 2<input type="checkbox" id="unit_2_enabled" checked="checked" title="Enabled"></th>
+                        <th colspan="2" class="mx-1">Unit 3<input type="checkbox" id="unit_3_enabled" checked="checked" title="Enabled"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <select class="weapon_select" name="weapon" id="weapon">
                             </select>
                         </td>
                         <td>
-                            <select name="unit_3_prefix" id="unit_3_prefix" class="prefix">
-                                <option value="empty">Empty</option>
+                            <select class="weapon_level" step="none" name="weapon_level" id="weapon_level">
                             </select>
                         </td>
                         <td>
-                            <select name="unit_3_prefix_level" id="unit_3_prefix_level" class="prefix">
+                            <select class="unit_select" name="unit_1" id="unit_1">
+                            </select>
+                        </td>
+                        <td>
+                            <select class="unit_level" step="none" name="unit_1_level" id="unit_1_level">
+                            </select>
+                        </td>
+                        <td>
+                            <select class="unit_select" name="unit_2" id="unit_2">
+                            </select>
+                        </td>
+                        <td>
+                            <select class="unit_level" step="none" name="unit_2_level" id="unit_2_level">
+                            </select>
+                        </td>
+                        <td>
+                            <select class="unit_select" name="unit_3" id="unit_3">
+                            </select>
+                        </td>
+                        <td>
+                            <select class="unit_level" step="none" name="unit_3_level" id="unit_3_level">
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <th>Potential</th>
-                        <td class="d-flex"><span id="potential_name"></span><span class="ms-auto">Lv</span></td>
-                        <td>
-                            <select name="potential_level" id="potential_level" class="potential">
+                        <th>Augment&nbsp;1</th>
+                        <td colspan="2">
+                            <select name="weapon_augment_1" id="weapon_augment_1" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_1_augment_1" id="unit_1_augment_1" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_2_augment_1" id="unit_2_augment_1" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_3_augment_1" id="unit_3_augment_1" class="augment">
+                                <option value="empty">Empty</option>
                             </select>
                         </td>
                     </tr>
-                </tbody>
-            </table>
-            <div class="row ms-5 w-100">
-                <div class="col">
-                    <h6>Main Class</h6>
-                    <select name="mainclass" id="mainclass">
-                    </select>
-                    <select name="mainclass_level" id="mainclass_level">
-                    </select>
+                    <tr>
+                        <th>Augment&nbsp;2</th>
+                        <td colspan="2">
+                            <select name="weapon_augment_2" id="weapon_augment_2" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_1_augment_2" id="unit_1_augment_2" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_2_augment_2" id="unit_2_augment_2" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_3_augment_2" id="unit_3_augment_2" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Augment&nbsp;3</th>
+                        <td colspan="2">
+                            <select name="weapon_augment_3" id="weapon_augment_3" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_1_augment_3" id="unit_1_augment_3" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_2_augment_3" id="unit_2_augment_3" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_3_augment_3" id="unit_3_augment_3" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Augment&nbsp;4</th>
+                        <td colspan="2">
+                            <select name="weapon_augment_4" id="weapon_augment_4" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_1_augment_4" id="unit_1_augment_4" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_2_augment_4" id="unit_2_augment_4" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <select name="unit_3_augment_4" id="unit_3_augment_4" class="augment">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Preset Skill</th>
+                        <td>
+                            <select name="weapon_prefix" id="weapon_prefix" class="prefix">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="weapon_prefix_level" id="weapon_prefix_level" class="prefix">
+                            </select>
+                        </td>
+                        <td>
+                            <select name="unit_1_prefix" id="unit_1_prefix" class="prefix">
+                                <option value="empty">Empty</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="unit_1_prefix_level" id="unit_1_prefix_level" class="prefix">
+                            </select>
+                        </td>
+                        <td>
+                            <select name="unit_2_prefix" id="unit_2_prefix" class="prefix">
+                                <option value="empty">Empty</option>
+                            </select>
+                            </td
+                            ><td>
+                                <select name="unit_2_prefix_level" id="unit_2_prefix_level" class="prefix">
+                                </select>
+                            </td>
+                            <td>
+                                <select name="unit_3_prefix" id="unit_3_prefix" class="prefix">
+                                    <option value="empty">Empty</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="unit_3_prefix_level" id="unit_3_prefix_level" class="prefix">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Potential</th>
+                            <td class="d-flex"><span id="potential_name"></span><span class="ms-auto">Lv</span></td>
+                            <td>
+                                <select name="potential_level" id="potential_level" class="potential">
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex ms-4">
+                    <div class="">
+                        <h6>Main Class</h6>
+                        <select name="mainclass" id="mainclass">
+                        </select>
+                        <select name="mainclass_level" id="mainclass_level">
+                        </select>
+                    </div>
+                    <div class="ms-4">
+                        <h6>Sub Class</h6>
+                        <select name="subclass" id="subclass">
+                        </select>
+                        <select name="subclass_level" id="subclass_level">
+                        </select>
+                    </div>
                 </div>
-                <div class="col">
-                    <h6>Sub Class</h6>
-                    <select name="subclass" id="subclass">
-                    </select>
-                    <select name="subclass_level" id="subclass_level">
-                    </select>
+                <div class="d-flex ms-4">
+                    <h6>Food</h6>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stat</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP</th>
+                                <td><input type="number" name="food_hp" id="food_hp"></td>
+                            </tr>
+                            <tr>
+                                <th>PP</th>
+                                <td><input type="number" name="food_pp" id="food_pp"></td>
+                            </tr>
+                            <tr>
+                                <th>Potency</th>
+                                <td><input type="number" name="food_potency" id="food_potency"></td>
+                            </tr>
+                            <tr>
+                                <th>Downed Potency</th>
+                                <td><input type="number" name="food_downed_potency" id="food_downed_potency"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
             </div>
             
             <table class="table" id="stat_table">
@@ -339,7 +368,8 @@
                         <th></th>
                         <th>Attack Potency</th>
                         <th>Enemy Defense</th>
-                        <th>Enemy Damage Multiplier</th>
+                        <th>Damage Multipliers</th>
+                        <th>Total Potency</th>
                         <th>Minimum Damage</th>
                         <th>Average Damage</th>
                         <th>Maximum Damage</th>
@@ -350,8 +380,33 @@
                     <tr class="attack_row">
                         <td></td>
                         <td><input type="number" name="attack_potency" class="attack_potency" value="100"></td>
-                        <td><input type="number" name="enemy_defense" class="enemy_defense" value="610"></td>
-                        <td><input type="number" name="enemy_damage_multiplier" class="enemy_damage_multiplier" value="1"></td>
+                        <td><select name="enemy_defense" class="enemy_defense"></select></td>
+                        <td class="damage_modifiers">
+                            <label for="damage_multipliers[shifta]">Shifta
+                                <input type="checkbox" name="damage_multipliers[shifta]" data-damage-modifier="shifta">
+                            </label><br>
+                            <label for="damage_multipliers[blight_rounds]">Blight Rounds
+                                <input type="checkbox" name="damage_multipliers[blight_rounds]" data-damage-modifier="blight_rounds">
+                                <input type="checkbox" name="damage_multipliers[blight_rounds_reinforce]" data-damage-modifier="blight_rounds_reinforce" title="Reinforced (purple target)">
+                            </label><br>
+                            <label for="damage_multipliers[downed]">Downed
+                                <input type="checkbox" name="damage_multipliers[downed]" data-damage-modifier="downed">
+                            </label><br>
+                            <!--<label for="damage_multipliers[break]">Break
+                                <input type="checkbox" name="damage_multipliers[break]" data-damage-modifier="break" title="UQ Break bar depleted">
+                            </label><br>-->
+                            <label for="damage_multipliers[weakpoint]">Weakpoint
+                                <input type="checkbox" name="damage_multipliers[weakpoint]" data-damage-modifier="weakpoint">
+                            </label><br>
+                            <label for="damage_multipliers[gigantix]">Gigantix
+                                <input type="checkbox" name="damage_multipliers[gigantix]" data-damage-modifier="gigantix">
+                            </label><br>
+                            <label for="dmage_multipliers[custom]">Custom
+                                <input type="checkbox" name="damage_multipliers[custom]" data-damage-modifier="custom">
+                                <input type="number" name="damage_multipliers[custom]" data-damage-modifier="custom_value" value="1">
+                            </label>
+                        </td>
+                        <td><span class="total_potency"></span></td>
                         <td><span class="minimum_damage"></span></td>
                         <td><span class="average_damage"></span></td>
                         <td><span class="maximum_damage"></span></td>
@@ -370,7 +425,7 @@
             <input type="text" name="new_loadout_name" id="new_loadout_name">
             <button id="loadout_save">Save Current</button>
             <ul id="loadout_list">
-
+                
             </ul>
         </div>
     </body>

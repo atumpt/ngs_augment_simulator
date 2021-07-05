@@ -142,6 +142,8 @@
     "straga_twin_machine_guns",
     "straga_rod",
     "straga_wand",
+    "true",
+    "false",
     true,
     false
 ]

@@ -1,0 +1,63 @@
+{
+    "shifta": {
+        "name": "Shifta",
+        "stats" :{
+            "potency": 1.05
+        },
+        "enhanced_by" :{
+            "downed" : {
+                "stats": {
+                    "potency": 1.05
+                }
+            }
+        }
+    },
+    "blight_rounds": {
+        "name": "Blight Rounds",
+        "stats" :{
+            "potency": 1.2
+        }
+    },
+    "blight_rounds_reinforce" :{
+        "name": "Blight Rounds Reinforce",
+        "overwrites": "blight_rounds",
+        "stats": {
+            "potency": 1.25
+        }
+    },
+    "downed": {
+        "name": "Downed",
+        "stats": {}
+    },
+    "weakpoint": {
+        "name": "Weakpoint",
+        "stats": {
+            "potency": 1.5
+        }
+    },
+    "gigantix": {
+        "name": "Gigantix",
+        "stats": {
+            "potency": 0.5
+        }
+    },
+    "region_mag": {
+        "name": "Region Mag",
+        "stats": {
+            "potency": 1.05
+        }
+    },
+    "optimal_range": {
+        "name": "Optimal Range",
+        "stats": {
+            "potency": 1.2
+        }
+    },
+    "break": {
+        "name": "Break",
+        "stats": {
+            "potency": 1,
+            "enemy_defense": 0.7
+        }
+    }
+}

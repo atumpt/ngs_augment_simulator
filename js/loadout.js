@@ -16,4 +16,10 @@ export class Loadout {
     potential_level=0;
     units_enabled = [true, true, true];
     weapon_enabled = true;
+    food_stats = {
+        "hp": 0,
+        "pp": 0,
+        "potency": 0,
+        "downed_potency": 0,
+    };
 }
