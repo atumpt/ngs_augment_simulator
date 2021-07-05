@@ -14,4 +14,6 @@ export class Loadout {
     subclass;
     subclass_level=20;
     potential_level=0;
+    units_enabled = [true, true, true];
+    weapon_enabled = true;
 }

@@ -6,7 +6,37 @@
             "attack":[450,459,467,476,486,495,505,514,524,534,545,555,566,577,588,599,610,622,634,646],
             "defense":[304,309,313,318,323,328,333,338,343,349,354,359,365,370,376,382,388,394,400,406]
         },
-        "weapon_types": ["sword", "partisan", "wired_lance"]
+        "weapon_types": ["sword", "partisan", "wired_lance"],
+        "skills": {
+            "hunter_physique": {
+                "active": true,
+                "mainclass_only": false,
+                "mainclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.5, 0.45, 0.4, 0.35, 0.3]
+                    }
+                },
+                "subclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.95, 0.9, 0.85, 0.8, 0.75]
+                    }
+                }
+            },
+            "flash_guard": {
+                "active": false,
+                "mainclass_only": false,
+                "mainclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.90, 0.89, 0.88, 0.87, 0.86, 0.85, 0.85, 0.84, 0.83, 0.82, 0.8]
+                    }
+                },
+                "subclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.99, 0.98, 0.97, 0.96, 0.95, 0.95, 0.94, 0.93, 0.92, 0.91, 0.9]
+                    }
+                }
+            }
+        }
     },
     "fighter":{
         "name": "Fighter",
@@ -15,7 +45,37 @@
             "attack":[454,463,471,480,490,499,509,518,528,538,549,559,570,581,592,603,614,626,638,650],
             "defense":[301,306,310,315,320,325,330,335,340,346,351,356,362,367,373,379,385,391,397,403]
         },
-        "weapon_types": ["double_saber", "twin_daggers", "knuckles"]
+        "weapon_types": ["double_saber", "twin_daggers", "knuckles"],
+        "skills": {
+            "overload": {
+                "active": true,
+                "mainclass_only": true,
+                "mainclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.5, 0.45, 0.4, 0.35, 0.3]
+                    }
+                },
+                "subclass": {
+                    "stats": {
+                        "damage_resistance": [0]
+                    }
+                }
+            },
+            "defeat_advantage": {
+                "active": false,
+                "mainclass_only": false,
+                "mainclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.90, 0.89, 0.88, 0.87, 0.86, 0.85, 0.85, 0.84, 0.83, 0.82, 0.8]
+                    }
+                },
+                "subclass": {
+                    "stats": {
+                        "damage_resistance": [0, 0.99, 0.98, 0.97, 0.96, 0.95, 0.95, 0.94, 0.93, 0.92, 0.91, 0.9]
+                    }
+                }
+            }
+        }
     },
     "ranger":{
         "name": "Ranger",

@@ -16,9 +16,9 @@ classes,
 elements,
 augments,
 units,
-player_mainclass,
+mainclass,
 mainclass_level,
-player_subclass,
+subclass,
 subclass_level,
 unit_prefixes,
 weapon,
@@ -38,7 +38,8 @@ stat_sources,
 sync_augments,
 calculated_stats = {},
 weapon_enabled,
-units_enabled = []
+units_enabled = [],
+active_loadout
 ;
 
 function stackStat(current, extra, type) {
@@ -49,13 +50,94 @@ function stackStat(current, extra, type) {
     }
 }
 
+function calculateStats(loadout) {
+    
+    for (const stat_key in stats) {
+        if (Object.hasOwnProperty.call(stats, stat_key)) {
+            const stat = stats[stat_key];
+            let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
+            if (classes[loadout.mainclass].stats.hasOwnProperty(stat_key)) {
+                value = stackStat(value, classes[loadout.mainclass].stats[stat_key][loadout.mainclass_level - 1], stat.stacking);
+            }
+            if (loadout.weapon_enabled) {                
+                if( loadout.weapon != 'empty' && weapon_series[weapons[loadout.weapon].series].stats.hasOwnProperty(stat_key)) {
+                    if (Array.isArray(weapon_series[weapons[loadout.weapon].series].stats[stat_key])) {
+                        value = stackStat(value, weapon_series[weapons[loadout.weapon].series].stats[stat_key][loadout.weapon_level], stat.stacking);
+                    } else {
+                        value = stackStat(value, weapon_series[weapons[loadout.weapon].series].stats[stat_key], stat.stacking);
+                    }
+                }
+                if (loadout.weapon != 'empty' && weapon_series[weapons[loadout.weapon].series].potential.stats.hasOwnProperty(stat_key)) {
+                    let potential_value;
+                    if (Array.isArray(weapon_series[weapons[loadout.weapon].series].potential.stats[stat_key])) {
+                        potential_value = weapon_series[weapons[loadout.weapon].series].potential.stats[stat_key][loadout.potential_level];
+                    } else {
+                        potential_value = weapon_series[weapons[loadout.weapon].series].potential.stats[stat_key];
+                    }
+                    if (weapon_series[weapons[loadout.weapon].series].potential.hasOwnProperty('stat_scales') && weapon_series[weapons[loadout.weapon].series].potential.stat_scales.hasOwnProperty(stat_key)) {
+                        potential_value = potential_value * Number.parseFloat(window["total_" + weapon_series[weapons[loadout.weapon].series].potential.stat_scales[stat_key].stat].innerHTML) / weapon_series[weapons[loadout.weapon].series].potential.stat_scales[stat_key].limit
+                    }
+                    value = stackStat(value, potential_value, stat.stacking);
+                }
+                if (loadout.weapon_prefix != 'empty' && weapon_prefixes[loadout.weapon_prefix].stats.hasOwnProperty(stat_key)) {
+                    if (Array.isArray(weapon_prefixes[loadout.weapon_prefix].stats[stat_key])) {
+                        value = stackStat(value, weapon_prefixes[loadout.weapon_prefix].stats[stat_key][loadout.weapon_prefix_level], stat.stacking);
+                    } else {
+                        value = stackStat(value, weapon_prefixes[loadout.weapon_prefix].stats[stat_key], stat.stacking);
+                    }
+                }                
+                for (let augment_index = 0; augment_index < 4; augment_index++) {
+                    const augment = weapon_augments[augment_index];
+                    if (augment.disabled != true && loadout.augment != 'empty' && augments[loadout.augment].stats.hasOwnProperty(stat_key)) {
+                        value = stackStat(value, augments[loadout.augment].stats[stat_key], stat.stacking);
+                    }
+                }
+            }
+            for (let unit_index = 0; unit_index < loadout.units.length; unit_index++) {
+                if (!units_enabled[unit_index].checked) {
+                    continue;
+                }
+                const unit = loadout.units[unit_index];
+                const unit_level = loadout.unit_levels[unit_index];
+                const unit_prefix = loadout.unit_prefixes[unit_index];
+                const unit_prefix_level = loadout.unit_prefix_levels[unit_index];
+                const unit_augments = loadout.unit_augments[unit_index];
+                if (loadout.unit != 'empty' && units[unit].stats.hasOwnProperty(stat_key)) {
+                    if (Array.isArray(units[unit].stats[stat_key])) {
+                        value = stackStat(value, units[unit].stats[stat_key][unit_level], stat.stacking);
+                    } else {
+                        value = stackStat(value, units[unit].stats[stat_key], stat.stacking);
+                    }
+                }
+                if (loadout.unit_prefix != 'empty' && unit_prefixes[unit_prefix].stats.hasOwnProperty(stat_key)) {
+                    if (Array.isArray(unit_prefixes[unit_prefix].stats[stat_key])) {
+                        value = stackStat(value, unit_prefixes[unit_prefix].stats[stat_key][unit_prefix_level], stat.stacking);
+                    } else {
+                        value = stackStat(value, unit_prefixes[unit_prefix].stats[stat_key], stat.stacking);
+                    }
+                }
+                for (let augment_index = 0; augment_index < loadout.unit_augments.length; augment_index++) {
+                    const augment = unit_augments[augment_index];
+                    if (augment.disabled != true && augment != 'empty' && augments[augment].stats.hasOwnProperty(stat_key)) {
+                        value = stackStat(value, augments[augment].stats[stat_key], stat.stacking);
+                    }
+                }
+            }
+            if (stat.hasOwnProperty('affected_by') && stats.hasOwnProperty(stat.affected_by)) {
+                value = stackStat(value, calculated_stats[stat.affected_by] - stats[stat.affected_by].base, stat.stacking);
+            }
+            calculated_stats[stat_key] = value;
+        }
+    }
+}
+
 function setStats() {
     for (const stat_key in stats) {
         if (Object.hasOwnProperty.call(stats, stat_key)) {
             const stat = stats[stat_key];
             let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
-            if (classes[player_mainclass.value].stats.hasOwnProperty(stat_key)) {
-                value = stackStat(value, classes[player_mainclass.value].stats[stat_key][mainclass_level.value-1], stat.stacking);
+            if (classes[mainclass.value].stats.hasOwnProperty(stat_key)) {
+                value = stackStat(value, classes[mainclass.value].stats[stat_key][mainclass_level.value-1], stat.stacking);
             }
             if (weapon_enabled.checked && weapon.value != 'empty' && weapon_series[weapons[weapon.value].series].stats.hasOwnProperty(stat_key)) {
                 if (Array.isArray(weapon_series[weapons[weapon.value].series].stats[stat_key])) {
@@ -136,14 +218,14 @@ function setStats() {
             }
         }
     }
-    if (weapon.value != 'empty' && classes[player_mainclass.value].weapon_types.indexOf(weapons[weapon.value].type) == -1) {
+    if (weapon.value != 'empty' && classes[mainclass.value].weapon_types.indexOf(weapons[weapon.value].type) == -1) {
         weapon.classList.add('invalid');
         weapon.title = 'This is not a main class weapon. You will not get the 10% main class weapon bonus.';
     } else {
         weapon.classList.remove('invalid');
         weapon.title = '';
     }
-    const base_attack = classes[player_mainclass.value].stats.attack[mainclass_level.value -1 ];
+    const base_attack = classes[mainclass.value].stats.attack[mainclass_level.value -1 ];
     const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
     document.querySelectorAll('.attack_row').forEach((e) => {
         const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
@@ -151,8 +233,8 @@ function setStats() {
         const attack_potency = parseFloat(e.querySelector('.attack_potency').value);
         const enemy_defense = parseFloat(e.querySelector('.enemy_defense').value);
         const enemy_damage_multiplier = parseFloat(e.querySelector('.enemy_damage_multiplier').value);        
-        const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
-        const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[player_mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+        const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
+        const maximum_damage = (base_attack + (weapon_attack) - enemy_defense) * attack_potency / 100 * weapon_potency / 100 * (classes[mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) / 5 * enemy_damage_multiplier;
         const critical_damage = maximum_damage*calculated_stats['critical_hit_potency']/100; //Math.floor(calculated_stats['critical_hit_potency'] / 100 * Math.ceil(maximum_damage));
         const average_damage = ((minimum_damage + maximum_damage) / 2) * (1 - (calculated_stats['critical_hit_rate'] / 100)) + (critical_damage * (calculated_stats['critical_hit_rate'] / 100));
         e.querySelector('.minimum_damage').innerHTML = minimum_damage.toPrecision(4);
@@ -160,8 +242,8 @@ function setStats() {
         e.querySelector('.critical_damage').innerHTML = critical_damage.toPrecision(4);
         e.querySelector('.average_damage').innerHTML = average_damage.toPrecision(4);
     })
-    const average_attack_power = weapon_attack * ((200 +( weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100) / 2;
-    let unit_hp = 0, unit_pp = 0;
+    const average_attack_power = weapon_attack * (200 +(weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.potency_floor : -200))/ 100 / 2;
+    let unit_hp = 0, unit_pp = 0, unit_armor = 0;;
     for (let unit_index = 0; unit_index < equipped_units.length; unit_index++) {
         const unit = equipped_units[unit_index];
         if (unit.value == "empty" || units_enabled[unit_index].checked == false) {
@@ -173,17 +255,19 @@ function setStats() {
         if (units[unit.value].stats.hasOwnProperty('pp')) {
             unit_pp += units[unit.value].stats.pp;
         }
+        unit_armor += Math.floor(units[unit.value].stats.defense[equipped_unit_levels[unit_index].value] / 2);
     }
     let battlepower = calculated_stats["bp"] + 
-                      average_attack_power + 
+                      Math.floor(average_attack_power) + 
                       base_attack +
-                      Math.floor(calculated_stats["defense"] / 2) +
-                      unit_hp / 10 +
+                      unit_armor + 
+                      Math.floor(classes[mainclass.value].stats.defense[mainclass_level.value-1] / 2) +
+                      Math.floor(unit_hp / 10) +
                       unit_pp +
                       potential_level.value * 10 +
                       120; // Skill points. Assumes 20 points in main and sub class.
     window["total_bp"].innerHTML = Math.floor(battlepower);
-
+    
     console.log(battlepower);
 }
 
@@ -310,17 +394,17 @@ function loadClasses() {
             options += '<option' + ' value="' + class_key  + '">' + classes[class_key].name + '</option>';
         }
     }
-    player_mainclass.innerHTML = options;
-    player_subclass.innerHTML = options.replace(/(hunter)(.*)(fighter)/, '$3$2$1').replace(/(Hunter)(.*)(Fighter)/, '$3$2$1');
+    mainclass.innerHTML = options;
+    subclass.innerHTML = options.replace(/(hunter)(.*)(fighter)/, '$3$2$1').replace(/(Hunter)(.*)(Fighter)/, '$3$2$1');
 }
 
 function onChangeClass() {
-    if (player_mainclass.value == player_subclass.value) {
-        player_subclass.classList.add('invalid');
-        player_subclass.title = 'You cannot use your mainclass as your subclass';
+    if (mainclass.value == subclass.value) {
+        subclass.classList.add('invalid');
+        subclass.title = 'You cannot use your mainclass as your subclass';
     } else {
-        player_subclass.classList.remove('invalid');
-        player_subclass.title = '';
+        subclass.classList.remove('invalid');
+        subclass.title = '';
     }
 }
 
@@ -508,9 +592,9 @@ function printLoadout(e) {
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
         loadout.weapon_augments[augment_index] = compress.indexOf(weapon_augments[augment_index].value);
     }
-    loadout.mainclass = compress.indexOf(player_mainclass.value);
+    loadout.mainclass = compress.indexOf(mainclass.value);
     loadout.mainclass_level = parseInt(mainclass_level.value);
-    loadout.subclass = compress.indexOf(player_subclass.value);
+    loadout.subclass = compress.indexOf(subclass.value);
     loadout.subclass_level = parseInt(subclass_level.value);
     loadout.units = JSON.stringify(loadout.units);
     loadout.unit_levels = JSON.stringify(loadout.unit_levels);
@@ -543,9 +627,9 @@ function importLoadout() {
     for (let augment_index = 0; augment_index < loadout.weapon_augments.length; augment_index++) {
         weapon_augments[augment_index].value = compress[loadout.weapon_augments[augment_index]];
     }
-    player_mainclass.value = compress[loadout.mainclass];
+    mainclass.value = compress[loadout.mainclass];
     mainclass_level.value = loadout.mainclass_level;
-    player_subclass.value = compress[loadout.subclass];
+    subclass.value = compress[loadout.subclass];
     subclass_level.value = loadout.subclass_level;
     setStats();
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
@@ -607,9 +691,9 @@ function addAttackRow(e) {
 }
 
 function initialize() {
-    player_mainclass = document.getElementById('mainclass');
+    mainclass = document.getElementById('mainclass');
     mainclass_level = document.getElementById('mainclass_level');
-    player_subclass = document.getElementById('subclass');
+    subclass = document.getElementById('subclass');
     subclass_level = document.getElementById('subclass_level');
     weapon = document.getElementById('weapon');
     weapon_prefix = document.getElementById('weapon_prefix');
@@ -679,8 +763,8 @@ function initialize() {
             document.getElementById('unit_' + unit_index + '_augment_' + augment_index).addEventListener('change', onChangeUnitAugment);
         }
     }
-    player_mainclass.addEventListener('change', onChangeClass);
-    player_subclass.addEventListener('change', onChangeClass);
+    mainclass.addEventListener('change', onChangeClass);
+    subclass.addEventListener('change', onChangeClass);
     weapon.addEventListener('change', onChangeWeapon);
     weapon_level.addEventListener('change', onChangeWeaponLevel);
     sync_augments = document.getElementById('sync_augments');

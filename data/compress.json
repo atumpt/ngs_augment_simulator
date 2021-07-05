@@ -141,5 +141,7 @@
     "straga_launcher",
     "straga_twin_machine_guns",
     "straga_rod",
-    "straga_wand"
+    "straga_wand",
+    true,
+    false
 ]
