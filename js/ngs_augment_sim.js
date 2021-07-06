@@ -201,7 +201,7 @@ function setStats() {
             }
         }
         if (active_damage_modifiers.indexOf('downed') > -1) {
-            damage_multiplier = calculated_stats['downed_potency'] / 100;
+            damage_multiplier *= calculated_stats['downed_potency'] / 100;
         }
         const total_potency = attack_potency / 100 * weapon_potency / 100 * (classes[mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) * damage_multiplier;
         const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) / 5* total_potency;
