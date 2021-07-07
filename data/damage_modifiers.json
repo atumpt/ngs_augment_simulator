@@ -56,8 +56,7 @@
     "break": {
         "name": "Break",
         "stats": {
-            "potency": 1,
-            "enemy_defense": 0.7
+            "potency": 2
         }
     }
 }

@@ -357,7 +357,7 @@
                         <th></th>
                         <td></td>
                         <th>BP</th>
-                        <td><span id="total_bp"></span></td>
+                        <td><span id="total_bp" title="Note: This assumes you have used all 20 SP in both your main class and sub class. Each skill point is worth 3 Battle Power."></span></td>
                     </tr>
                 </tbody>
             </table>
@@ -383,25 +383,29 @@
                         <td><select name="enemy_defense" class="enemy_defense"></select></td>
                         <td class="damage_modifiers">
                             <label for="damage_multipliers[shifta]">Shifta
-                                <input type="checkbox" name="damage_multipliers[shifta]" data-damage-modifier="shifta">
+                                <input type="checkbox" name="damage_multipliers[shifta]" data-damage-modifier="shifta" title="5%, plus 5% on downed targets if the techter took that skill point">
                             </label><br>
                             <label for="damage_multipliers[blight_rounds]">Blight Rounds
-                                <input type="checkbox" name="damage_multipliers[blight_rounds]" data-damage-modifier="blight_rounds">
-                                <input type="checkbox" name="damage_multipliers[blight_rounds_reinforce]" data-damage-modifier="blight_rounds_reinforce" title="Reinforced (purple target)">
+                                <input type="checkbox" name="damage_multipliers[blight_rounds]" data-damage-modifier="blight_rounds" title="Before reinforce (red target), 20% bonus">
+                                <input type="checkbox" name="damage_multipliers[blight_rounds_reinforce]" data-damage-modifier="blight_rounds_reinforce" title="Reinforced (purple target) 25% bonus">
                             </label><br>
                             <label for="damage_multipliers[downed]">Downed
-                                <input type="checkbox" name="damage_multipliers[downed]" data-damage-modifier="downed">
+                                <input type="checkbox" name="damage_multipliers[downed]" data-damage-modifier="downed" title="No bonus on its own, but food, shifta and fighter skill give downed damage.">
                             </label><br>
-                            <!--<label for="damage_multipliers[break]">Break
-                                <input type="checkbox" name="damage_multipliers[break]" data-damage-modifier="break" title="UQ Break bar depleted">
-                            </label><br>-->
+                            <label for="damage_multipliers[break]">Break
+                                <input type="checkbox" name="damage_multipliers[break]" data-damage-modifier="break" title="UQ Break bar depleted. 100% bonus">
+                            </label><br>
                             <label for="damage_multipliers[weakpoint]">Weakpoint
-                                <input type="checkbox" name="damage_multipliers[weakpoint]" data-damage-modifier="weakpoint">
+                                <input type="checkbox" name="damage_multipliers[weakpoint]" data-damage-modifier="weakpoint" title="50% bonus">
                             </label><br>
                             <label for="damage_multipliers[gigantix]">Gigantix
-                                <input type="checkbox" name="damage_multipliers[gigantix]" data-damage-modifier="gigantix">
+                                <input type="checkbox" name="damage_multipliers[gigantix]" data-damage-modifier="gigantix" title="half damage">
                             </label><br>
-                            <label for="dmage_multipliers[custom]">Custom
+                            <label for="damage_multipliers[region_mag]">Custom
+                                <input type="checkbox" name="damage_multipliers[region_mag]" data-damage-modifier="region_mag">
+                                <input type="number" name="damage_multipliers[region_mag]" data-damage-modifier="custom_value" value="1">
+                            </label><br>
+                            <label for="damage_multipliers[custom]">Custom
                                 <input type="checkbox" name="damage_multipliers[custom]" data-damage-modifier="custom">
                                 <input type="number" name="damage_multipliers[custom]" data-damage-modifier="custom_value" value="1">
                             </label>

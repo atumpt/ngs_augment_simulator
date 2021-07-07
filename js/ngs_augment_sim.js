@@ -145,12 +145,12 @@ function setStats() {
             const stat = stats[stat_key];
             if (stat.hasOwnProperty('display_subtract')) {
                 const display_value = value - stat.display_subtract;
-                document.getElementById("total_" + stat_key).innerHTML = display_value.toPrecision(4).replace(/\.0+$/, '');
+                document.getElementById("total_" + stat_key).innerHTML = display_value.toPrecision(14).replace(/\.0+$/, '');
                 if (display_value >=0 ) {
                     document.getElementById("total_" + stat_key).innerHTML = '+' + document.getElementById("total_" + stat_key).innerHTML;
                 }
             } else {
-                document.getElementById("total_" + stat_key).innerHTML = value.toPrecision(4).replace(/\.0+$/, '');
+                document.getElementById("total_" + stat_key).innerHTML = value.toPrecision(14).replace(/\.0+$/, '');
             }
         }
     }
