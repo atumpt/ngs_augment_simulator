@@ -145,12 +145,12 @@ function setStats() {
             const stat = stats[stat_key];
             if (stat.hasOwnProperty('display_subtract')) {
                 const display_value = value - stat.display_subtract;
-                document.getElementById("total_" + stat_key).innerHTML = display_value.toPrecision(14).replace(/\.0+$/, '');
+                document.getElementById("total_" + stat_key).innerHTML = display_value.toPrecision(6).replace(/\.0+$/, '');
                 if (display_value >=0 ) {
                     document.getElementById("total_" + stat_key).innerHTML = '+' + document.getElementById("total_" + stat_key).innerHTML;
                 }
             } else {
-                document.getElementById("total_" + stat_key).innerHTML = value.toPrecision(14).replace(/\.0+$/, '');
+                document.getElementById("total_" + stat_key).innerHTML = value.toPrecision(6).replace(/\.0+$/, '');
             }
         }
     }
@@ -167,6 +167,7 @@ function setStats() {
         const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
         const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_types[weapon_type].damage_type + "_weapon_potency"] : calculated_stats["potency"];
         const attack_potency = parseFloat(e.querySelector('.attack_potency').value);
+        const enemy_element = e.querySelector('.enemy_element').value;
         let enemy_defense = Math.floor(parseFloat(e.querySelector('.enemy_defense').value));
         let damage_multiplier = 1;
         const active_damage_modifiers = [];
@@ -204,11 +205,14 @@ function setStats() {
             damage_multiplier *= calculated_stats['weakpoint_potency'] / 100;
         }
         if (weapon.value!= 'empty' && weapon_series[weapons[weapon.value].series].element != 'none') {
-             if(e.querySelector('.enemy_element').value == weapon_series[weapons[weapon.value].series].element) {
+             if(enemy_element == weapon_series[weapons[weapon.value].series].element) {
                 damage_multiplier *= 1.15;
              } else {
                 damage_multiplier *= 1.1;
              }
+        }
+        if (enemy_element != 'none' && calculated_stats.hasOwnProperty(enemy_element + '_potency')) {
+            damage_multiplier *= calculated_stats[enemy_element + '_potency'];
         }
         const total_potency = attack_potency / 100 * weapon_potency / 100 * (classes[mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) * damage_multiplier;
         const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) / 5* total_potency;

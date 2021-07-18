@@ -145,5 +145,14 @@
     "true",
     "false",
     true,
-    false
+    false,
+    "lightning_exploit_i",
+    "glissen_sword",
+    "glissen_wired_lance",
+    "glissen_double_saber",
+    "glissen_knuckles",
+    "glissen_launcher",
+    "glissen_twin_machine_guns",
+    "glissen_talis",
+    "glissen_wand"
 ]

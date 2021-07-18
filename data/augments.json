@@ -616,6 +616,13 @@
             "technique_weapon_potency": 2.0
         }
     },
+    "lightning_exploit_i": {
+        "name": "Lightning Exploit I",
+        "group": "lightning_exploit",
+        "stats": {
+            "lightning_potency": 2.5
+        }
+    },
     "empty": {
         "name": "Empty",
         "group": "empty",
