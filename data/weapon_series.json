@@ -11,7 +11,8 @@
                 "potency":[0,18,20,23,24]
             },
             "description":"20% chance to not consume restasigne on use."
-        }
+        },
+        "element": "none"
     },
     "tzvia":{
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
@@ -25,7 +26,8 @@
                 "potency":[0,18,20,23,24]
             },
             "description":"All down resistances +10%. 20% at level 4"
-        }
+        },
+        "element": "none"
     },
     "trois_de":{
         "weapon_types":["twin_daggers","double_saber","knuckles","rod","talis","wand"],
@@ -43,7 +45,8 @@
                 "critical_hit_rate": { "stat": "attack", "limit": 2000}
             },
             "description":"Crit rate increased based on Attack up to +15% at 2000 Attack. 18% at level 4"
-        }
+        },
+        "element": "none"
     },
     "theseus":{
         "weapon_types":["sword","partisan","wired_lance","assault_rifle","launcher","twin_machine_guns"],
@@ -61,7 +64,8 @@
                 "critical_hit_rate": { "stat": "defense", "limit": 1000 }
             },
             "description":"Crit rate increases based on Defense, up to 15% at 1000 Defense. 18% at level 4"
-        }
+        },
+        "element": "none"
     },
     "resurgir":{
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
@@ -76,7 +80,8 @@
                 "critical_hit_rate":[0,15,15,15,18]
             },
             "description":"Crit rate +15% for 30 seconds after successful dodge/Sidestep. 18% at level 4"
-        }
+        },
+        "element": "none"
     },
     "vialto":{
         "weapon_types":["partisan","double_saber","launcher","talis"],
@@ -90,7 +95,8 @@
                 "potency": [ 0, 18, 20, 23, 24 ]
             },
             "description":"Attacking PP recovery +10%, passive PP recovery speed +10%. 15% at level 4"
-        }
+        },
+        "element": "none"
     },
     "foursis":{
         "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod"],
@@ -104,7 +110,8 @@
                 "potency":[0,18,20,23,24]
             },
             "description":"Creates barrier that provides resistance +40% when at max HP. 50% at level 4"
-        }
+        },
+        "element": "none"
     },
     "cattleya":{
         "weapon_types":["sword","knuckles","twin_machine_guns","wand"],
@@ -118,7 +125,8 @@
                 "potency":[0,20.75,22.85,26,27.05]
             },
             "description":"Increases potency depending on HP up to +5% at max HP"
-        }
+        },
+        "element": "none"
     },
     "straga":{
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
@@ -128,11 +136,27 @@
         },
         "potential":{
             "name":"Berserk Unit",
-            "description":"Reduces Damaged Reistance by 10%. 8% at level 4.",
+            "description":"Reduces Damage Reistance by 10%. 8% at level 4.",
             "stats": {
                 "potency":[0,21,23,26,28],
                 "damage_resistance":[0,-10,-10,-10,-8]
             }
-        }
+        },
+        "element": "none"
+    },
+    "glissen":{
+        "weapon_types":["sword","wired_lance","double_saber","knuckles","launcher","twin_machine_guns", "talis", "wand"],
+        "stats": {
+            "attack":[225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270,271,272],
+            "potency_floor":-30
+        },
+        "potential":{
+            "name":"Defensive Formation",
+            "stats": {
+                "potency":[0,8,10,13,14]
+            },
+            "description":"Hitting an enemy starts a 10 second timer. Hitting again after the 10 seconds triggers an extra attack with 300 potency. 420 potency vs lightning-weak enememies. 20s cooldown."
+        },
+        "element": "lightning"
     }
 }

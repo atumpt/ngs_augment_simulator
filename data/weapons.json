@@ -328,5 +328,45 @@
         "name": "Straga Wand",
         "series": "straga",
         "type": "wand"
+    },
+    "glissen_sword": {
+        "name": "Glissen Sword",
+        "series": "glissen",
+        "type": "sword"
+    },
+    "glissen_wired_lance": {
+        "name": "Glissen Wire",
+        "series": "glissen",
+        "type": "wired_lance"
+    },
+    "glissen_double_saber": {
+        "name": "Glissen Saber",
+        "series": "glissen",
+        "type": "double_saber"
+    },
+    "glissen_knuckles": {
+        "name": "Glissen Knuckles",
+        "series": "glissen",
+        "type": "knuckles"
+    },
+    "glissen_launcher": {
+        "name": "Glissen Launcher",
+        "series": "glissen",
+        "type": "launcher"
+    },
+    "glissen_twin_machine_guns": {
+        "name": "Glissen Machine Guns",
+        "series": "glissen",
+        "type": "twin_machine_guns"
+    },
+    "glissen_talis": {
+        "name": "Glissen Talis",
+        "series": "glissen",
+        "type": "talis"
+    },
+    "glissen_wand": {
+        "name": "Glissen Wand",
+        "series": "glissen",
+        "type": "wand"
     }
 }

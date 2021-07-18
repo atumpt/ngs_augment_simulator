@@ -20,6 +20,6 @@ export class Loadout {
         "hp": 0,
         "pp": 0,
         "potency": 0,
-        "downed_potency": 0,
+        "weakpoint_potency": 0,
     };
 }

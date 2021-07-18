@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/ngs_augment_simulator.css?v=1625527509">
+    <link rel="stylesheet" href="css/ngs_augment_simulator.css?v=1625618947">
 </head>
 <body>
     <p id="status">Loading...</p>
@@ -243,19 +243,19 @@
                         <tbody>
                             <tr>
                                 <th>HP</th>
-                                <td><input type="number" name="food_hp" id="food_hp"></td>
+                                <td><input type="number" name="food_hp" id="food_hp" value="0"></td>
                             </tr>
                             <tr>
                                 <th>PP</th>
-                                <td><input type="number" name="food_pp" id="food_pp"></td>
+                                <td><input type="number" name="food_pp" id="food_pp" value="0"></td>
                             </tr>
                             <tr>
                                 <th>Potency</th>
-                                <td><input type="number" name="food_potency" id="food_potency"></td>
+                                <td><input type="number" name="food_potency" id="food_potency" value="0"></td>
                             </tr>
                             <tr>
-                                <th>Downed Potency</th>
-                                <td><input type="number" name="food_downed_potency" id="food_downed_potency"></td>
+                                <th>Weakpoint Potency</th>
+                                <td><input type="number" name="food_weakpoint_potency" id="food_weakpoint_potency" value="0"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -368,6 +368,7 @@
                         <th></th>
                         <th>Attack Potency</th>
                         <th>Enemy Defense</th>
+                        <th>Elemental Weakness</th>
                         <th>Damage Multipliers</th>
                         <th>Total Potency</th>
                         <th>Minimum Damage</th>
@@ -381,6 +382,7 @@
                         <td></td>
                         <td><input type="number" name="attack_potency" class="attack_potency" value="100"></td>
                         <td><select name="enemy_defense" class="enemy_defense"></select></td>
+                        <td><select name="enemy_element" class="enemy_element"></select></td>
                         <td class="damage_modifiers">
                             <label for="damage_multipliers[shifta]">Shifta
                                 <input type="checkbox" name="damage_multipliers[shifta]" data-damage-modifier="shifta" title="5%, plus 5% on downed targets if the techter took that skill point">
@@ -390,7 +392,7 @@
                                 <input type="checkbox" name="damage_multipliers[blight_rounds_reinforce]" data-damage-modifier="blight_rounds_reinforce" title="Reinforced (purple target) 25% bonus">
                             </label><br>
                             <label for="damage_multipliers[downed]">Downed
-                                <input type="checkbox" name="damage_multipliers[downed]" data-damage-modifier="downed" title="No bonus on its own, but food, shifta and fighter skill give downed damage.">
+                                <input type="checkbox" name="damage_multipliers[downed]" data-damage-modifier="downed" title="No bonus on its own, but shifta and fighter skill give downed damage.">
                             </label><br>
                             <label for="damage_multipliers[break]">Break
                                 <input type="checkbox" name="damage_multipliers[break]" data-damage-modifier="break" title="UQ Break bar depleted. 100% bonus">
@@ -420,7 +422,7 @@
                     </tr>
                 </tbody>
             </table>
-            <script src="js/ngs_augment_sim.js?v=1625527509" type="module"></script>
+            <script src="js/ngs_augment_sim.js?v=1625618947" type="module"></script>
         </div>
         <button name="show_loadouts" id="show_loadouts">Saved Loadouts</button>
         <div class="d-none" id="loadout_container">

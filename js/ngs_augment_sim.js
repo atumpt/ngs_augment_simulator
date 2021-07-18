@@ -200,8 +200,15 @@ function setStats() {
                 damage_multiplier *= custom_modifier;
             }
         }
-        if (active_damage_modifiers.indexOf('downed') > -1) {
-            damage_multiplier *= calculated_stats['downed_potency'] / 100;
+        if (active_damage_modifiers.indexOf('weakpoint') > -1) {
+            damage_multiplier *= calculated_stats['weakpoint_potency'] / 100;
+        }
+        if (weapon.value!= 'empty' && weapon_series[weapons[weapon.value].series].element != 'none') {
+             if(e.querySelector('.enemy_element').value == weapon_series[weapons[weapon.value].series].element) {
+                damage_multiplier *= 1.15;
+             } else {
+                damage_multiplier *= 1.1;
+             }
         }
         const total_potency = attack_potency / 100 * weapon_potency / 100 * (classes[mainclass.value].weapon_types.indexOf(weapon_type) != -1 ? 1.1 : 1) * damage_multiplier;
         const minimum_damage = (base_attack + (weapon_attack * calculated_stats["potency_floor"] / 100) - enemy_defense) / 5* total_potency;
@@ -311,6 +318,18 @@ function loadEnemyLevels() {
     document.querySelectorAll('.enemy_defense').forEach((e) => e.innerHTML = levels);
 }
 
+function loadEnemyElements() {
+    let element_options = ''
+    for (const element_key in elements) {
+        if (Object.hasOwnProperty.call(elements, element_key)) {
+            const element = elements[element_key];
+            element_options += '<option value="' + element_key + '">' + element.name + '</option>';
+            
+        }
+    }
+    document.querySelectorAll('.enemy_element').forEach((e) => e.innerHTML = element_options);
+}
+
 function loadLevels() {
     loadClassLevels();
     loadWeaponLevels();
@@ -319,6 +338,7 @@ function loadLevels() {
     loadUnitPrefixLevels();
     loadPotentialLevels();
     loadEnemyLevels();
+    loadEnemyElements();
 }
 
 function loadAugments() {
@@ -535,6 +555,9 @@ function load_json_files() {
     ajax.open('GET', 'data/damage_modifiers.json', false);
     ajax.send();
     damage_modifiers = JSON.parse(ajax.response);
+    ajax.open('GET', 'data/damage_modifiers.json', false);
+    ajax.send();
+    damage_modifiers = JSON.parse(ajax.response);
     
     //restrict to levels 1-24 for now.
     ajax.open('GET', 'data/enemy_stats_1_24.json', false);
@@ -604,7 +627,7 @@ function inputToLoadout() {
         "hp": parseFloat(document.getElementById('food_hp').value),
         "pp": parseFloat(document.getElementById('food_pp').value),
         "potency": parseFloat(document.getElementById('food_potency').value),
-        "downed_potency": parseFloat(document.getElementById('food_downed_potency').value),
+        "weakpoint_potency": parseFloat(document.getElementById('food_weakpoint_potency').value),
     };
     return loadout;
 }
