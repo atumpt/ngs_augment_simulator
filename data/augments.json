@@ -629,6 +629,7 @@
         "name": "Lightning Exploit I",
         "group": "lightning_exploit",
         "stats": {
+            "bp": 6,
             "lightning_potency": 2.5
         }
     },
