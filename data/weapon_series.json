@@ -1,6 +1,6 @@
 {
     "primm":{
-        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow"],
         "stats": {
             "attack":[177,179,181,183,185,187,189,191,193,196,199,201,203,205,207,209,211,214,217,220,223,224,225,226,228,230,232,234,236,238,240,241,243,245,247,249,251,253,255,257,259],
             "potency_floor":-30
@@ -15,7 +15,7 @@
         "element": "none"
     },
     "tzvia":{
-        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow"],
         "stats": {
             "attack":[195,196,197,198,199,201,203,205,207,209,211,212,213,214,216,218,220,222,224,226,228,229,230,231,233,235,237,239,241,243,245,246,249,250,252,254,256,258,260,262,264],
             "potency_floor":-30
@@ -30,7 +30,7 @@
         "element": "none"
     },
     "trois_de":{
-        "weapon_types":["twin_daggers","double_saber","knuckles","rod","talis","wand"],
+        "weapon_types":["twin_daggers","double_saber","knuckles","rod","talis","wand","katana"],
         "stats": {
             "attack":[223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270],
             "potency_floor":-30
@@ -49,7 +49,7 @@
         "element": "none"
     },
     "theseus":{
-        "weapon_types":["sword","partisan","wired_lance","assault_rifle","launcher","twin_machine_guns"],
+        "weapon_types":["sword","partisan","wired_lance","assault_rifle","launcher","twin_machine_guns","bow"],
         "stats": {
             "attack":[223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270],
             "potency_floor":-30
@@ -68,7 +68,7 @@
         "element": "none"
     },
     "resurgir":{
-        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow"],
         "stats": {
             "attack":[ 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280 ],
             "potency_floor":-25
@@ -84,7 +84,7 @@
         "element": "none"
     },
     "vialto":{
-        "weapon_types":["partisan","double_saber","launcher","talis"],
+        "weapon_types":["partisan","double_saber","launcher","talis", "bow"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
             "potency_floor":-25
@@ -99,7 +99,7 @@
         "element": "none"
     },
     "foursis":{
-        "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod"],
+        "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod", "katana"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
             "potency_floor":-25

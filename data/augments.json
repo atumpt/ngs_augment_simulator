@@ -394,6 +394,15 @@
             "potency_floor": 2
         }
     },
+    "dolz_soul_iii": {
+        "name": "Dolz Soul III",
+        "group": "soul",
+        "stats": {
+            "bp": 6,
+            "pp": 5,
+            "potency_floor": 2.5
+        }
+    },
     "daityl_soul_i": {
         "name": "Daityl Soul I",
         "group": "soul",
@@ -621,6 +630,30 @@
         "group": "lightning_exploit",
         "stats": {
             "lightning_potency": 2.5
+        }
+    },
+    "melra_dualble_i": {
+        "name": "Melra Dualble I",
+        "group": "melra_dualble",
+        "stats": {
+            "melee_weapon_potency": 0.75,
+            "ranged_weapon_potency": 0.75
+        }
+    },
+    "melra_dualble_ii": {
+        "name": "Melra Dualble II",
+        "group": "melra_dualble",
+        "stats": {
+            "melee_weapon_potency": 1.25,
+            "ranged_weapon_potency": 1.25
+        }
+    },
+    "melra_dualble_iii": {
+        "name": "Melra Dualble III",
+        "group": "melra_dualble",
+        "stats": {
+            "melee_weapon_potency": 1.75,
+            "ranged_weapon_potency": 1.75
         }
     },
     "empty": {

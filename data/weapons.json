@@ -59,6 +59,16 @@
         "series": "primm",
         "type": "wand"
     },
+    "primm_katana": {
+        "name": "Primm Katana",
+        "series": "primm",
+        "type": "katana"
+    },
+    "primm_bow": {
+        "name": "Primm Bow",
+        "series": "primm",
+        "type": "bow"
+    },
     "tzvia_sword": {
         "name": "Tzvia Sword",
         "series": "tzvia",
@@ -119,6 +129,16 @@
         "series": "tzvia",
         "type": "wand"
     },
+    "tzvia_katana": {
+        "name": "Tzvia Katana",
+        "series": "tzvia",
+        "type": "katana"
+    },
+    "tzvia_bow": {
+        "name": "Tzvia Bow",
+        "series": "tzvia",
+        "type": "bow"
+    },
     "trois_de_twin_daggers": {
         "name": "Trois De Daggers",
         "series": "trois_de",
@@ -149,6 +169,11 @@
         "series": "trois_de",
         "type": "wand"
     },
+    "trois_de_katana": {
+        "name": "Trois De Katana",
+        "series": "trois_de",
+        "type": "katana"
+    },
     "theseus_sword": {
         "name": "Theseus Sword",
         "series": "theseus",
@@ -178,6 +203,11 @@
         "name": "Theseus Machine Guns",
         "series": "theseus",
         "type": "twin_machine_guns"
+    },
+    "theseus_bow": {
+        "name": "Theseus Bow",
+        "series": "theseus",
+        "type": "bow"
     },
     "resurgir_sword": {
         "name": "Resurgir Sword",
@@ -239,6 +269,16 @@
         "series": "resurgir",
         "type": "wand"
     },
+    "resurgir_katana": {
+        "name": "Resurgir Katana",
+        "series": "resurgir",
+        "type": "katana"
+    },
+    "resurgir_bow": {
+        "name": "Resurgir Bow",
+        "series": "resurgir",
+        "type": "bow"
+    },
     "vialto_partisan": {
         "name": "Vialto Spear",
         "series": "vialto",
@@ -259,6 +299,11 @@
         "series": "vialto",
         "type": "talis"
     },
+    "vialto_bow": {
+        "name": "Vialto Bow",
+        "series": "vialto",
+        "type": "bow"
+    },
     "foursis_wired_lance": {
         "name": "Foursis Wire",
         "series": "foursis",
@@ -278,6 +323,11 @@
         "name": "Foursis Rod",
         "series": "foursis",
         "type": "rod"
+    },
+    "foursis_katana": {
+        "name": "Foursis Katana",
+        "series": "foursis",
+        "type": "katana"
     },
     "cattleya_sword": {
         "name": "Cattleya Sword",
@@ -304,15 +354,40 @@
         "series": "straga",
         "type": "sword"
     },
+    "straga_partisan": {
+        "name": "Straga Spear",
+        "series": "straga",
+        "type": "partisan"
+    },
+    "straga_wired_lance": {
+        "name": "Straga Wire",
+        "series": "straga",
+        "type": "wired_lance"
+    },
+    "straga_twin_daggers": {
+        "name": "Straga Daggers",
+        "series": "straga",
+        "type": "twin_daggers"
+    },
     "straga_double_saber": {
         "name": "Straga Saber",
         "series": "straga",
         "type": "double_saber"
     },
+    "straga_knuckles": {
+        "name": "Straga Knuckles",
+        "series": "straga",
+        "type": "knuckles"
+    },
     "straga_launcher": {
         "name": "Straga Launcher",
         "series": "straga",
         "type": "launcher"
+    },
+    "straga_rifle": {
+        "name": "Straga Rifle",
+        "series": "straga",
+        "type": "rifle"
     },
     "straga_twin_machine_guns": {
         "name": "Straga Machine Guns",
@@ -328,6 +403,21 @@
         "name": "Straga Wand",
         "series": "straga",
         "type": "wand"
+    },    
+    "straga_talis": {
+        "name": "Straga Talis",
+        "series": "straga",
+        "type": "talis"
+    },
+    "straga_katana": {
+        "name": "Straga Katana",
+        "series": "straga",
+        "type": "katana"
+    },
+    "straga_bow": {
+        "name": "Straga Bow",
+        "series": "straga",
+        "type": "bow"
     },
     "glissen_sword": {
         "name": "Glissen Sword",

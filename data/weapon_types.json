@@ -49,6 +49,14 @@
     "wand":{
         "name":"Wand",
         "damage_type": "technique"
+    },
+    "bow":{
+        "name":"Bow",
+        "damage_type": "ranged"
+    },
+    "katana":{
+        "name":"Katana",
+        "damage_type": "melee"
     }
 }
     
