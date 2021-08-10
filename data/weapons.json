@@ -384,10 +384,10 @@
         "series": "straga",
         "type": "launcher"
     },
-    "straga_rifle": {
+    "straga_assault_rifle": {
         "name": "Straga Rifle",
         "series": "straga",
-        "type": "rifle"
+        "type": "assault_rifle"
     },
     "straga_twin_machine_guns": {
         "name": "Straga Machine Guns",

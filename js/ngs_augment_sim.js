@@ -797,7 +797,12 @@ function exportLoadout() {
 }
 
 function addAttackRow(e) {
-    e.target.parentNode.parentNode.parentNode.insertBefore(document.querySelector('.attack_row:nth-last-of-type(2)').cloneNode(true), e.target.parentNode.parentNode);
+    const new_node = document.querySelector('.attack_row:nth-last-of-type(2)').cloneNode(true);
+    e.target.parentNode.parentNode.parentNode.insertBefore(new_node, e.target.parentNode.parentNode);
+    new_node.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
+    new_node.querySelectorAll('select').forEach((e) => e.addEventListener('change', setStats));
+    new_node.querySelectorAll('input').forEach((e) => e.addEventListener('change', printLoadout));
+    new_node.querySelectorAll('input').forEach((e) => e.addEventListener('change', setStats));
 }
 
 function initialize() {
