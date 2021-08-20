@@ -458,5 +458,75 @@
         "name": "Glissen Wand",
         "series": "glissen",
         "type": "wand"
+    },
+    "evolcoat_sword": {
+        "name": "Evolcoat Sword",
+        "series": "evolcoat",
+        "type": "sword"
+    },
+    "evolcoat_partisan": {
+        "name": "Evolcoat Spear",
+        "series": "evolcoat",
+        "type": "partisan"
+    },
+    "evolcoat_wired_lance": {
+        "name": "Evolcoat Wire",
+        "series": "evolcoat",
+        "type": "wired_lance"
+    },
+    "evolcoat_twin_daggers": {
+        "name": "Evolcoat Daggers",
+        "series": "evolcoat",
+        "type": "twin_daggers"
+    },
+    "evolcoat_double_saber": {
+        "name": "Evolcoat Saber",
+        "series": "evolcoat",
+        "type": "double_saber"
+    },
+    "evolcoat_knuckles": {
+        "name": "Evolcoat Knuckles",
+        "series": "evolcoat",
+        "type": "knuckles"
+    },
+    "evolcoat_launcher": {
+        "name": "Evolcoat Launcher",
+        "series": "evolcoat",
+        "type": "launcher"
+    },
+    "evolcoat_assault_rifle": {
+        "name": "Evolcoat Rifle",
+        "series": "evolcoat",
+        "type": "assault_rifle"
+    },
+    "evolcoat_twin_machine_guns": {
+        "name": "Evolcoat Machine Guns",
+        "series": "evolcoat",
+        "type": "twin_machine_guns"
+    },
+    "evolcoat_rod": {
+        "name": "Evolcoat Rod",
+        "series": "evolcoat",
+        "type": "rod"
+    },
+    "evolcoat_wand": {
+        "name": "Evolcoat Wand",
+        "series": "evolcoat",
+        "type": "wand"
+    },
+    "evolcoat_talis": {
+        "name": "Evolcoat Talis",
+        "series": "evolcoat",
+        "type": "talis"
+    },
+    "evolcoat_katana": {
+        "name": "Evolcoat Katana",
+        "series": "evolcoat",
+        "type": "katana"
+    },
+    "evolcoat_bow": {
+        "name": "Evolcoat Bow",
+        "series": "evolcoat",
+        "type": "bow"
     }
 }

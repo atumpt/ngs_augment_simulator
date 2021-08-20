@@ -398,7 +398,7 @@
         "name": "Dolz Soul III",
         "group": "soul",
         "stats": {
-            "bp": 6,
+            "bp": 7,
             "pp": 5,
             "potency_floor": 2.5
         }
@@ -655,6 +655,33 @@
         "stats": {
             "melee_weapon_potency": 1.75,
             "ranged_weapon_potency": 1.75
+        }
+    },
+    "ragras_soul_i": {
+        "name": "Ragras Soul I",
+        "group": "soul",
+        "stats": {
+            "bp": 6,
+            "hp": 5,
+            "ranged_weapon_potency": 1.0
+        }
+    },
+    "ragras_soul_ii": {
+        "name": "Ragras Soul II",
+        "group": "soul",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "ranged_weapon_potency": 2.0
+        }
+    },
+    "ragras_soul_iii": {
+        "name": "Ragras Soul III",
+        "group": "soul",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "ranged_weapon_potency": 2.5
         }
     },
     "empty": {

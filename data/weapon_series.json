@@ -138,7 +138,7 @@
             "name":"Berserk Unit",
             "description":"Reduces Damage Reistance by 10%. 8% at level 4.",
             "stats": {
-                "potency":[0,21,23,26,28],
+                "potency":[0,21,23,26,27],
                 "damage_resistance":[0,-10,-10,-10,-8]
             }
         },
@@ -158,5 +158,20 @@
             "description":"Hitting an enemy starts a 10 second timer. Hitting again after the 10 seconds triggers an extra attack with 300 potency. 420 potency vs lightning-weak enememies. 20s cooldown."
         },
         "element": "lightning"
+    },    
+    "evolcoat":{
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand"],
+        "stats": {
+            "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
+            "potency_floor":-25
+        },
+        "potential":{
+            "name":"Soulspring Unit",
+            "description":"Increases Photon Blast Gauge Charge when attacking by 20%.",
+            "stats": {
+                "potency":[0,20,22,25,26]
+            }
+        },
+        "element": "none"
     }
 }
