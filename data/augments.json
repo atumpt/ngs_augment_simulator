@@ -633,6 +633,14 @@
             "lightning_potency": 2.5
         }
     },
+    "ice_exploit_i": {
+        "name": "Ice Exploit I",
+        "group": "ice_exploit",
+        "stats": {
+            "bp": 6,
+            "ice_potency": 2.5
+        }
+    },
     "melra_dualble_i": {
         "name": "Melra Dualble I",
         "group": "melra_dualble",

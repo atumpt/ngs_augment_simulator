@@ -528,5 +528,40 @@
         "name": "Evolcoat Bow",
         "series": "evolcoat",
         "type": "bow"
+    },
+    "frostel_wired_lance": {
+        "name": "Frostel Wire",
+        "series": "frostel",
+        "type": "wired_lance"
+    },
+    "frostel_double_saber": {
+        "name": "Frostel Saber",
+        "series": "frostel",
+        "type": "double_saber"
+    },
+    "frostel_launcher": {
+        "name": "Frostel Launcher",
+        "series": "frostel",
+        "type": "launcher"
+    },
+    "frostel_twin_machine_guns": {
+        "name": "Frostel Machine Guns",
+        "series": "frostel",
+        "type": "twin_machine_guns"
+    },
+    "frostel_talis": {
+        "name": "Frostel Rod",
+        "series": "frostel",
+        "type": "rod"
+    },
+    "frostel_wand": {
+        "name": "Frostel Talis",
+        "series": "frostel",
+        "type": "talis"
+    },
+    "frostel_sword": {
+        "name": "Frostel Katana",
+        "series": "frostel",
+        "type": "katana"
     }
 }
