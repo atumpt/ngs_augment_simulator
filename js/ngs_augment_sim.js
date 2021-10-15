@@ -56,7 +56,7 @@ function calculateStats(loadout) {
         if (Object.hasOwnProperty.call(stats, stat_key)) {
             const stat = stats[stat_key];
             let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
-            if (classes[loadout.mainclass].stats.hasOwnProperty(stat_key)) {
+            if (loadout.mainclass != "" && classes[loadout.mainclass].stats.hasOwnProperty(stat_key)) {
                 value = stackStat(value, classes[loadout.mainclass].stats[stat_key][loadout.mainclass_level - 1], stat.stacking);
             }
             if (loadout.weapon_enabled) {                
@@ -154,14 +154,14 @@ function setStats() {
             }
         }
     }
-    if (weapon.value != 'empty' && classes[active_loadout.mainclass].weapon_types.indexOf(weapons[active_loadout.weapon].type) == -1) {
+    if (weapon.value != 'empty' && active_loadout.mainclass != "" && classes[active_loadout.mainclass].weapon_types.indexOf(weapons[active_loadout.weapon].type) == -1) {
         weapon.classList.add('invalid');
         weapon.title = 'This is not a main class weapon. You will not get the 10% main class weapon bonus.';
     } else {
         weapon.classList.remove('invalid');
         weapon.title = '';
     }
-    const base_attack = classes[active_loadout.mainclass].stats.attack[active_loadout.mainclass_level -1 ];
+    const base_attack = active_loadout.mainclass == "" ? 0 : classes[active_loadout.mainclass].stats.attack[active_loadout.mainclass_level -1 ];
     const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
     document.querySelectorAll('.attack_row').forEach((e) => {
         const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
