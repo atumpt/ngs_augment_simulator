@@ -1,5 +1,6 @@
 {
     "primm":{
+        "name": "Primm",
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow","soaring_blades","jet_boots"],
         "stats": {
             "attack":[177,179,181,183,185,187,189,191,193,196,199,201,203,205,207,209,211,214,217,220,223,224,225,226,228,230,232,234,236,238,240,241,243,245,247,249,251,253,255,257,259],
@@ -15,6 +16,7 @@
         "element": "none"
     },
     "tzvia":{
+        "name": "Tzvia",
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow","soaring_blades","jet_boots"],
         "stats": {
             "attack":[195,196,197,198,199,201,203,205,207,209,211,212,213,214,216,218,220,222,224,226,228,229,230,231,233,235,237,239,241,243,245,246,249,250,252,254,256,258,260,262,264],
@@ -30,6 +32,7 @@
         "element": "none"
     },
     "trois_de":{
+        "name": "Trois De",
         "weapon_types":["twin_daggers","double_saber","knuckles","rod","talis","wand","katana","jet_boots"],
         "stats": {
             "attack":[223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270],
@@ -49,6 +52,7 @@
         "element": "none"
     },
     "theseus":{
+        "name": "Theseus",
         "weapon_types":["sword","partisan","wired_lance","assault_rifle","launcher","twin_machine_guns","bow","soaring_blades"],
         "stats": {
             "attack":[223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270],
@@ -68,6 +72,7 @@
         "element": "none"
     },
     "resurgir":{
+        "name": "Resurgir",
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow","soaring_blades","jet_boots"],
         "stats": {
             "attack":[ 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280 ],
@@ -84,6 +89,7 @@
         "element": "none"
     },
     "vialto":{
+        "name": "Vialto",
         "weapon_types":["partisan","double_saber","launcher","talis", "bow","jet_boots"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
@@ -99,6 +105,7 @@
         "element": "none"
     },
     "foursis":{
+        "name": "Foursis",
         "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod", "katana"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
@@ -114,6 +121,7 @@
         "element": "none"
     },
     "cattleya":{
+        "name": "Cattleya",
         "weapon_types":["sword","knuckles","twin_machine_guns","wand","soaring_blades"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
@@ -129,6 +137,7 @@
         "element": "none"
     },
     "straga":{
+        "name": "Straga",
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","soaring_blades","jet_boots"],
         "stats": {
             "attack":[ 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283 ],
@@ -145,6 +154,7 @@
         "element": "none"
     },
     "glissen":{
+        "name": "Glissen",
         "weapon_types":["sword","wired_lance","double_saber","knuckles","launcher","twin_machine_guns", "talis", "wand"],
         "stats": {
             "attack":[225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,244,245,246,247,248,249,250,251,252,253,255,256,257,258,259,260,262,264,266,268,270,271,272],
@@ -160,6 +170,7 @@
         "element": "lightning"
     },    
     "evolcoat":{
+        "name": "Evolcoat",
         "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","soaring_blades","jet_boots"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
@@ -175,6 +186,7 @@
         "element": "none"
     },
     "frostel": {
+        "name": "Frostel",
         "weapon_types": [ "sword", "wired_lance", "double_saber", "knuckles", "launcher", "twin_machine_guns", "talis", "wand" ],
         "stats": {
             "attack": [ 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 255, 256, 257, 258, 259, 260, 262, 264, 266, 268, 270, 271, 272 ],
@@ -190,6 +202,7 @@
         "element": "ice"
     },
     "flamel": {
+        "name": "Flamel",
         "weapon_types": [ "partisan", "twin_daggers", "double_saber", "rifle", "twin_machine_guns", "talis", "wand","bow","soaring_blades" ],
         "stats": {
             "attack": [ 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 255, 256, 257, 258, 259, 260, 262, 264, 266, 268, 270, 271, 272 ],

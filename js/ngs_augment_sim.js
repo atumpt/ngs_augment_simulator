@@ -362,9 +362,15 @@ function loadAugments() {
 
 function loadWeapons() {
     let options = '<option value="empty" selected="selected">Empty</option>';
-    for (const weapon_key in weapons) {
-        if(weapons.hasOwnProperty(weapon_key)) {
-            options += '<option' + ' value="' + weapon_key  + '">' + weapons[weapon_key].name + '</option>';
+    weapons = [];
+    for (const series in weapon_series) {
+        if(weapon_series.hasOwnProperty(series)) {
+            for(const type of weapon_series[series].weapon_types) {
+                if(weapon_types.hasOwnProperty(type)) {
+                    options += '<option' + ' value="' + `${series}_${type}` + '">' + weapon_series[series].name + " " + weapon_types[type].name + '</option>';
+                    weapons[`${series}_${type}`] = { name: weapon_series[series].name + " " + weapon_types[type].name, series: series, type: type};
+                }
+            }
         }
     }
     document.getElementById('weapon').innerHTML = options;
@@ -571,10 +577,7 @@ function load_data_files() {
         step:load_class_data
     });
     console.log(classes);
-    /*ajax.open('GET', 'data/classes.json', false);
-    ajax.send();
-    classes = JSON.parse(ajax.response);*/
-
+    
     ajax.open('GET', 'data/weapon_series.json', false);
     ajax.send();
     weapon_series = JSON.parse(ajax.response);
@@ -584,10 +587,7 @@ function load_data_files() {
     ajax.open('GET', 'data/weapon_prefixes.json', false);
     ajax.send();
     weapon_prefixes = JSON.parse(ajax.response);
-    ajax.open('GET', 'data/weapons.json', false);
-    ajax.send();
-    weapons = JSON.parse(ajax.response);
- 
+     
     ajax.open('GET', 'data/elements.json', false);
     ajax.send();
     elements = JSON.parse(ajax.response);
@@ -856,6 +856,7 @@ function addAttackRow(e) {
 }
 
 function initialize() {
+
     mainclass = document.getElementById('mainclass');
     mainclass_level = document.getElementById('mainclass_level');
     subclass = document.getElementById('subclass');
@@ -933,6 +934,7 @@ function initialize() {
     weapon.addEventListener('change', onChangeWeapon);
     weapon_level.addEventListener('change', onChangeWeaponLevel);
     sync_augments = document.getElementById('sync_augments');
+
     load_data_files();
     loadClasses();
     loadWeapons();
