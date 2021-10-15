@@ -518,11 +518,63 @@ function onChangeUnitAugment(e) {
     }
 }
 
-function load_json_files() {
+function load_class_stats(_class) {
+    const class_name = _class.data[0];
+    const class_key = class_name.toLowerCase();
+    Papa.parse(`/data/classes/stats/${class_name}.csv`, {
+        download: true,
+        header: true,
+        preview: 21,
+        dynamicTyping: true,
+        transformHeader: function (header) {
+            header = header.toLowerCase();
+            if (header != 'level') {
+                classes[class_key].stats[header] = [];
+            }
+            return header;
+        },
+        step: function (results) {
+            stats = results.data;
+            for (var stat_name in stats) {
+                if (stat_name != 'level' && stats.hasOwnProperty(stat_name)) {
+                    classes[class_key].stats[stat_name][stats.level] = stats[stat_name];
+                }
+            }
+        }
+    });
+}
+
+function load_class_weapon_types(_class) {
+    const class_name = _class.data[0];
+    const class_key = class_name.toLowerCase();
+    Papa.parse(`/data/classes/weapon_types/${class_name}.csv`, {
+        download: true,
+        step: function (results) {
+            classes[class_key].weapon_types.push(results.data[0]);
+        }
+    });
+}
+
+function load_class_data(_class) {
+    const class_name = _class.data[0];
+    const class_key = class_name.toLowerCase();
+    classes[class_key] = { name: class_name, stats:[], weapon_types:[]};
+    load_class_stats(_class);
+    load_class_weapon_types (_class);
+}
+
+function load_data_files() {
     const ajax = new XMLHttpRequest();
-    ajax.open('GET', 'data/classes.json', false);
+    classes = {};
+    Papa.parse('/data/classes/list.csv', {
+        download:true, 
+        step:load_class_data
+    });
+    console.log(classes);
+    /*ajax.open('GET', 'data/classes.json', false);
     ajax.send();
-    classes = JSON.parse(ajax.response);
+    classes = JSON.parse(ajax.response);*/
+
     ajax.open('GET', 'data/weapon_series.json', false);
     ajax.send();
     weapon_series = JSON.parse(ajax.response);
@@ -535,9 +587,7 @@ function load_json_files() {
     ajax.open('GET', 'data/weapons.json', false);
     ajax.send();
     weapons = JSON.parse(ajax.response);
-    ajax.open('GET', 'data/classes.json', false);
-    ajax.send();
-    classes = JSON.parse(ajax.response);
+ 
     ajax.open('GET', 'data/elements.json', false);
     ajax.send();
     elements = JSON.parse(ajax.response);
@@ -883,7 +933,7 @@ function initialize() {
     weapon.addEventListener('change', onChangeWeapon);
     weapon_level.addEventListener('change', onChangeWeaponLevel);
     sync_augments = document.getElementById('sync_augments');
-    load_json_files();
+    load_data_files();
     loadClasses();
     loadWeapons();
     loadUnits();

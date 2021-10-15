@@ -4,19 +4,19 @@
         "damage_type" : "melee"
     },
     "partisan":{
-        "name":"Partisan",
+        "name":"Spear",
         "damage_type": "melee"
     },
     "wired_lance":{
-        "name":"Wired Lance",
+        "name":"Wire",
         "damage_type": "melee"
     },
     "twin_daggers":{
-        "name":"Twin Daggers",
+        "name":"Daggers",
         "damage_type": "melee"
     },
     "double_saber":{
-        "name":"Double Saber",
+        "name":"Saber",
         "damage_type": "melee"
     },
     "knuckles":{
@@ -24,7 +24,7 @@
         "damage_type": "melee"
     },
     "assault_rifle":{
-        "name":"Assault Rifle",
+        "name":"Rifle",
         "damage_type": "ranged"
     },
     "launcher":{
@@ -32,7 +32,7 @@
         "damage_type": "ranged"
     },
     "twin_machine_guns":{
-        "name":"Twin Machine Guns",
+        "name":"Machine Guns",
         "damage_type": "ranged",
         "attacks": {
             
@@ -57,6 +57,14 @@
     "katana":{
         "name":"Katana",
         "damage_type": "melee"
+    },
+    "soaring_blades":{
+        "name":"Blade",
+        "damage_type": "melee"
+    },
+    "jet_boots":{
+        "name":"Boots",
+        "damage_type": "technique"
     }
 }
     

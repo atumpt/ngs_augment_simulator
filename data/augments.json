@@ -665,6 +665,54 @@
             "ranged_weapon_potency": 1.75
         }
     },
+    "meltech_dualble_i": {
+        "name": "Meltech Dualble I",
+        "group": "meltech_dualble",
+        "stats": {
+            "melee_weapon_potency": 0.75,
+            "technique_weapon_potency": 0.75
+        }
+    },
+    "meltech_dualble_ii": {
+        "name": "Meltech Dualble II",
+        "group": "meltech_dualble",
+        "stats": {
+            "melee_weapon_potency": 1.25,
+            "technique_weapon_potency": 1.25
+        }
+    },
+    "meltech_dualble_iii": {
+        "name": "Meltech Dualble III",
+        "group": "meltech_dualble",
+        "stats": {
+            "melee_weapon_potency": 1.75,
+            "technique_weapon_potency": 1.75
+        }
+    },
+    "ratech_dualble_i": {
+        "name": "Ratech Dualble I",
+        "group": "ratech_dualble",
+        "stats": {
+            "ranged_weapon_potency": 0.75,
+            "technique_weapon_potency": 0.75
+        }
+    },
+    "ratech_dualble_ii": {
+        "name": "Ratech Dualble II",
+        "group": "ratech_dualble",
+        "stats": {
+            "ranged_weapon_potency": 1.25,
+            "technique_weapon_potency": 1.25
+        }
+    },
+    "ratech_dualble_iii": {
+        "name": "Ratech Dualble III",
+        "group": "ratech_dualble",
+        "stats": {
+            "ranged_weapon_potency": 1.75,
+            "technique_weapon_potency": 1.75
+        }
+    },
     "ragras_soul_i": {
         "name": "Ragras Soul I",
         "group": "soul",
