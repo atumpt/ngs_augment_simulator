@@ -521,7 +521,7 @@ function onChangeUnitAugment(e) {
 function load_class_stats(_class) {
     const class_name = _class.data[0];
     const class_key = class_name.toLowerCase();
-    Papa.parse(`/data/classes/stats/${class_name}.csv`, {
+    Papa.parse(`data/classes/stats/${class_name}.csv`, {
         download: true,
         header: true,
         preview: 21,
@@ -547,7 +547,7 @@ function load_class_stats(_class) {
 function load_class_weapon_types(_class) {
     const class_name = _class.data[0];
     const class_key = class_name.toLowerCase();
-    Papa.parse(`/data/classes/weapon_types/${class_name}.csv`, {
+    Papa.parse(`data/classes/weapon_types/${class_name}.csv`, {
         download: true,
         step: function (results) {
             classes[class_key].weapon_types.push(results.data[0]);
@@ -566,7 +566,7 @@ function load_class_data(_class) {
 function load_data_files() {
     const ajax = new XMLHttpRequest();
     classes = {};
-    Papa.parse('/data/classes/list.csv', {
+    Papa.parse('data/classes/list.csv', {
         download:true, 
         step:load_class_data
     });
