@@ -34,12 +34,12 @@ equipped_unit_levels,
 equipped_unit_prefixes,
 equipped_unit_prefix_levels,
 stats,
-stat_sources,
 sync_augments,
 weapon_enabled,
 units_enabled = [],
 enemy_stats,
-damage_modifiers
+damage_modifiers,
+pending_requests = 18 //TODO: this should be smarter than just manually counting the number of ajax requests I'm doing
 ;
 
 function stackStat(current, extra, type) {
@@ -340,7 +340,6 @@ function loadLevels() {
     loadWeaponPrefixLevels();
     loadUnitPrefixLevels();
     loadPotentialLevels();
-    loadEnemyLevels();
     loadEnemyElements();
 }
 
@@ -523,6 +522,27 @@ function onChangeUnitAugment(e) {
     }
 }
 
+function after_ajax() {
+    if (--pending_requests == 0) {
+        loadClasses();
+        loadWeapons();
+        loadUnits();
+        loadAugments();
+        loadWeaponPrefixes();
+        loadUnitPrefixes();
+        loadLevels();
+        loadEnemyLevels();
+        if (window.location.hash.length > 0) {
+            document.getElementById('loadout').value = window.location.hash.substring(1);
+            window.location.hash = '';
+        }
+        importLoadout();
+        setStats();
+        document.getElementById('status').classList.add('d-none');
+        document.getElementById('main').classList.remove('d-none');
+    }
+}
+
 function load_class_stats(_class) {
     const class_name = _class.data[0];
     const class_key = class_name.toLowerCase();
@@ -545,7 +565,8 @@ function load_class_stats(_class) {
                     classes[class_key].stats[stat_name][stats.level] = stats[stat_name];
                 }
             }
-        }
+        },
+        complete: after_ajax
     });
 }
 
@@ -556,7 +577,8 @@ function load_class_weapon_types(_class) {
         download: true,
         step: function (results) {
             classes[class_key].weapon_types.push(results.data[0]);
-        }
+        },
+        complete: after_ajax
     });
 }
 
@@ -565,7 +587,7 @@ function load_class_data(_class) {
     const class_key = class_name.toLowerCase();
     classes[class_key] = { name: class_name, stats:[], weapon_types:[]};
     load_class_stats(_class);
-    load_class_weapon_types (_class);
+    load_class_weapon_types(_class);
 }
 
 function load_enemy_stats() {
@@ -579,14 +601,9 @@ function load_enemy_stats() {
             return header;
         },
         step: function (results) {
-            stats = results.data;
-            enemy_stats[stats.level] = [];
-            for (var stat_name in stats) {
-                if (stats.hasOwnProperty(stat_name)) {
-                    enemy_stats[stats.level][stat_name] = stats[stat_name];
-                }
-            }
-        }
+            enemy_stats.push(results.data);
+        },
+        complete: after_ajax
     });
 }
 
@@ -595,9 +612,10 @@ function load_data_files() {
     classes = {};
     Papa.parse('data/classes/list.csv', {
         download:true, 
-        step:load_class_data
+        step: load_class_data,
+        complete: after_ajax
     });
-    
+
     ajax.open('GET', 'data/weapon_series.json', false);
     ajax.send();
     weapon_series = JSON.parse(ajax.response);
@@ -607,7 +625,6 @@ function load_data_files() {
     ajax.open('GET', 'data/weapon_prefixes.json', false);
     ajax.send();
     weapon_prefixes = JSON.parse(ajax.response);
-     
     ajax.open('GET', 'data/elements.json', false);
     ajax.send();
     elements = JSON.parse(ajax.response);
@@ -632,8 +649,8 @@ function load_data_files() {
     ajax.open('GET', 'data/damage_modifiers.json', false);
     ajax.send();
     damage_modifiers = JSON.parse(ajax.response);
-    
     load_enemy_stats();
+
 }
 
 function objectToArray (obj) {
@@ -951,15 +968,6 @@ function initialize() {
     weapon_level.addEventListener('change', onChangeWeaponLevel);
     sync_augments = document.getElementById('sync_augments');
 
-    load_data_files();
-    loadClasses();
-    loadWeapons();
-    loadUnits();
-    loadAugments();
-    loadWeaponPrefixes();
-    loadUnitPrefixes();
-    loadLevels();
-    
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', printLoadout));
     document.querySelectorAll('select').forEach((e) => e.addEventListener('change', setStats));
     document.querySelectorAll('input').forEach((e) => e.addEventListener('change', printLoadout));
@@ -970,14 +978,8 @@ function initialize() {
     document.getElementById('loadout_save').addEventListener('click', saveLoadout);
     document.getElementById('show_loadouts').addEventListener('click', showLoadouts);
     document.getElementById('hide_loadouts').addEventListener('click', hideLoadouts);
-    if (window.location.hash.length > 0) {
-        document.getElementById('loadout').value = window.location.hash.substring(1);
-        window.location.hash = '';
-    }
-    importLoadout();
-    setStats();
-    document.getElementById('status').classList.add('d-none');
-    document.getElementById('main').classList.remove('d-none');
+
+    load_data_files();
 }
 
 function ready(fn) {
