@@ -315,8 +315,7 @@ function loadPotentialLevels() {
 
 function loadEnemyLevels() {
     let levels = ''
-    for (let level_index = 0; level_index < enemy_stats.length; level_index++) {
-        const level = enemy_stats[level_index];
+    for (const level of enemy_stats) {
         levels += '<option value="' + level.defense + '">' + 'Level ' + level.level + ': ' + level.defense + '</option>';
     }
     document.querySelectorAll('.enemy_defense').forEach((e) => e.innerHTML = levels);
@@ -569,6 +568,28 @@ function load_class_data(_class) {
     load_class_weapon_types (_class);
 }
 
+function load_enemy_stats() {
+    enemy_stats = [];
+    Papa.parse(`data/enemies/stats.csv`, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        transformHeader: function (header) {
+            header = header.toLowerCase();
+            return header;
+        },
+        step: function (results) {
+            stats = results.data;
+            enemy_stats[stats.level] = [];
+            for (var stat_name in stats) {
+                if (stats.hasOwnProperty(stat_name)) {
+                    enemy_stats[stats.level][stat_name] = stats[stat_name];
+                }
+            }
+        }
+    });
+}
+
 function load_data_files() {
     const ajax = new XMLHttpRequest();
     classes = {};
@@ -576,7 +597,6 @@ function load_data_files() {
         download:true, 
         step:load_class_data
     });
-    console.log(classes);
     
     ajax.open('GET', 'data/weapon_series.json', false);
     ajax.send();
@@ -613,11 +633,7 @@ function load_data_files() {
     ajax.send();
     damage_modifiers = JSON.parse(ajax.response);
     
-    //restrict to levels 1-24 for now.
-    ajax.open('GET', 'data/enemy_stats_1_24.json', false);
-    ajax.send();
-    enemy_stats = JSON.parse(ajax.response);
-
+    load_enemy_stats();
 }
 
 function objectToArray (obj) {

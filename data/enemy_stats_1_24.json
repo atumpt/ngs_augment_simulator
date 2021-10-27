@@ -1,194 +1,215 @@
 [
     {
         "level": 1,
-        "unkn0": 1,
-        "hp?": 1.1,
-        "unkn2": 490,
-        "attack": 510,
-        "defense": 450
+        "exp": 1,
+        "hp": 1.1,
+        "min_attack": 490,
+        "max_attack": 510,
+        "defense": 450,
+        "battle_power": 800
     },
     {
         "level": 2,
-        "unkn0": 1.5,
-        "hp?": 1.12117,
-        "unkn2": 497.6,
-        "attack": 517.911,
-        "defense": 458.66
+        "exp": 1.5,
+        "hp": 1.12117,
+        "min_attack": 497.6,
+        "max_attack": 517.911,
+        "defense": 458.66,
+        "battle_power": 800
     },
     {
         "level": 3,
-        "unkn0": 2,
-        "hp?": 1.14275,
-        "unkn2": 505.319,
-        "attack": 525.944,
-        "defense": 467.487
+        "exp": 2,
+        "hp": 1.14275,
+        "min_attack": 505.319,
+        "max_attack": 525.944,
+        "defense": 467.487,
+        "battle_power": 800
     },
     {
         "level": 4,
-        "unkn0": 2.5,
-        "hp?": 1.16474,
-        "unkn2": 513.157,
-        "attack": 534.102,
-        "defense": 476.484
+        "exp": 2.5,
+        "hp": 1.16474,
+        "min_attack": 513.157,
+        "max_attack": 534.102,
+        "defense": 476.484,
+        "battle_power": 814
     },
     {
         "level": 5,
-        "unkn0": 3,
-        "hp?": 1.18715,
-        "unkn2": 521.117,
-        "attack": 542.387,
-        "defense": 485.654
+        "exp": 3,
+        "hp": 1.18715,
+        "min_attack": 521.117,
+        "max_attack": 542.387,
+        "defense": 485.654,
+        "battle_power": 835
     },
     {
         "level": 6,
-        "unkn0": 3.5,
-        "hp?": 1.21,
-        "unkn2": 529.2,
-        "attack": 550.8,
-        "defense": 495
+        "exp": 3.5,
+        "hp": 1.21,
+        "min_attack": 529.2,
+        "max_attack": 550.8,
+        "defense": 495,
+        "battle_power": 851
     },
     {
         "level": 7,
-        "unkn0": 4,
-        "hp?": 1.23329,
-        "unkn2": 537.409,
-        "attack": 559.344,
-        "defense": 504.526
+        "exp": 4,
+        "hp": 1.23329,
+        "min_attack": 537.409,
+        "max_attack": 559.344,
+        "defense": 504.526,
+        "battle_power": 894
     },
     {
         "level": 8,
-        "unkn0": 4.5,
-        "hp?": 1.25702,
-        "unkn2": 545.744,
-        "attack": 568.02,
-        "defense": 514.236
+        "exp": 4.5,
+        "hp": 1.25702,
+        "min_attack": 545.744,
+        "max_attack": 568.02,
+        "defense": 514.236,
+        "battle_power": 916
     },
     {
         "level": 9,
-        "unkn0": 5,
-        "hp?": 1.28121,
-        "unkn2": 554.21,
-        "attack": 576.83,
-        "defense": 524.132
+        "exp": 5,
+        "hp": 1.28121,
+        "min_attack": 554.21,
+        "max_attack": 576.83,
+        "defense": 524.132,
+        "battle_power": 933
     },
     {
         "level": 10,
-        "unkn0": 20,
-        "hp?": 1.30587,
-        "unkn2": 562.806,
-        "attack": 585.778,
-        "defense": 534.219
+        "exp": 20,
+        "hp": 1.30587,
+        "min_attack": 562.806,
+        "max_attack": 585.778,
+        "defense": 534.219,
+        "battle_power": 949
     },
     {
         "level": 11,
-        "unkn0": 22.6,
-        "hp?": 1.39755,
-        "unkn2": 571.536,
-        "attack": 594.864,
-        "defense": 544.5
+        "exp": 22.6,
+        "hp": 1.39755,
+        "min_attack": 571.536,
+        "max_attack": 594.864,
+        "defense": 544.5,
+        "battle_power": 966
     },
     {
         "level": 12,
-        "unkn0": 25.3,
-        "hp?": 1.42445,
-        "unkn2": 580.401,
-        "attack": 604.091,
-        "defense": 554.979
+        "exp": 25.3,
+        "hp": 1.42445,
+        "min_attack": 580.401,
+        "max_attack": 604.091,
+        "defense": 554.979,
+        "battle_power": 1009
     },
     {
         "level": 13,
-        "unkn0": 28.1,
-        "hp?": 1.45186,
-        "unkn2": 589.404,
-        "attack": 613.461,
-        "defense": 565.659
+        "exp": 28.1,
+        "hp": 1.45186,
+        "min_attack": 589.404,
+        "max_attack": 613.461,
+        "defense": 565.659,
+        "battle_power": 1027
     },
     {
         "level": 14,
-        "unkn0": 31,
-        "hp?": 1.4798,
-        "unkn2": 598.546,
-        "attack": 622.977,
-        "defense": 576.545
+        "exp": 31,
+        "hp": 1.4798,
+        "min_attack": 598.546,
+        "max_attack": 622.977,
+        "defense": 576.545,
+        "battle_power": 1045
     },
     {
         "level": 15,
-        "unkn0": 33.9,
-        "hp?": 1.50828,
-        "unkn2": 607.831,
-        "attack": 632.64,
-        "defense": 587.641
+        "exp": 33.9,
+        "hp": 1.50828,
+        "min_attack": 607.831,
+        "max_attack": 632.64,
+        "defense": 587.641,
+        "battle_power": 1063
     },
     {
         "level": 16,
-        "unkn0": 36.8,
-        "hp?": 1.61051,
-        "unkn2": 617.259,
-        "attack": 642.453,
-        "defense": 598.95
+        "exp": 36.8,
+        "hp": 1.61051,
+        "min_attack": 617.259,
+        "max_attack": 642.453,
+        "defense": 598.95,
+        "battle_power": 1081
     },
     {
         "level": 17,
-        "unkn0": 39.8,
-        "hp?": 1.6415,
-        "unkn2": 626.833,
-        "attack": 652.418,
-        "defense": 610.477
+        "exp": 39.8,
+        "hp": 1.6415,
+        "min_attack": 626.833,
+        "max_attack": 652.418,
+        "defense": 610.477,
+        "battle_power": 1184
     },
     {
         "level": 18,
-        "unkn0": 42.9,
-        "hp?": 1.67309,
-        "unkn2": 636.556,
-        "attack": 662.538,
-        "defense": 622.225
+        "exp": 42.9,
+        "hp": 1.67309,
+        "min_attack": 636.556,
+        "max_attack": 662.538,
+        "defense": 622.225,
+        "battle_power": 1203
     },
     {
         "level": 19,
-        "unkn0": 46,
-        "hp?": 1.70529,
-        "unkn2": 646.43,
-        "attack": 672.815,
-        "defense": 634.2
+        "exp": 46,
+        "hp": 1.70529,
+        "min_attack": 646.43,
+        "max_attack": 672.815,
+        "defense": 634.2,
+        "battle_power": 1223
     },
     {
         "level": 20,
-        "unkn0": 49.2,
-        "hp?": 1.73811,
-        "unkn2": 656.457,
-        "attack": 683.251,
-        "defense": 646.405
+        "exp": 49.2,
+        "hp": 1.73811,
+        "min_attack": 656.457,
+        "max_attack": 683.251,
+        "defense": 646.405,
+        "battle_power": 1243
     },
     {
         "level": 21,
-        "unkn0": 52.4,
-        "hp?": 1.93261,
-        "unkn2": 666.64,
-        "attack": 693.849,
+        "exp": 52.4,
+        "hp": 1.93261,
+        "min_attack": 666.64,
+        "max_attack": 693.849,
         "defense": 658.845
     },
     {
         "level": 22,
-        "unkn0": 55.7,
-        "hp?": 1.96981,
-        "unkn2": 676.98,
-        "attack": 704.612,
+        "exp": 55.7,
+        "hp": 1.96981,
+        "min_attack": 676.98,
+        "max_attack": 704.612,
         "defense": 671.524
     },
     {
         "level": 23,
-        "unkn0": 59,
-        "hp?": 2.00771,
-        "unkn2": 687.481,
-        "attack": 715.541,
+        "exp": 59,
+        "hp": 2.00771,
+        "min_attack": 687.481,
+        "max_attack": 715.541,
         "defense": 684.448
     },
     {
         "level": 24,
-        "unkn0": 62.3,
-        "hp?": 2.04635,
-        "unkn2": 698.144,
-        "attack": 726.64,
-        "defense": 697.62
+        "exp": 62.3,
+        "hp": 2.04635,
+        "min_attack": 698.144,
+        "max_attack": 726.64,
+        "defense": 697.62,
+        "battle_power": 1406
     }
 ]
