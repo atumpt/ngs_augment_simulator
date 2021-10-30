@@ -57,7 +57,7 @@ function calculateStats(loadout) {
             const stat = stats[stat_key];
             let value = stat.base ? stat.base : stat.stacking == 'additive' ? 0 : 1;
             if (loadout.mainclass != "" && classes[loadout.mainclass].stats.hasOwnProperty(stat_key)) {
-                value = stackStat(value, classes[loadout.mainclass].stats[stat_key][loadout.mainclass_level - 1], stat.stacking);
+                value = stackStat(value, classes[loadout.mainclass].stats[stat_key][loadout.mainclass_level], stat.stacking);
             }
             if (loadout.weapon_enabled) {                
                 if( loadout.weapon != 'empty' && weapon_series[weapons[loadout.weapon].series].stats.hasOwnProperty(stat_key)) {
@@ -245,7 +245,7 @@ function setStats() {
                       Math.floor(average_attack_power) + 
                       base_attack +
                       unit_armor + 
-                      Math.floor(classes[mainclass.value].stats.defense[mainclass_level.value-1] / 2) +
+                      Math.floor(classes[mainclass.value].stats.defense[mainclass_level.value] / 2) +
                       unit_hp +
                       unit_pp +
                       potential_level.value * 10 +
@@ -267,7 +267,7 @@ function loadUnits() {
 
 function loadClassLevels() {
     let options = '<option value="' + max_class_level + '" selected="selected">' + max_class_level + '</option>';
-    for (let index = max_class_level - 1; index >= 0; index--) {
+    for (let index = max_class_level - 1; index > 0; index--) {
         options += '<option value="' + index + '">' + index + '</option>';
     }
     mainclass_level.innerHTML = options;
