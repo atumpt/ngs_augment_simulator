@@ -8,6 +8,7 @@ max_unit_prefix_level = 5,
 max_potential_level = 4,
 compress,
 classes,
+multiweapon,
 weapon_types,
 weapon_series,
 weapon_prefixes,
@@ -161,11 +162,19 @@ function setStats() {
         weapon.classList.remove('invalid');
         weapon.title = '';
     }
+    if (multiweapon.value != 'empty' && active_loadout.mainclass != "" && classes[active_loadout.mainclass].weapon_types.indexOf(weapons[active_loadout.multiweapon].type) == -1) {
+        multiweapon.classList.add('invalid');
+        multiweapon.title = 'This is not a main class weapon. You will not get the 10% main class weapon bonus.';
+    } else {
+        multiweapon.classList.remove('invalid');
+        multiweapon.title = '';
+    }
     const base_attack = active_loadout.mainclass == "" ? 0 : classes[active_loadout.mainclass].stats.attack[active_loadout.mainclass_level];
     const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
     document.querySelectorAll('.attack_row').forEach((e) => {
-        const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
-        const weapon_potency = weapon.value != 'empty' ? calculated_stats[weapon_types[weapon_type].damage_type + "_weapon_potency"] : calculated_stats["potency"];
+        const selected_weapon = e.querySelector('input[name=attack_weapon]:checked').value == 2 ? multiweapon.value : weapon.value;
+        const weapon_type = selected_weapon != 'empty' ? weapons[selected_weapon].type : 'none';
+        const weapon_potency = selected_weapon != 'empty' ? calculated_stats[weapon_types[weapon_type].damage_type + "_weapon_potency"] : calculated_stats["potency"];
         const attack_potency = parseFloat(e.querySelector('.attack_potency').value);
         const enemy_element = e.querySelector('.enemy_element').value;
         let enemy_defense = Math.floor(parseFloat(e.querySelector('.enemy_defense').value));
@@ -204,8 +213,8 @@ function setStats() {
         if (active_damage_modifiers.indexOf('weakpoint') > -1) {
             damage_multiplier *= calculated_stats['weakpoint_potency'] / 100;
         }
-        if (weapon.value!= 'empty' && weapon_series[weapons[weapon.value].series].element != 'none') {
-             if(enemy_element == weapon_series[weapons[weapon.value].series].element) {
+        if (selected_weapon!= 'empty' && weapon_series[weapons[selected_weapon].series].element != 'none') {
+             if(enemy_element == weapon_series[weapons[selected_weapon].series].element) {
                 damage_multiplier *= 1.15;
              } else {
                 damage_multiplier *= 1.1;
@@ -419,9 +428,16 @@ function onChangeClass() {
 
 function onChangeWeapon() {
     setStats();
-    if (weapon.value != 'empty'){
-        potential_name.innerHTML = weapon_series[weapons[weapon.value].series].potential.name;
+    if (weapon.value == 'empty') return;
+    potential_name.innerHTML = weapon_series[weapons[weapon.value].series].potential.name;
+    let options = '<option value="empty" selected="selected">Empty</option>';
+    let series = weapons[weapon.value].series
+    for (const type of weapon_series[series].weapon_types) {
+        if (weapon_types.hasOwnProperty(type) && type != weapons[weapon.value].type) {
+            options += '<option' + ' value="' + `${series}_${type}` + '">' + weapon_series[series].name + " " + weapon_types[type].name + '</option>';
+        }
     }
+    document.getElementById('multiweapon').innerHTML = options;
 }
 
 function onChangeWeaponLevel() {
@@ -716,6 +732,7 @@ function inputToLoadout() {
         "potency": parseFloat(document.getElementById('food_potency').value),
         "weakpoint_potency": parseFloat(document.getElementById('food_weakpoint_potency').value),
     };
+    loadout.multiweapon = multiweapon.value;
     return loadout;
 }
 
@@ -754,6 +771,7 @@ function compressLoadout(loadout) {
     compressed_loadout.unit_augments = JSON.stringify(compressed_loadout.unit_augments);
     compressed_loadout.weapon_augments = JSON.stringify(compressed_loadout.weapon_augments);
     compressed_loadout.food_stats = JSON.stringify(objectToArray(loadout.food_stats));
+    compressed_loadout.multiweapon = JSON.stringify(objectToArray(loadout.multiweapon));
     return objectToArray(compressed_loadout).toString().replace(/\[/g, 'o').replace(/\]/g, 'c');
 }
 
@@ -783,6 +801,7 @@ function uncompressLoadout(compressed_loadout){
     loadout.subclass = compress[compressed_loadout.subclass];
     loadout.subclass_level = compressed_loadout.subclass_level;
     loadout.food_stats = arrayToObject(compressed_loadout.food_stats, loadout.food_stats);
+    loadout.multiweapon = compress[compressed_loadout.multiweapon]
     return loadout;
 }
 
@@ -817,7 +836,7 @@ function importLoadout() {
     mainclass_level.value = loadout.mainclass_level;
     subclass.value = loadout.subclass;
     subclass_level.value = loadout.subclass_level;
-    setStats();
+    multiweapon.vale = loadout.multiweapon;
     for (let augment_index = 0; augment_index < weapon_augments.length; augment_index++) {
         validateAugmentRestrictions(weapon_augments[augment_index], weapon_augments);
     }
@@ -832,6 +851,8 @@ function importLoadout() {
             document.getElementById('food_' + key).value = element;
         }
     }
+    setStats();
+    onChangeWeapon();
 }
 
 function showLoadouts() {
@@ -895,6 +916,7 @@ function initialize() {
     subclass = document.getElementById('subclass');
     subclass_level = document.getElementById('subclass_level');
     weapon = document.getElementById('weapon');
+    multiweapon = document.getElementById('multiweapon');
     weapon_prefix = document.getElementById('weapon_prefix');
     weapon_enabled = document.getElementById('weapon_enabled');
     weapon_level = document.getElementById('weapon_level');

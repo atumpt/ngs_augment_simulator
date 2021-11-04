@@ -22,4 +22,5 @@ export class Loadout {
         "potency": 0,
         "weakpoint_potency": 0,
     };
+    multiweapon = 'empty';
 }

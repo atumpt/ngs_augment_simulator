@@ -45,6 +45,15 @@
                             <select class="weapon_select" name="weapon" id="weapon">
                             </select>
                         </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Multiweapon</th>
+                        <td>
+                            <select class="weapon_select" name="weapon" id="multiweapon">
+                                <option selected value="empty">Empty</option>
+                            </select>
+                        </td>
                         <td>
                             <select class="weapon_level" step="none" name="weapon_level" id="weapon_level">
                             </select>
@@ -365,7 +374,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Weapon</th>
                         <th>Attack Potency</th>
                         <th>Enemy Defense</th>
                         <th>Elemental Weakness</th>
@@ -379,7 +388,7 @@
                 </thead>
                 <tbody>
                     <tr class="attack_row">
-                        <td></td>
+                        <td><label>1: <input type="radio" name="attack_weapon" value="1" checked></label> <label>2: <input type="radio" name="attack_weapon" value="2"></label></td>
                         <td><input type="number" name="attack_potency" class="attack_potency" value="100"></td>
                         <td><select name="enemy_defense" class="enemy_defense"></select></td>
                         <td><select name="enemy_element" class="enemy_element"></select></td>
