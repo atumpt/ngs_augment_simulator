@@ -559,7 +559,7 @@ function load_class_stats(_class) {
             return header;
         },
         step: function (results) {
-            stats = results.data;
+            let stats = results.data;
             for (var stat_name in stats) {
                 if (stat_name != 'level' && stats.hasOwnProperty(stat_name)) {
                     classes[class_key].stats[stat_name][stats.level] = stats[stat_name];

@@ -31,6 +31,16 @@
         "base": 100,
         "display_subtract": 100
     },
+    "ice_potency": {
+        "stacking": "multiplicative",
+        "base": 100,
+        "display_subtract": 100
+    },
+    "fire_potency": {
+        "stacking": "multiplicative",
+        "base": 100,
+        "display_subtract": 100
+    },
     "potency": {
         "stacking": "multiplicative",
         "base": 100,

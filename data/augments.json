@@ -326,19 +326,19 @@
 "sovereign_ward_i" : {
     "name" : "Sovereign Ward I",
     "stats" : {
-        "bp": 0
+        "bp": 6
     }
 },
 "sovereign_ward_ii" : {
     "name" : "Sovereign Ward II",
     "stats" : {
-        "bp": 0
+        "bp": 8
     }
 },
 "sovereign_ward_iii" : {
     "name" : "Sovereign Ward III",
     "stats" : {
-        "bp": 0
+        "bp": 10
     }
 },
     "forms_soul_i": {
@@ -564,7 +564,7 @@
         "name": "Dread Keeper II",
         "group": "dread",
         "stats": {
-            "bp": 8,
+            "bp": 7.5,
             "hp": 15,
             "pp": 4,
             "potency_floor":1.5,
@@ -645,6 +645,7 @@
         "name": "Melra Dualble I",
         "group": "melra_dualble",
         "stats": {
+            "bp": 4,
             "melee_weapon_potency": 0.75,
             "ranged_weapon_potency": 0.75
         }
@@ -653,6 +654,7 @@
         "name": "Melra Dualble II",
         "group": "melra_dualble",
         "stats": {
+            "bp": 5,
             "melee_weapon_potency": 1.25,
             "ranged_weapon_potency": 1.25
         }
@@ -661,6 +663,7 @@
         "name": "Melra Dualble III",
         "group": "melra_dualble",
         "stats": {
+            "bp": 6,
             "melee_weapon_potency": 1.75,
             "ranged_weapon_potency": 1.75
         }
@@ -669,6 +672,7 @@
         "name": "Meltech Dualble I",
         "group": "meltech_dualble",
         "stats": {
+            "bp": 4,
             "melee_weapon_potency": 0.75,
             "technique_weapon_potency": 0.75
         }
@@ -677,6 +681,7 @@
         "name": "Meltech Dualble II",
         "group": "meltech_dualble",
         "stats": {
+            "bp": 5,
             "melee_weapon_potency": 1.25,
             "technique_weapon_potency": 1.25
         }
@@ -685,6 +690,7 @@
         "name": "Meltech Dualble III",
         "group": "meltech_dualble",
         "stats": {
+            "bp": 6,
             "melee_weapon_potency": 1.75,
             "technique_weapon_potency": 1.75
         }
@@ -693,6 +699,7 @@
         "name": "Ratech Dualble I",
         "group": "ratech_dualble",
         "stats": {
+            "bp": 4,
             "ranged_weapon_potency": 0.75,
             "technique_weapon_potency": 0.75
         }
@@ -701,6 +708,7 @@
         "name": "Ratech Dualble II",
         "group": "ratech_dualble",
         "stats": {
+            "bp": 5,
             "ranged_weapon_potency": 1.25,
             "technique_weapon_potency": 1.25
         }
@@ -709,6 +717,7 @@
         "name": "Ratech Dualble III",
         "group": "ratech_dualble",
         "stats": {
+            "bp": 6,
             "ranged_weapon_potency": 1.75,
             "technique_weapon_potency": 1.75
         }
@@ -717,7 +726,7 @@
         "name": "Ragras Soul I",
         "group": "soul",
         "stats": {
-            "bp": 6,
+            "bp": 7,
             "hp": 5,
             "ranged_weapon_potency": 1.0
         }
@@ -735,7 +744,7 @@
         "name": "Ragras Soul III",
         "group": "soul",
         "stats": {
-            "bp": 8,
+            "bp": 10,
             "hp": 15,
             "ranged_weapon_potency": 2.5
         }
