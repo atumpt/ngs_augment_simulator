@@ -161,7 +161,7 @@ function setStats() {
         weapon.classList.remove('invalid');
         weapon.title = '';
     }
-    const base_attack = active_loadout.mainclass == "" ? 0 : classes[active_loadout.mainclass].stats.attack[active_loadout.mainclass_level -1 ];
+    const base_attack = active_loadout.mainclass == "" ? 0 : classes[active_loadout.mainclass].stats.attack[active_loadout.mainclass_level];
     const weapon_attack = weapon.value != 'empty' ? weapon_series[weapons[weapon.value].series].stats.attack[weapon_level.value] : 0;
     document.querySelectorAll('.attack_row').forEach((e) => {
         const weapon_type = weapon.value != 'empty' ? weapons[weapon.value].type : 'none';
