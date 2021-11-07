@@ -771,7 +771,7 @@ function compressLoadout(loadout) {
     compressed_loadout.unit_augments = JSON.stringify(compressed_loadout.unit_augments);
     compressed_loadout.weapon_augments = JSON.stringify(compressed_loadout.weapon_augments);
     compressed_loadout.food_stats = JSON.stringify(objectToArray(loadout.food_stats));
-    compressed_loadout.multiweapon = JSON.stringify(objectToArray(loadout.multiweapon));
+    compressed_loadout.multiweapon = JSON.stringify(compress.indexOf(loadout.multiweapon));
     return objectToArray(compressed_loadout).toString().replace(/\[/g, 'o').replace(/\]/g, 'c');
 }
 
