@@ -51,6 +51,16 @@ function stackStat(current, extra, type) {
     }
 }
 
+function augmentSlotsForLevel(level) {
+    if (level >= 40) {
+        return 4;
+    }
+    if (level >= 30) {
+        return 3;
+    }
+    return 2;
+}
+
 function calculateStats(loadout) {    
     let calculated_stats = {};
     for (const stat_key in stats) {
@@ -87,9 +97,9 @@ function calculateStats(loadout) {
                         value = stackStat(value, weapon_prefixes[loadout.weapon_prefix].stats[stat_key], stat.stacking);
                     }
                 }                
-                for (let augment_index = 0; augment_index < 4; augment_index++) {
+                for (let augment_index = 0; augment_index < augmentSlotsForLevel(loadout.weapon_level); augment_index++) {
                     const augment = loadout.weapon_augments[augment_index];
-                    if (augment.disabled != true && augment != 'empty' && augments[augment].stats.hasOwnProperty(stat_key)) {
+                    if (augment != 'empty' && augments[augment].stats.hasOwnProperty(stat_key)) {
                         value = stackStat(value, augments[augment].stats[stat_key], stat.stacking);
                     }
                 }
@@ -117,9 +127,9 @@ function calculateStats(loadout) {
                         value = stackStat(value, unit_prefixes[unit_prefix].stats[stat_key], stat.stacking);
                     }
                 }
-                for (let augment_index = 0; augment_index < unit_augments.length; augment_index++) {
+                for (let augment_index = 0; augment_index < augmentSlotsForLevel(unit_level); augment_index++) {
                     const augment = unit_augments[augment_index];
-                    if (augment.disabled != true && augment != 'empty' && augments[augment].stats.hasOwnProperty(stat_key)) {
+                    if (augment != 'empty' && augments[augment].stats.hasOwnProperty(stat_key)) {
                         value = stackStat(value, augments[augment].stats[stat_key], stat.stacking);
                     }
                 }
