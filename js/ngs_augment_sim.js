@@ -55,7 +55,7 @@ function augmentSlotsForLevel(level) {
     if (level >= 40) {
         return 4;
     }
-    if (level >= 30) {
+    if (level >= 20) {
         return 3;
     }
     return 2;
