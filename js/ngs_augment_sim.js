@@ -1,6 +1,6 @@
 import {Loadout} from './loadout.js';
 
-var max_class_level = 20,
+var max_class_level = 35,
 max_weapon_level = 40,
 max_unit_level = 40,
 max_weapon_prefix_level = 5,
@@ -384,7 +384,7 @@ function loadWeapons() {
         if(weapon_series.hasOwnProperty(series)) {
             for(const type of weapon_series[series].weapon_types) {
                 if(weapon_types.hasOwnProperty(type)) {
-                    options += '<option' + ' value="' + `${series}_${type}` + '">' + weapon_series[series].name + " " + weapon_types[type].name + '</option>';
+                    options = '<option' + ' value="' + `${series}_${type}` + '">' + weapon_series[series].name + " " + weapon_types[type].name + '</option>' + options;
                     weapons[`${series}_${type}`] = { name: weapon_series[series].name + " " + weapon_types[type].name, series: series, type: type};
                 }
             }
@@ -575,7 +575,7 @@ function load_class_stats(_class) {
     Papa.parse(`data/classes/stats/${class_name}.csv`, {
         download: true,
         header: true,
-        preview: 21,
+        preview: max_class_level+1,
         dynamicTyping: true,
         transformHeader: function (header) {
             header = header.toLowerCase();

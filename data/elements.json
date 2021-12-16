@@ -10,5 +10,14 @@
     },
     "lightning" : {
         "name" : "Lightning"
+    },
+    "wind" : {
+        "name" : "Wind"
+    },
+    "light" : {
+        "name" : "Light"
+    },
+    "dark" : {
+        "name" : "Dark"
     }
 }
