@@ -144,6 +144,9 @@ function calculateStats(loadout) {
             calculated_stats[stat_key] = value;
         }
     }
+    if (loadout.weapon_enabled && loadout.weapon != "empty" && weapons[loadout.weapon].series == "fivla") {
+        calculated_stats['critical_hit_rate'] += 10.2035 * Math.exp(-0.036 * calculated_stats['critical_hit_rate']);
+    }
     return calculated_stats;
 }
 
