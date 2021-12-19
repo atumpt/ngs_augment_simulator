@@ -138,7 +138,7 @@
     },
     "straga":{
         "name": "Straga",
-        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","soaring_blades","jet_boots"],
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow","soaring_blades","jet_boots"],
         "stats": {
             "attack":[ 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283 ],
             "potency_floor":-25
@@ -171,7 +171,7 @@
     },    
     "evolcoat":{
         "name": "Evolcoat",
-        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","soaring_blades","jet_boots"],
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","katana","bow","soaring_blades","jet_boots"],
         "stats": {
             "attack":[ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282 ],
             "potency_floor":-25
@@ -216,5 +216,136 @@
             "description": "Hitting an enemy starts a 10 second timer. Hitting again after the 10 seconds triggers an extra attack with 300 potency. 420 potency vs fire-weak enememies. 20s cooldown."
         },
         "element": "fire"
+    },
+    "greaga": {
+        "name": "Greaga",
+        "weapon_types":["sword","partisan","wired_lance","twin_daggers","double_saber","knuckles","assault_rifle","launcher","twin_machine_guns","rod","talis","wand","soaring_blades","jet_boots","katana","bow"],
+        "stats": {
+            "attack":[ 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Fighting Spirit Unit",
+            "stats": {
+                "potency": [ 0, 14, 16, 19, 20 ]
+            },
+            "description": "+4% Potency against bosses."
+        },
+        "element": "none"
+    },
+    "gothica": {
+        "name": "Gothica",
+        "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod","soaring_blades"],
+        "stats": {
+            "attack": [ 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Reinvigorating Unit",
+            "stats": {
+                "potency": [ 0, 17, 19, 22, 23 ]
+            },
+            "description": "Recover 10 PP on hit while under 50% HP. 15s cooldown."
+        },
+        "element": "none"
+    },
+    "fivla": {
+        "name": "Fivla",
+        "weapon_types":["wired_lance","twin_daggers","assault_rifle","rod","soaring_blades"],
+        "stats": {
+            "attack": [ 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Focused Unit",
+            "stats": {
+                "potency": [ 0, 15, 17, 20, 21 ]
+            },
+            "description": "Increases crit rate on non-crit hit, up to +22%. Bonus resets on crit hit."
+        },
+        "element": "none"
+    },
+    "quintel": {
+        "name": "Quintel",
+        "weapon_types":["sword","knuckles","katana","twin_machine_guns","talis","jet_boots"],
+        "stats": {
+            "attack": [ 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Fortress Unit",
+            "stats": {
+                "potency": [ 0, 17, 19, 22, 23 ]
+            },
+            "description": "Creates barrier that provides resistance +50% when at max HP. 30s cooldown."
+        },
+        "element": "none"
+    },
+    "relik_vigorous": {
+        "name": "Relik",
+        "weapon_types":["sword","partisan","wired_lance","soaring_blades"],
+        "stats": {
+            "attack": [ 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Vigorous Unit",
+            "stats": {
+                "potency": [ 0, 21, 23, 26, 27 ]
+            },
+            "description": "+10% Damage Resistance. +20% HP from Restasigne, 10 second delay on equipment change."
+        },
+        "element": "none"
+    },
+    "relik_explosive": {
+        "name": "Relik",
+        "weapon_types":["twin_daggers","double_saber","knuckles","katana"],
+        "stats": {
+            "attack": [ 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Explosive Unit",
+            "stats": {
+                "potency": [ 0, 15, 17, 20, 21 ]
+            },
+            "description": "Area damage on hit. 10s coodlown."
+        },
+        "element": "none"
+    },
+    "relik_harmonious": {
+        "name": "Relik",
+        "weapon_types":["assault_rifle","launcher","twin_machine_guns","bow"],
+        "stats": {
+            "attack": [ 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Harmonious Unit",
+            "stats": {
+                "potency": [ 0, 12, 14, 17, 18 ],
+                "critical_hit_rate": [0, 25, 25, 25, 25]
+            },
+            "description": "+15% crit rate. Additional +10% crit rate when over 80% HP."
+        },
+        "element": "none"
+    },
+    "relik_imbued": {
+        "name": "Relik",
+        "weapon_types":["rod","talis","wand","jet_boots"],
+        "stats": {
+            "attack": [ 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324 ],
+            "potency_floor": -25
+        },
+        "potential": {
+            "name": "Imbued Unit",
+            "stats": {
+                "potency": [ 0, 17, 23, 26, 27 ],
+                "pp_cost_reduction": [0, 10, 10, 10, 10, 10],
+                "active_pp_recovery": [0, 20, 20, 20, 20, 20]
+            },
+            "description": "-10% PP consumption. +20% Active PP recovery."
+        },
+        "element": "none"
     }
 }
