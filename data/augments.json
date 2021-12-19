@@ -197,150 +197,150 @@
             "damage_resistance": 1.5
         }
     },
-"burn_ward_i" : {
-    "name" : "Burn Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"burn_ward_ii" : {
-    "name" : "Burn Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"burn_ward_iii" : {
-    "name" : "Burn Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"freeze_ward_i" : {
-    "name" : "Freeze Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"freeze_ward_ii" : {
-    "name" : "Freeze Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"freeze_ward_iii" : {
-    "name" : "Freeze Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"shock_ward_i" : {
-    "name" : "Shock Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"shock_ward_ii" : {
-    "name" : "Shock Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"shock_ward_iii" : {
-    "name" : "Shock Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"blind_ward_i" : {
-    "name" : "Blind Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"blind_ward_ii" : {
-    "name" : "Blind Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"blind_ward_iii" : {
-    "name" : "Blind Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"panic_ward_i" : {
-    "name" : "Panic Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"panic_ward_ii" : {
-    "name" : "Panic Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"panic_ward_iii" : {
-    "name" : "Panic Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"poison_ward_i" : {
-    "name" : "Poison Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"poison_ward_ii" : {
-    "name" : "Poison Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"poison_ward_iii" : {
-    "name" : "Poison Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"pain_ward_i" : {
-    "name" : "Pain Ward I",
-    "stats" : {
-        "bp": 4
-    }
-},
-"pain_ward_ii" : {
-    "name" : "Pain Ward II",
-    "stats" : {
-        "bp": 5
-    }
-},
-"pain_ward_iii" : {
-    "name" : "Pain Ward III",
-    "stats" : {
-        "bp": 6
-    }
-},
-"sovereign_ward_i" : {
-    "name" : "Sovereign Ward I",
-    "stats" : {
-        "bp": 6
-    }
-},
-"sovereign_ward_ii" : {
-    "name" : "Sovereign Ward II",
-    "stats" : {
-        "bp": 8
-    }
-},
-"sovereign_ward_iii" : {
-    "name" : "Sovereign Ward III",
-    "stats" : {
-        "bp": 10
-    }
-},
+    "burn_ward_i" : {
+        "name" : "Burn Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "burn_ward_ii" : {
+        "name" : "Burn Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "burn_ward_iii" : {
+        "name" : "Burn Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "freeze_ward_i" : {
+        "name" : "Freeze Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "freeze_ward_ii" : {
+        "name" : "Freeze Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "freeze_ward_iii" : {
+        "name" : "Freeze Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "shock_ward_i" : {
+        "name" : "Shock Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "shock_ward_ii" : {
+        "name" : "Shock Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "shock_ward_iii" : {
+        "name" : "Shock Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "blind_ward_i" : {
+        "name" : "Blind Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "blind_ward_ii" : {
+        "name" : "Blind Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "blind_ward_iii" : {
+        "name" : "Blind Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "panic_ward_i" : {
+        "name" : "Panic Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "panic_ward_ii" : {
+        "name" : "Panic Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "panic_ward_iii" : {
+        "name" : "Panic Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "poison_ward_i" : {
+        "name" : "Poison Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "poison_ward_ii" : {
+        "name" : "Poison Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "poison_ward_iii" : {
+        "name" : "Poison Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "pain_ward_i" : {
+        "name" : "Pain Ward I",
+        "stats" : {
+            "bp": 4
+        }
+    },
+    "pain_ward_ii" : {
+        "name" : "Pain Ward II",
+        "stats" : {
+            "bp": 5
+        }
+    },
+    "pain_ward_iii" : {
+        "name" : "Pain Ward III",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "sovereign_ward_i" : {
+        "name" : "Sovereign Ward I",
+        "stats" : {
+            "bp": 6
+        }
+    },
+    "sovereign_ward_ii" : {
+        "name" : "Sovereign Ward II",
+        "stats" : {
+            "bp": 8
+        }
+    },
+    "sovereign_ward_iii" : {
+        "name" : "Sovereign Ward III",
+        "stats" : {
+            "bp": 10
+        }
+    },
     "forms_soul_i": {
         "name": "Forms Soul I",
         "group": "soul",
@@ -356,6 +356,15 @@
             "bp": 8,
             "melee_weapon_potency": 2.0,
             "damage_resistance": 2.0
+        }
+    },
+    "forms_soul_iii": {
+        "name": "Forms Soul III",
+        "group": "soul",
+        "stats": {
+            "bp": 9,
+            "melee_weapon_potency": 2.0,
+            "damage_resistance": 2.5
         }
     },
     "alts_soul_i": {
@@ -374,6 +383,15 @@
             "bp": 7,
             "hp": 10,
             "damage_resistance": 2.0
+        }
+    },
+    "alts_soul_iii": {
+        "name": "Alts Soul III",
+        "group": "soul",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "damage_resistance": 2.5
         }
     },
     "dolz_soul_i": {
@@ -503,6 +521,53 @@
             "potency": 1.5
         }
     },
+    "ret_note_a": {
+        "name": "Ret Note A",
+        "group": "note",
+        "stats": {
+            "bp": 5,
+            "hp": 10
+        }
+    },
+    "ret_note_b": {
+        "name": "Ret Note B",
+        "group": "note",
+        "stats": {
+            "bp": 4,
+            "hp": 5,
+            "melee_weapon_potency": 0.75,
+            "ranged_weapon_potency": 0.75
+        }
+    },
+    "ret_note_c": {
+        "name": "Ret Note C",
+        "group": "note",
+        "stats": {
+            "bp": 4,
+            "hp": 5,
+            "melee_weapon_potency": 0.75,
+            "technique_weapon_potency": 0.75
+        }
+    },
+    "ret_note_d": {
+        "name": "Ret Note D",
+        "group": "note",
+        "stats": {
+            "bp": 4,
+            "hp": 5,
+            "ranged_weapon_potency": 0.75,
+            "technique_weapon_potency": 0.75
+        }
+    },
+    "ret_domina": {
+        "name": "Ret Domina",
+        "group": "domina",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "potency": 1.5
+        }
+    },
     "magnus_note": {
         "name": "Magnus Note",
         "group": "note",
@@ -527,6 +592,24 @@
             "technique_weapon_potency": 1.5
         }
     },
+    "alno_note": {
+        "name": "Alno Note",
+        "group": "note",
+        "stats": {
+            "bp": 5,
+            "hp": 10,
+            "pp": 3,
+            "potency_floor": 2
+        }
+    },
+    "maqea_note": {
+    "name": "Maqea Note",
+        "group": "note",
+        "stats": {
+            "bp": 5,
+            "potency": 1.25
+        }
+    },
     "alts_secreta_i": {
         "name": "Alts Secreta I",
         "group": "secreta",
@@ -549,6 +632,17 @@
             "damage_resistance":-1.5    
         }
     },
+    "alts_secreta_iii": {
+        "name": "Alts Secreta III",
+        "group": "secreta",
+        "stats": {
+            "bp": 4,
+            "hp": -10,
+            "potency": 2.0,
+            "potency_floor":2.0,
+            "damage_resistance":-1.5    
+        }
+    },
     "dread_keeper_i": {
         "name": "Dread Keeper I",
         "group": "dread",
@@ -567,8 +661,19 @@
             "bp": 7.5,
             "hp": 15,
             "pp": 4,
-            "potency_floor":1.5,
+            "potency_floor": 1.5,
             "damage_resistance": 1.5
+        }
+    },
+    "dread_keeper_iii": {
+        "name": "Dread Keeper III",
+        "group": "dread",
+        "stats": {
+            "bp": 7.5,
+            "hp": 30,
+            "pp": 7,
+            "potency_floor": 2,
+            "damage_resistance": 2
         }
     },
     "gigas_might_i": {
@@ -589,6 +694,15 @@
             "melee_weapon_potency": 2.0
         }
     },
+    "gigas_might_iii": {
+        "name": "Gigas Might III",
+        "group": "gigas_might",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "melee_weapon_potency": 2.5
+        }
+    },
     "gigas_precision_i": {
         "name": "Gigas Precision I",
         "group": "gigas_precision",
@@ -607,6 +721,15 @@
             "ranged_weapon_potency": 2.0
         }
     },
+    "gigas_precision_iii": {
+        "name": "Gigas Precision III",
+        "group": "gigas_precision",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "ranged_weapon_potency": 2.5
+        }
+    },
     "gigas_casting_i": {
         "name": "Gigas Casting I",
         "group": "gigas_casting",
@@ -623,6 +746,15 @@
             "bp": 8,
             "hp": 10,
             "technique_weapon_potency": 2.0
+        }
+    },
+    "gigas_casting_iii": {
+        "name": "Gigas Casting III",
+        "group": "gigas_casting",
+        "stats": {
+            "bp": 8,
+            "hp": 15,
+            "technique_weapon_potency": 2.5
         }
     },
     "lightning_exploit_i": {
@@ -747,6 +879,100 @@
             "bp": 10,
             "hp": 15,
             "ranged_weapon_potency": 2.5
+        }
+    },
+    "forms_machini_soul_i": {
+        "name": "Forms Machini Soul I",
+        "group": "soul",
+        "stats": {
+            "ranged_weapon_potency": 2
+        }
+    },
+    "forms_machini_soul_ii": {
+        "name": "Forms Machini Soul II",
+        "group": "soul",
+        "stats": {
+            "ranged_weapon_potency": 2,
+            "damage_resistance": 2
+        }
+    },
+    "forms_machini_soul_iii": {
+        "name": "Forms Machini Soul III",
+        "group": "soul",
+        "stats": {
+            "ranged_weapon_potency": 2,
+            "damage_resistance": 2.5
+        }
+    },
+    "forms_sand_soul_i": {
+        "name": "Forms Sand Soul I",
+        "group": "soul",
+        "stats": {
+            "technique_weapon_potency": 2
+        }
+    },
+    "forms_sand_soul_ii": {
+        "name": "Forms Sand Soul II",
+        "group": "soul",
+        "stats": {
+            "technique_weapon_potency": 2,
+            "damage_resistance": 2
+        }
+    },
+    "forms_sand_soul_iii": {
+        "name": "Forms Sand Soul III",
+        "group": "soul",
+        "stats": {
+            "technique_weapon_potency": 2,
+            "damage_resistance": 2.5
+        }
+    },
+    "dust_soul_i": {
+        "name": "Dust Soul I",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "melee_weapon_potency": 1
+        }
+    },
+    "dust_soul_ii": {
+        "name": "Dust Soul II",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "melee_weapon_potency": 2
+        }
+    },
+    "dust_soul_iii": {
+        "name": "Dust Soul III",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "melee_weapon_potency": 2.5
+        }
+    },
+    "renus_soul_i": {
+        "name": "Renus Soul I",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "technique_weapon_potency": 1
+        }
+    },
+    "renus_soul_ii": {
+        "name": "Renus Soul II",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "technique_weapon_potency": 2
+        }
+    },
+    "renus_soul_iii": {
+        "name": "Renus Soul III",
+        "group": "soul",
+        "stats": {
+            "hp": 15,
+            "technique_weapon_potency": 2.5
         }
     },
     "empty": {
