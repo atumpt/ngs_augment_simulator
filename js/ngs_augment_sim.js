@@ -146,6 +146,9 @@ function calculateStats(loadout) {
     }
     if (loadout.weapon_enabled && loadout.weapon != "empty" && weapons[loadout.weapon].series == "fivla") {
         calculated_stats['critical_hit_rate'] += 10.2035 * Math.exp(-0.036 * calculated_stats['critical_hit_rate']);
+        document.getElementById('total_critical_hit_rate').title = "approximate average crit rage from weapon potential";
+    } else {
+        document.getElementById('total_critical_hit_rate').title = "";
     }
     return calculated_stats;
 }
