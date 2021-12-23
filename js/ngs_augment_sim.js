@@ -274,7 +274,7 @@ function setStats() {
                       unit_hp +
                       unit_pp +
                       potential_level.value * 10 +
-                      120; // Skill points. Assumes 20 points in main and sub class.
+                      180; // Skill points. Assumes 30 points in main and sub class.
     document.getElementById("total_bp").innerHTML = Math.floor(battlepower);
 }
 
